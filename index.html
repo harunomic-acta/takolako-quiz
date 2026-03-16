@@ -936,10 +936,24 @@
       return 4;
     }
 
+    function submitToSheets(level) {
+      const payload = { level: level, levelName: LEVELS[level].name };
+      QUESTIONS.forEach((q, i) => {
+        payload['q' + (i + 1)] = q.text;
+        payload['a' + (i + 1)] = answers[i] !== null ? q.opts[answers[i]] : '';
+      });
+      fetch('https://script.google.com/macros/s/AKfycbym9vACoE7x2JXO4vSM9ulZjG65YYSQRV4_Zsdxho_nZ-EBEFajKy-e1ND4Egu2BuT3kQ/exec', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    }
+
     function showResults() {
       document.getElementById('quiz-wrap').classList.remove('show');
 
       const level = calcLevel();
+      submitToSheets(level);
       const d = LEVELS[level];
       const col = d.color;
 
