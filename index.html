@@ -937,11 +937,12 @@
     }
 
     function submitToSheets(level) {
-      const payload = { level: level, levelName: LEVELS[level].name };
-      QUESTIONS.forEach((q, i) => {
-        payload['q' + (i + 1)] = q.text;
-        payload['a' + (i + 1)] = answers[i] !== null ? q.opts[answers[i]] : '';
+      const fieldNames = ['age', 'location', 'daily_language', 'comprehension', 'speaking', 'exposure', 'previous_classes', 'motivation', 'format', 'time'];
+      const payload = { level: LEVELS[level].name };
+      fieldNames.forEach((field, i) => {
+        payload[field] = answers[i] !== null ? QUESTIONS[i].opts[answers[i]] : '';
       });
+      console.log('Submitting to Sheets:', payload);
       fetch('https://script.google.com/macros/s/AKfycbym9vACoE7x2JXO4vSM9ulZjG65YYSQRV4_Zsdxho_nZ-EBEFajKy-e1ND4Egu2BuT3kQ/exec', {
         method: 'POST',
         mode: 'no-cors',
