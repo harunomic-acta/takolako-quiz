@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provjeri nivo bosanskog — Tako Lako</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --coral: #e8725a;
+      --coral-hover: #d4614a;
+      --bg: #faf8f5;
+      --white: #ffffff;
+      --text: #1a2744;
+      --muted: #5a6478;
+      --border: #e8e4de;
+      --level1: #e8725a;
+      --level2: #f0a832;
+      --level3: #4a90d9;
+      --level4: #4caf82;
+      --radius-sm: 12px;
+      --radius: 18px;
+      --radius-lg: 24px;
+      --shadow: 0 2px 24px rgba(26,39,68,0.08);
+      --shadow-hover: 0 8px 36px rgba(26,39,68,0.14);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Baloo Chettan 2', cursive;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Baloo Chettan 2', cursive;
+      line-height: 1.2;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .site-header a { display: flex; align-items: center; }
+    .site-header img { height: 34px; width: auto; }
+
+    /* ── HERO ── */
+    #hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+    #hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/Users/harun/Downloads/2595f9fe-af2a-4966-b616-880302fd2bb8.jpeg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.1;
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* vignette: strong fade at edges, clear in centre where text sits */
+    #hero-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, transparent 30%, var(--bg) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    #hero {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 24px 64px;
+      text-align: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(232,114,90,0.1);
+      color: var(--coral);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-chip::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+
+    #hero h1 {
+      font-size: clamp(30px, 5vw, 54px);
+      color: var(--navy);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subhead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 20px;
+    }
+
+    .hero-friction {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+    .hero-friction span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .hero-friction span::before {
+      content: '✓';
+      color: var(--coral);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .btn-start {
+      display: inline-block;
+      background: var(--coral);
+      color: #fff;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 44px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-start:hover {
+      background: var(--coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(232,114,90,0.35);
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      padding: 0 36px;
+      text-align: center;
+    }
+    .stat-item + .stat-item {
+      border-left: none;
+    }
+    .stat-num {
+      display: block;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 34px;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-lbl {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── QUIZ ── */
+    #quiz-wrap {
+      display: none;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    #quiz-wrap.show { display: block; }
+
+    .progress-area {
+      margin-bottom: 28px;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .progress-meta strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .progress-track {
+      height: 5px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--coral);
+      border-radius: 100px;
+      transition: width 0.45s cubic-bezier(.4,0,.2,1);
+      will-change: width;
+    }
+
+    .q-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 36px 32px;
+      box-shadow: var(--shadow);
+    }
+    .q-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 10px;
+    }
+    .q-text {
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: clamp(20px, 3vw, 26px);
+      color: var(--navy);
+      margin-bottom: 28px;
+      line-height: 1.3;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      background: var(--bg);
+      border: 2px solid transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+      font-size: 15px;
+      color: var(--text);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .opt:hover {
+      background: #fff;
+      border-color: rgba(232,114,90,0.4);
+    }
+    .opt.sel {
+      background: rgba(232,114,90,0.07);
+      border-color: var(--coral);
+      font-weight: 500;
+    }
+    .opt-radio {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .opt.sel .opt-radio {
+      border-color: var(--coral);
+      background: var(--coral);
+    }
+    .opt.sel .opt-radio::after {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .quiz-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      gap: 12px;
+    }
+    .btn-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--muted);
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 22px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .btn-back:hover:not(:disabled) {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-back:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .btn-next {
+      flex: 1;
+      max-width: 210px;
+      background: var(--coral);
+      color: #fff;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.18s, opacity 0.18s;
+    }
+    .btn-next:hover:not(:disabled) {
+      background: var(--coral-hover);
+      transform: translateY(-1px);
+    }
+    .btn-next:disabled {
+      background: var(--border);
+      color: var(--muted);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── RESULTS ── */
+    #results {
+      display: none;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 24px 0;
+    }
+    #results.show { display: block; }
+
+    .res-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 16px;
+      animation: fadeUp 0.45s ease both;
+    }
+    .res-card:nth-child(2) { animation-delay: 0.06s; }
+    .res-card:nth-child(3) { animation-delay: 0.12s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .res-header {
+      padding: 36px 36px 32px;
+      text-align: center;
+    }
+    .res-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .res-name {
+      font-size: clamp(26px, 4vw, 38px);
+      margin-bottom: 6px;
+    }
+    .res-tagline {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    /* Level bar indicator */
+    .level-track {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .level-seg {
+      flex: 1;
+      height: 10px;
+      border-radius: 100px;
+      background: var(--border);
+      transition: background 0.4s, opacity 0.4s;
+    }
+    .level-seg-labels {
+      display: flex;
+      justify-content: space-between;
+    }
+    .level-seg-labels span {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      flex: 1;
+      text-align: center;
+    }
+    .level-seg-labels span:first-child { text-align: left; }
+    .level-seg-labels span:last-child { text-align: right; }
+
+    .res-body {
+      padding: 32px 36px;
+      border-top: 1px solid var(--border);
+    }
+    .res-section-title {
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 19px;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .res-body p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .rec-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .rec-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .rec-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .format-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      background: rgba(232,114,90,0.07);
+      border: 1px solid rgba(232,114,90,0.18);
+      color: var(--navy);
+    }
+    .format-pill strong {
+      color: var(--coral);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-block {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 52px 36px;
+      text-align: center;
+      margin-top: 24px;
+      margin-bottom: 56px;
+      animation: fadeUp 0.45s 0.18s ease both;
+    }
+    .cta-block h2 {
+      color: #fff;
+      font-size: clamp(22px, 3vw, 30px);
+      margin-bottom: 10px;
+    }
+    .cta-block > p {
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+      margin-bottom: 32px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--coral);
+      color: #fff;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-cta:hover {
+      background: var(--coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(232,114,90,0.4);
+    }
+    .cta-micro {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+    .btn-cta-ghost {
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(255,255,255,0.35);
+      transition: color 0.18s;
+      cursor: pointer;
+    }
+    .btn-cta-ghost:hover { color: #fff; }
+
+    /* ── TRANSITIONS ── */
+    @keyframes qSlideInRight {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes qSlideInLeft {
+      from { opacity: 0; transform: translateX(-28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .slide-right { animation: qSlideInRight 0.32s cubic-bezier(.4,0,.2,1) both; }
+    .slide-left  { animation: qSlideInLeft  0.32s cubic-bezier(.4,0,.2,1) both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      #hero { padding: 48px 20px 44px; }
+      .stat-item { padding: 0 20px; }
+      .stat-item + .stat-item { border-left: none; border-top: none; padding-top: 16px; margin-top: 16px; }
+      .hero-stats { flex-direction: column; gap: 0; }
+      .q-card { padding: 24px 20px; }
+      .res-header { padding: 28px 20px 24px; }
+      .res-body { padding: 24px 20px; }
+      .cta-block { padding: 36px 20px; }
+      #quiz-wrap, #results { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html">
+      <img src="https://takolako.netlify.app/photos/takolako-2.svg" alt="Tako Lako">
+    </a>
+  </header>
+
+  <!-- HERO -->
+  <div id="hero-section">
+  <section id="hero">
+    <div class="hero-chip">Besplatna jezička procjena</div>
+    <h1>Koliko Vaše dijete zaista zna bosanski?</h1>
+    <p class="hero-subhead">Odgovorite na 10 brzih pitanja i saznajte na kojem je nivou Vaše dijete — i šta je sljedeći korak.</p>
+    <div class="hero-friction">
+      <span>Traje 2 minute</span>
+      <span>Besplatno</span>
+      <span>Bez obaveza</span>
+    </div>
+    <button class="btn-start" onclick="startQuiz()">Započni procjenu</button>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">500+</span>
+        <span class="stat-lbl">djece u programu</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">20+</span>
+        <span class="stat-lbl">zemalja</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-lbl">preporuka roditelja</span>
+      </div>
+    </div>
+  </section>
+  </div><!-- /#hero-section -->
+
+  <!-- QUIZ -->
+  <div id="quiz-wrap">
+    <div class="progress-area">
+      <div class="progress-meta">
+        <span>Pitanje <strong id="q-num">1</strong> od 10</span>
+        <span id="q-pct">10%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progress-bar" style="width:10%"></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-card">
+      <div class="q-label" id="q-label">Pitanje 01</div>
+      <h2 class="q-text" id="q-text"></h2>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div class="quiz-nav">
+      <button class="btn-back" id="btn-back" onclick="goBack()" disabled>← Nazad</button>
+      <button class="btn-next" id="btn-next" onclick="goNext()" disabled>Dalje →</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+    <div class="res-card">
+      <div class="res-header">
+        <div class="res-badge" id="r-badge"></div>
+        <h1 class="res-name" id="r-name"></h1>
+        <p class="res-tagline" id="r-tagline"></p>
+        <div class="level-track" id="level-track">
+          <div class="level-seg" id="seg-1"></div>
+          <div class="level-seg" id="seg-2"></div>
+          <div class="level-seg" id="seg-3"></div>
+          <div class="level-seg" id="seg-4"></div>
+        </div>
+        <div class="level-seg-labels">
+          <span>Početni</span>
+          <span>Pasivni</span>
+          <span>Aktivan</span>
+          <span>Napredni</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card">
+      <div class="res-body">
+        <h3 class="res-section-title">Šta to znači?</h3>
+        <p id="r-desc"></p>
+      </div>
+    </div>
+
+    <div class="res-card">
+      <div class="res-body">
+        <h3 class="res-section-title">Šta preporučujemo</h3>
+        <ul class="rec-list" id="r-recs"></ul>
+        <div class="format-pill" id="r-format"></div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <h2>Sljedeći korak je jednostavan</h2>
+      <p>Besplatan 15-minutni razgovor o programu, pristupu i sljedećim koracima.</p>
+      <div class="cta-actions">
+        <a href="https://www.cal.com" target="_blank" rel="noopener" class="btn-cta">Razgovarajmo o Vašem djetetu</a>
+        <span class="cta-micro">Besplatan 15-minutni razgovor · Bez obaveza</span>
+        <a href="testni-cas.html" class="btn-cta-ghost">Kako izgleda testni čas?</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+      {
+        text: "Koliko godina ima Vaše dijete?",
+        opts: ["4–6 godina", "7–9 godina", "10–12 godina", "13 ili više"]
+      },
+      {
+        text: "Gdje živite?",
+        opts: ["Njemačka", "Austrija", "Švicarska", "Skandinavija", "Sjeverna Amerika", "Druga zemlja"]
+      },
+      {
+        text: "Koji jezik Vaše dijete koristi svaki dan?",
+        opts: [
+          "Uglavnom jezik zemlje (njemački, engleski…)",
+          "Podjednako bosanski i drugi jezik",
+          "Uglavnom bosanski",
+          "Tri ili više jezika"
+        ]
+      },
+      {
+        text: "Kako Vaše dijete reaguje kada mu se obratite na bosanskom?",
+        opts: [
+          "Razumije i odgovara na bosanskom",
+          "Razumije, ali odgovara na drugom jeziku",
+          "Razumije djelimično",
+          "Skoro uopće ne razumije"
+        ]
+      },
+      {
+        text: "Da li Vaše dijete može samostalno sastaviti rečenicu na bosanskom?",
+        opts: [
+          "Da, bez većih problema",
+          "Da, ali s greškama i pauzama",
+          "Samo kratke fraze i pojedinačne riječi",
+          "Ne, još uvijek ne"
+        ]
+      },
+      {
+        text: "Koliko često Vaše dijete ima kontakt s bosanskim jezikom van kuće?",
+        opts: [
+          "Redovno — svake sedmice",
+          "Povremeno — nekoliko puta mjesečno",
+          "Rijetko — uglavnom tokom posjeta BiH",
+          "Skoro nikada"
+        ]
+      },
+      {
+        text: "Da li je Vaše dijete već pohađalo časove bosanskog?",
+        opts: [
+          "Da, redovno i duže vrijeme",
+          "Da, ali je prestalo",
+          "Kratko, pa je odustalo",
+          "Nikada"
+        ]
+      },
+      {
+        text: "Šta Vam je najvažnije u učenju bosanskog za Vaše dijete?",
+        opts: [
+          "Da govori sigurno i tečno",
+          "Da može komunicirati s porodicom",
+          "Da čita i piše na bosanskom",
+          "Da se osjeća povezano s kulturom i identitetom"
+        ]
+      },
+      {
+        text: "Koji format nastave više odgovara Vašoj porodici?",
+        opts: [
+          "Individualni časovi (1-na-1)",
+          "Grupni časovi (s drugom djecom)",
+          "Porodični časovi (roditelj + dijete)",
+          "Nisam siguran/na — trebam preporuku"
+        ]
+      },
+      {
+        text: "Koliko vremena sedmično možete posvetiti učenju bosanskog?",
+        opts: [
+          "1 čas sedmično",
+          "2 časa sedmično",
+          "Više od 2 časa",
+          "Koliko bude potrebno"
+        ]
+      }
+    ];
+
+    const LEVELS = {
+      1: {
+        badge: "Nivo 1",
+        name: "Početni nivo",
+        tagline: "Vaše dijete je na početku jezičkog puta",
+        color: "#e8725a",
+        desc: "Vaše dijete je na samom početku jezičkog puta — i to je savršen trenutak da počnete. Sa minimalnom izloženošću bosanskom, ono još nije imalo pravu priliku da razvije jezik, ali potencijal je uvijek tu. Djeca u ovoj fazi najbrže napreduju kada se jezik uvodi kroz igru, priče i aktivnosti koje im se čine zabavnim, ne kao učenje.",
+        recs: [
+          "Počnite s temeljnim vokabularom kroz igru, priče i muziku",
+          "Kratke, redovne sesije (2×30 min sedmično) učinkovitije su od dugih rijetkih",
+          "Bosanski kao jezik rutine kod kuće: jelo, igra, večernje priče",
+          "Individualni ili porodični čas za personaliziran, opušten početak"
+        ]
+      },
+      2: {
+        badge: "Nivo 2",
+        name: "Pasivno razumijevanje",
+        tagline: "Vaše dijete razumije, ali još ne govori aktivno",
+        color: "#f0a832",
+        desc: "Ovo je najčešći profil djece u dijaspori — i odlična osnova za rad. Vaše dijete razumije bosanski, ali odgovara na drugom jeziku. Temelj postoji; sad treba aktivacija. S pravim pristupom i sigurnim prostorom za greške, dijete može preći s razumijevanja na aktivno govorenje za relativno kratko vrijeme.",
+        recs: [
+          "Fokus na aktiviranje pasivnog vokabulara kroz razgovor i priče",
+          "Ohrabrivanje odgovora na bosanskom — bez korekcije svake greške",
+          "Grupni ili individualni časovi za izgradnju samopouzdanja",
+          "Redovni kontakt s jezikom svaki dan — i po 10 minuta čini razliku"
+        ]
+      },
+      3: {
+        badge: "Nivo 3",
+        name: "Aktivno učenje",
+        tagline: "Vaše dijete govori, ali treba strukturu i sigurnost",
+        color: "#4a90d9",
+        desc: "Vaše dijete govori bosanski — i to je velik uspjeh. Miješa jezike, pravi greške, ali komunikacija funkcioniše. U ovoj fazi, dijete treba strukturu, rutinu i prostor za greške bez pritiska. Sa konsistentnim radom, može doći do pune tečnosti i samopouzdanja za manje od godinu dana.",
+        recs: [
+          "Gramatička struktura kroz kontekst i razgovor — ne memorisanjem pravila",
+          "Čitanje kratkih tekstova i priča prilagođenih uzrastu",
+          "Redovne konverzacijske sesije za izgradnju tečnosti i spontanosti",
+          "Ohrabrivanje bez pretjerane korekcije — samopouzdanje je ključ napretka"
+        ]
+      },
+      4: {
+        badge: "Nivo 4",
+        name: "Napredni govornik",
+        tagline: "Vaše dijete dobro govori — vrijeme je za usavršavanje",
+        color: "#4caf82",
+        desc: "Čestitamo — Vaše dijete dobro govori bosanski! U ovoj fazi, fokus je na usavršavanju: čitanje, pisanje, bogatiji vokabular i gramatička preciznost. Dijete je spremno za zahtjevniji program koji će produbiti ono što već zna i dodati akademske jezičke vještine koje će mu trebati u budućnosti.",
+        recs: [
+          "Čitanje i pisanje na bosanskom — priče, eseji, pisma porodici",
+          "Bogatiji vokabular kroz tematske lekcije prilagođene interesima",
+          "Gramatička preciznost i stilski razvoj — od govora ka pismu",
+          "Izlaganje autentičnim tekstovima, filmovima i bosanskim medijima"
+        ]
+      }
+    };
+
+    const FORMAT_LABELS = [
+      "Individualni časovi (1-na-1)",
+      "Grupni časovi (s drugom djecom)",
+      "Porodični časovi (roditelj + dijete)",
+      "Preporuka nastavnice nakon testnog časa"
+    ];
+
+    const LEVEL_COLORS = ["#e8725a","#f0a832","#4a90d9","#4caf82"];
+
+    let answers = new Array(10).fill(null);
+    let current = 0;
+    let direction = 'forward';
+
+    function startQuiz() {
+      document.getElementById('hero').style.display = 'none';
+      document.getElementById('quiz-wrap').classList.add('show');
+      renderQuestion(0);
+    }
+
+    function renderQuestion(idx) {
+      current = idx;
+      const q = QUESTIONS[idx];
+      const pct = Math.round(((idx + 1) / 10) * 100);
+
+      document.getElementById('q-num').textContent = idx + 1;
+      document.getElementById('q-pct').textContent = pct + '%';
+      document.getElementById('progress-bar').style.width = pct + '%';
+      document.getElementById('q-label').textContent = 'Pitanje ' + String(idx + 1).padStart(2, '0');
+      document.getElementById('q-text').textContent = q.text;
+
+      const optEl = document.getElementById('options');
+      optEl.innerHTML = '';
+      q.opts.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'opt' + (answers[idx] === i ? ' sel' : '');
+        div.innerHTML = `<div class="opt-radio"></div><span>${opt}</span>`;
+        div.addEventListener('click', () => pick(idx, i));
+        optEl.appendChild(div);
+      });
+
+      const card = document.getElementById('q-card');
+      card.classList.remove('slide-right', 'slide-left');
+      void card.offsetWidth;
+      card.classList.add(direction === 'forward' ? 'slide-right' : 'slide-left');
+
+      document.getElementById('btn-back').disabled = idx === 0;
+      const btnNext = document.getElementById('btn-next');
+      btnNext.disabled = answers[idx] === null;
+      btnNext.textContent = idx === 9 ? 'Pogledaj rezultat →' : 'Dalje →';
+    }
+
+    function pick(qIdx, optIdx) {
+      answers[qIdx] = optIdx;
+      document.querySelectorAll('.opt').forEach((el, i) => {
+        el.classList.toggle('sel', i === optIdx);
+      });
+      document.getElementById('btn-next').disabled = false;
+    }
+
+    function goBack() {
+      if (current > 0) {
+        direction = 'back';
+        renderQuestion(current - 1);
+      }
+    }
+
+    function goNext() {
+      if (answers[current] === null) return;
+      direction = 'forward';
+      if (current < 9) {
+        renderQuestion(current + 1);
+      } else {
+        showResults();
+      }
+    }
+
+    function calcLevel() {
+      // Q3=idx2, Q4=idx3 (2×), Q5=idx4 (2×), Q6=idx5
+      const s3 = [1,2,4,3];
+      const s4 = [4,3,2,1];
+      const s5 = [4,3,2,1];
+      const s6 = [4,3,2,1];
+
+      const a3 = answers[2] ?? 0;
+      const a4 = answers[3] ?? 3;
+      const a5 = answers[4] ?? 3;
+      const a6 = answers[5] ?? 3;
+
+      const score = s3[a3] + s4[a4]*2 + s5[a5]*2 + s6[a6];
+      // Range 6–24
+      if (score <= 10) return 1;
+      if (score <= 15) return 2;
+      if (score <= 19) return 3;
+      return 4;
+    }
+
+    function showResults() {
+      document.getElementById('quiz-wrap').classList.remove('show');
+
+      const level = calcLevel();
+      const d = LEVELS[level];
+      const col = d.color;
+
+      // Badge
+      const badge = document.getElementById('r-badge');
+      badge.textContent = d.badge;
+      badge.style.cssText = `background:${col}1a;color:${col}`;
+
+      document.getElementById('r-name').textContent = d.name;
+      document.getElementById('r-name').style.color = col;
+      document.getElementById('r-tagline').textContent = d.tagline;
+
+      // Level track
+      for (let i = 1; i <= 4; i++) {
+        const seg = document.getElementById('seg-' + i);
+        if (i < level) {
+          seg.style.background = LEVEL_COLORS[level-1];
+          seg.style.opacity = '0.35';
+        } else if (i === level) {
+          seg.style.background = LEVEL_COLORS[level-1];
+          seg.style.opacity = '1';
+        } else {
+          seg.style.background = 'var(--border)';
+          seg.style.opacity = '1';
+        }
+      }
+
+      document.getElementById('r-desc').textContent = d.desc;
+
+      // Recs
+      const recsEl = document.getElementById('r-recs');
+      recsEl.innerHTML = '';
+      d.recs.forEach((rec, i) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="rec-num" style="background:${col}">${i+1}</span><span>${rec}</span>`;
+        recsEl.appendChild(li);
+      });
+
+      // Format
+      const fmt = answers[8] !== null ? FORMAT_LABELS[answers[8]] : FORMAT_LABELS[3];
+      document.getElementById('r-format').innerHTML = `<strong>Preporučeni format:</strong>&nbsp;${fmt}`;
+
+      const resultsEl = document.getElementById('results');
+      resultsEl.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
