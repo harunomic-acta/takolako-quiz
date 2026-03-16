@@ -98,22 +98,24 @@
     /* ── HERO ── */
     .hero {
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 520px;
-      align-items: stretch;
+      padding: 72px 24px 0;
+      text-align: center;
     }
     .hero-text {
-      padding: 80px 56px 80px 18%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding-bottom: 52px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      position: relative;
-      z-index: 2;
+      align-items: center;
     }
     .hero-image-wrap {
       position: relative;
       overflow: hidden;
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      height: 440px;
     }
     .hero-image-wrap img {
       width: 100%;
@@ -121,15 +123,6 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-    }
-    /* seamless fade from bg colour into the photo */
-    .hero-image-wrap::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, var(--bg) 0%, transparent 38%);
-      z-index: 1;
-      pointer-events: none;
     }
     .hero-chip {
       display: inline-flex;
@@ -144,7 +137,6 @@
       padding: 6px 14px;
       border-radius: 100px;
       margin-bottom: 28px;
-      align-self: flex-start;
     }
     .hero-chip::before {
       content: '';
@@ -153,32 +145,25 @@
       background: var(--coral);
     }
     .hero h1 {
-      font-size: clamp(26px, 3.4vw, 46px);
+      font-size: clamp(28px, 4vw, 52px);
       color: var(--navy);
       margin-bottom: 20px;
       letter-spacing: -0.02em;
-      max-width: 480px;
+      max-width: 600px;
     }
     .hero p {
       font-size: clamp(15px, 1.6vw, 18px);
       color: var(--muted);
       line-height: 1.7;
-      max-width: 420px;
+      max-width: 500px;
     }
     @media (max-width: 768px) {
       .hero {
-        grid-template-columns: 1fr;
-        min-height: unset;
-      }
-      .hero-text {
-        padding: 52px 24px 40px;
-        text-align: left;
+        padding: 52px 20px 0;
       }
       .hero-image-wrap {
-        height: 260px;
-      }
-      .hero-image-wrap::before {
-        background: linear-gradient(to bottom, var(--bg) 0%, transparent 35%);
+        height: 280px;
+        border-radius: var(--radius) var(--radius) 0 0;
       }
     }
 
@@ -525,7 +510,8 @@
       }
     }
     @media (max-width: 480px) {
-      .hero { padding: 52px 20px 48px; }
+      .hero { padding: 44px 16px 0; }
+      .hero-image-wrap { height: 220px; }
       .final-cta-wrap { padding: 48px 16px 64px; }
       .testimonials-grid { columns: 1; }
     }
@@ -549,7 +535,7 @@
       <p>Testni čas nije obaveza — to je prilika da Vi i Vaše dijete upoznate naš pristup, nastavnicu i način rada. Bez pritiska, bez testiranja, bez obaveza.</p>
     </div>
     <div class="hero-image-wrap">
-      <img src="/Users/harun/Downloads/65c212021709539ab054b254_granddaughter-assisting-her-grandmother-setting-dining-table-lunch.jpg" alt="Porodica zajedno">
+      <img src="image-name.jpg" alt="Porodica zajedno">
     </div>
   </section>
 
