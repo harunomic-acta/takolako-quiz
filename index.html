@@ -944,7 +944,8 @@
       });
       fetch('https://script.google.com/macros/s/AKfycbym9vACoE7x2JXO4vSM9ulZjG65YYSQRV4_Zsdxho_nZ-EBEFajKy-e1ND4Egu2BuT3kQ/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload)
       }).catch(() => {});
     }
