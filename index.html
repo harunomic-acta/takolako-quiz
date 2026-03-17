@@ -521,43 +521,55 @@
     .cta-block {
       position: relative;
       z-index: 1;
-      background: var(--navy);
-      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #FFE8D6, #FFDAB9, #FFD0B5);
+      border-radius: 36px;
       padding: 52px 36px;
       text-align: center;
       margin-top: 24px;
       margin-bottom: 56px;
       animation: fadeUp 0.45s 0.18s ease both;
+      overflow: hidden;
+    }
+    .cta-doodle {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
     }
     .cta-block h2 {
-      color: #fff;
+      color: #1B2E4B;
       font-size: clamp(22px, 3vw, 30px);
       margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
     }
     .cta-block > p {
-      color: rgba(255,255,255,0.6);
+      color: rgba(27,46,75,0.65);
       font-size: 15px;
       margin-bottom: 32px;
       max-width: 440px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      z-index: 1;
     }
     .cta-actions {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 14px;
+      position: relative;
+      z-index: 1;
     }
     .btn-cta {
       display: inline-block;
-      background: var(--coral);
+      background: #FF6B5A;
       color: #fff;
       font-family: 'Baloo Chettan 2', cursive;
       font-size: 16px;
       font-weight: 600;
       padding: 16px 40px;
       border-radius: 100px;
-      border: none;
+      border: 2px dashed rgba(255,255,255,0.65);
       cursor: pointer;
       text-decoration: none;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -569,24 +581,25 @@
     }
     .cta-micro {
       font-size: 13px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(27,46,75,0.5);
     }
     .btn-cta-ghost {
       display: inline-block;
-      color: rgba(255,255,255,0.9);
+      color: #1B2E4B;
       font-size: 16px;
       font-weight: 600;
       padding: 12px 28px;
-      border: 2px solid rgba(255,255,255,0.4);
+      border: 2px dashed rgba(27,46,75,0.45);
       border-radius: 50px;
       text-decoration: none;
+      background: rgba(255,255,255,0.72);
       transition: border-color 0.18s, color 0.18s, background 0.18s;
       cursor: pointer;
     }
     .btn-cta-ghost:hover {
-      color: #fff;
-      border-color: rgba(255,255,255,0.8);
-      background: rgba(255,255,255,0.08);
+      color: #1B2E4B;
+      border-color: rgba(27,46,75,0.7);
+      background: rgba(255,255,255,0.9);
     }
 
     /* ── TRANSITIONS ── */
@@ -719,6 +732,45 @@
     </div>
 
     <div class="cta-block">
+      <!-- doodle: star top-left -->
+      <svg class="cta-doodle" style="top:18px;left:22px;transform:rotate(-15deg)" width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <path d="M17 2l2.9 8.9H28.8l-7.5 5.5 2.9 8.9L17 19.8l-7.2 5.5 2.9-8.9L5.2 10.9H14z" fill="#FFD166" opacity="0.45"/>
+      </svg>
+      <!-- doodle: squiggle top-right -->
+      <svg class="cta-doodle" style="top:16px;right:22px;transform:rotate(12deg)" width="56" height="22" viewBox="0 0 56 22" fill="none" aria-hidden="true">
+        <path d="M2 11C7 3 13 19 19 11C25 3 31 19 37 11C43 3 49 15 54 11" stroke="#7C83FF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      </svg>
+      <!-- doodle: heart bottom-left -->
+      <svg class="cta-doodle" style="bottom:20px;left:26px;transform:rotate(10deg)" width="30" height="28" viewBox="0 0 30 28" fill="none" aria-hidden="true">
+        <path d="M15 26C15 26 2 17 2 9C2 5.7 4.7 3 8 3C10.5 3 12.7 4.4 14 6.5C15.3 4.4 17.5 3 20 3C23.3 3 26 5.7 26 9C26 17 15 26 15 26Z" fill="#FF6B8A" opacity="0.42"/>
+      </svg>
+      <!-- doodle: dots cluster bottom-right -->
+      <svg class="cta-doodle" style="bottom:18px;right:28px;transform:rotate(-8deg)" width="44" height="32" viewBox="0 0 44 32" fill="none" aria-hidden="true">
+        <circle cx="6" cy="6" r="4.5" fill="#4ECDC4" opacity="0.4"/>
+        <circle cx="22" cy="10" r="3" fill="#4ECDC4" opacity="0.35"/>
+        <circle cx="38" cy="6" r="4.5" fill="#4ECDC4" opacity="0.4"/>
+        <circle cx="14" cy="24" r="3.5" fill="#4ECDC4" opacity="0.35"/>
+        <circle cx="30" cy="24" r="2.5" fill="#4ECDC4" opacity="0.3"/>
+      </svg>
+      <!-- doodle: swirl left side -->
+      <svg class="cta-doodle" style="top:50%;left:10px;transform:translateY(-50%) rotate(5deg)" width="22" height="44" viewBox="0 0 22 44" fill="none" aria-hidden="true">
+        <path d="M11 42C3 32 3 24 11 22C19 20 19 12 11 2" stroke="#FF6B8A" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.38"/>
+      </svg>
+      <!-- doodle: sparkle cross right side -->
+      <svg class="cta-doodle" style="top:36%;right:16px;transform:rotate(25deg)" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <line x1="14" y1="2" x2="14" y2="26" stroke="#4ECDC4" stroke-width="2" stroke-linecap="round" opacity="0.42"/>
+        <line x1="2" y1="14" x2="26" y2="14" stroke="#4ECDC4" stroke-width="2" stroke-linecap="round" opacity="0.42"/>
+        <line x1="5.5" y1="5.5" x2="22.5" y2="22.5" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round" opacity="0.28"/>
+        <line x1="22.5" y1="5.5" x2="5.5" y2="22.5" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round" opacity="0.28"/>
+      </svg>
+      <!-- doodle: wavy line upper-right area -->
+      <svg class="cta-doodle" style="top:62px;right:12%;transform:rotate(-6deg)" width="48" height="16" viewBox="0 0 48 16" fill="none" aria-hidden="true">
+        <path d="M2 8C6 2 10 14 14 8C18 2 22 14 26 8C30 2 34 14 38 8C42 3 45 6 48 8" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.55"/>
+      </svg>
+      <!-- doodle: small purple star bottom-center-left -->
+      <svg class="cta-doodle" style="bottom:26px;left:calc(50% - 130px);transform:rotate(20deg)" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M11 1l2 6.1H19l-5.2 3.8 2 6.1L11 13.2l-4.8 3.8 2-6.1L3 7.1h6z" fill="#7C83FF" opacity="0.42"/>
+      </svg>
       <h2>Sljedeći korak je jednostavan</h2>
       <p>Besplatan 15-minutni razgovor o programu, pristupu i sljedećim koracima.</p>
       <div class="cta-actions">
