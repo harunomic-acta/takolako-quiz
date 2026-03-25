@@ -602,6 +602,116 @@
       background: rgba(255,255,255,0.9);
     }
 
+    /* ── EMAIL CAPTURE ── */
+    #email-capture {
+      display: none;
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    #email-capture.show { display: block; }
+    .email-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 36px 32px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .email-card h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .email-card > p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .email-input {
+      width: 100%;
+      padding: 14px 20px;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color 0.18s;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .email-input:focus { border-color: var(--coral); }
+    .email-error {
+      font-size: 13px;
+      color: var(--coral);
+      margin-bottom: 14px;
+      display: none;
+      text-align: left;
+    }
+    .email-error.show { display: block; }
+
+    /* ── CTA 3-BUTTON ROW ── */
+    .cta-btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-btn-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-cta-blue {
+      display: inline-block;
+      background: #4a90d9;
+      color: #fff;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: 2px dashed rgba(255,255,255,0.65);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-cta-blue:hover {
+      background: #3a7bc5;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(74,144,217,0.35);
+    }
+    .btn-cta-green {
+      display: inline-block;
+      background: #4caf82;
+      color: #fff;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: 2px dashed rgba(255,255,255,0.65);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-cta-green:hover {
+      background: #3d9a6f;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(76,175,130,0.35);
+    }
+    .cta-btn-subtitle {
+      font-size: 12px;
+      color: rgba(27,46,75,0.55);
+      font-weight: 500;
+    }
+
     /* ── TRANSITIONS ── */
     @keyframes qSlideInRight {
       from { opacity: 0; transform: translateX(28px); }
@@ -621,10 +731,12 @@
       .stat-item + .stat-item { border-left: none; border-top: none; padding-top: 16px; margin-top: 16px; }
       .hero-stats { flex-direction: column; gap: 0; }
       .q-card { padding: 24px 20px; }
+      .email-card { padding: 24px 20px; }
       .res-header { padding: 28px 20px 24px; }
       .res-body { padding: 24px 20px; }
       .cta-block { padding: 36px 20px; }
-      #quiz-wrap, #results { padding-left: 16px; padding-right: 16px; }
+      #quiz-wrap, #results, #email-capture { padding-left: 16px; padding-right: 16px; }
+      .cta-btn-row { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -691,6 +803,27 @@
     <div class="quiz-nav">
       <button class="btn-back" id="btn-back" onclick="goBack()" disabled>← Nazad</button>
       <button class="btn-next" id="btn-next" onclick="goNext()" disabled>Dalje →</button>
+    </div>
+  </div>
+
+  <!-- EMAIL CAPTURE -->
+  <div id="email-capture">
+    <div class="progress-area">
+      <div class="progress-meta">
+        <span>Gotovo — samo još jedan korak</span>
+        <span>100%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" style="width:100%"></div>
+      </div>
+    </div>
+    <div class="email-card">
+      <div class="q-label">Rezultati su gotovi</div>
+      <h2>Unesite email da biste vidjeli rezultate</h2>
+      <p>Unesite email i odmah ćete vidjeti personalizovanu procjenu i preporuke za Vaše dijete.</p>
+      <input type="email" id="email-input" class="email-input" placeholder="vasa@email.com" oninput="document.getElementById('email-error').classList.remove('show');this.style.borderColor=''">
+      <div class="email-error" id="email-error">Molimo unesite važeću email adresu.</div>
+      <button class="btn-next" style="max-width:100%;width:100%;margin-top:4px" onclick="submitEmail()">Pogledaj rezultate →</button>
     </div>
   </div>
 
@@ -773,10 +906,19 @@
       </svg>
       <h2>Sljedeći korak je jednostavan</h2>
       <p>Besplatan 15-minutni razgovor o programu, pristupu i sljedećim koracima.</p>
-      <div class="cta-actions">
-        <a href="https://www.cal.com" target="_blank" rel="noopener" class="btn-cta">Razgovarajmo o Vašem djetetu</a>
-        <span class="cta-micro">Besplatan 15-minutni razgovor · Bez obaveza</span>
-        <a href="testni-cas.html" class="btn-cta-ghost">Kako izgleda probni čas?</a>
+      <div class="cta-btn-row">
+        <div class="cta-btn-item">
+          <a href="#" class="btn-cta">Razgovarajmo o Vašem djetetu</a>
+          <span class="cta-btn-subtitle">Info razgovor</span>
+        </div>
+        <div class="cta-btn-item">
+          <a href="testni-cas.html" class="btn-cta-blue">Kako izgleda testni čas?</a>
+          <span class="cta-btn-subtitle">Saznaj više</span>
+        </div>
+        <div class="cta-btn-item">
+          <a href="#" class="btn-cta-green">Zakaži testni čas odmah</a>
+          <span class="cta-btn-subtitle">Direktno zakazivanje</span>
+        </div>
       </div>
     </div>
   </div>
@@ -992,8 +1134,29 @@
       if (current < 9) {
         renderQuestion(current + 1);
       } else {
-        showResults();
+        showEmailCapture();
       }
+    }
+
+    function showEmailCapture() {
+      document.getElementById('quiz-wrap').classList.remove('show');
+      document.getElementById('email-capture').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function submitEmail() {
+      const emailInput = document.getElementById('email-input');
+      const emailError = document.getElementById('email-error');
+      const email = emailInput.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailError.classList.add('show');
+        emailInput.style.borderColor = 'var(--coral)';
+        return;
+      }
+      emailError.classList.remove('show');
+      const level = calcLevel();
+      submitToSheets(level, email);
+      showResults();
     }
 
     function calcLevel() {
@@ -1016,9 +1179,9 @@
       return 4;
     }
 
-    function submitToSheets(level) {
+    function submitToSheets(level, email) {
       const fieldNames = ['age', 'location', 'daily_language', 'comprehension', 'speaking', 'exposure', 'previous_classes', 'motivation', 'format', 'time'];
-      const payload = { level: LEVELS[level].name };
+      const payload = { level: LEVELS[level].name, email: email || '' };
       fieldNames.forEach((field, i) => {
         payload[field] = answers[i] !== null ? QUESTIONS[i].opts[answers[i]] : '';
       });
@@ -1032,7 +1195,7 @@
     }
 
     function showResults() {
-      document.getElementById('quiz-wrap').classList.remove('show');
+      document.getElementById('email-capture').classList.remove('show');
 
       const level = calcLevel();
       submitToSheets(level);
