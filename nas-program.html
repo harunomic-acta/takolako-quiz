@@ -152,6 +152,27 @@
       /* sits above the ::after overlay */
     }
 
+    /* Hero split layout */
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text-side {
+      flex: 0 0 55%;
+      padding-right: 40px;
+    }
+    .hero-illus-side {
+      flex: 0 0 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .hero-pill {
       display: inline-flex;
       align-items: center;
@@ -176,18 +197,24 @@
     }
 
     #hero h1 {
-      font-size: clamp(28px, 4.5vw, 52px);
+      font-size: clamp(26px, 3.8vw, 48px);
       color: #fff;
       margin-bottom: 20px;
       letter-spacing: -0.025em;
       line-height: 1.18;
     }
     #hero .hero-sub {
-      font-size: clamp(15px, 2vw, 18px);
+      font-size: clamp(15px, 1.8vw, 17px);
       color: rgba(255,255,255,0.82);
-      max-width: 600px;
-      margin: 0 auto;
       line-height: 1.72;
+      max-width: 480px;
+    }
+
+    @media (max-width: 820px) {
+      .hero-layout { flex-direction: column; }
+      .hero-text-side { flex: none; width: 100%; padding-right: 0; text-align: center; }
+      .hero-text-side .hero-sub { max-width: 100%; }
+      .hero-illus-side { flex: none; width: 100%; margin-top: 32px; }
     }
 
     /* ============================
@@ -711,44 +738,93 @@
        SECTION 1 - HERO
   ================================= -->
   <section id="hero-section">
+    <div class="hero-layout">
 
-    <!-- Decorative background SVGs -->
-    <span class="hero-deco hero-deco-1" aria-hidden="true">
-      <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M27 4L30.5 17.5H44.5L33.5 26L37 39.5L27 31L17 39.5L20.5 26L9.5 17.5H23.5Z" fill="#e8725a" fill-opacity="0.13" stroke="#e8725a" stroke-opacity="0.18" stroke-width="2" stroke-linejoin="round"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-2" aria-hidden="true">
-      <svg width="68" height="40" viewBox="0 0 68 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 20 Q8.5 4,17 20 Q25.5 36,34 20 Q42.5 4,51 20 Q59.5 36,68 20" stroke="#f5c842" stroke-opacity="0.22" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-3" aria-hidden="true">
-      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="26" cy="26" r="20" fill="#1a2744" fill-opacity="0.06" stroke="#1a2744" stroke-opacity="0.10" stroke-width="2.5"/>
-        <circle cx="26" cy="26" r="11" fill="none" stroke="#1a2744" stroke-opacity="0.09" stroke-width="2"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-4" aria-hidden="true">
-      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 5 C28 5,39 11,39 22 C39 33,28 39,22 39 C11 38,5 33,7 22 C8 11,15 5,22 5Z" fill="#e8725a" fill-opacity="0.10"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-5" aria-hidden="true">
-      <svg width="32" height="80" viewBox="0 0 32 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4 C22 16,22 24,16 36 C10 48,10 56,16 68 C22 80,24 84,16 76" stroke="#f5c842" stroke-opacity="0.18" stroke-width="3" stroke-linecap="round" fill="none"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-6" aria-hidden="true">
-      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 4L24.8 15.2H36.5L27.1 21.8L29.9 33L22 26.4L14.1 33L16.9 21.8L7.5 15.2H19.2Z" fill="#4a90d9" fill-opacity="0.11" stroke="#4a90d9" stroke-opacity="0.14" stroke-width="1.5" stroke-linejoin="round"/>
-      </svg>
-    </span>
+      <!-- LEFT: text -->
+      <div class="hero-text-side" id="hero">
+        <div class="hero-pill">Naš program</div>
+        <h1>Nastava koja zaista funkcioniše - za djecu koja žive između dva jezika</h1>
+        <p class="hero-sub">Naša nastava nije improvizacija niti aplikacija sa zadacima. To je pažljivo dizajniran sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
+      </div>
 
-    <div id="hero">
-      <div class="hero-pill">Naš program</div>
-      <h1>Nastava koja zaista funkcioniše - za djecu koja žive između dva jezika</h1>
-      <p class="hero-sub">Naša nastava nije improvizacija niti aplikacija sa zadacima. To je pažljivo dizajniran sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
+      <!-- RIGHT: cartoon illustrations -->
+      <div class="hero-illus-side" aria-hidden="true">
+        <svg width="100%" height="380" viewBox="0 0 440 380" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Soft blobs -->
+          <ellipse cx="320" cy="100" rx="130" ry="100" fill="rgba(255,255,255,0.06)"/>
+          <ellipse cx="130" cy="290" rx="110" ry="80" fill="rgba(245,200,66,0.09)"/>
+          <ellipse cx="380" cy="300" rx="75" ry="65" fill="rgba(255,255,255,0.05)"/>
+
+          <!-- Wavy lines -->
+          <path d="M20 170 C55 145,90 195,125 170 C160 145,195 195,230 170 C265 145,300 195,335 170 C370 145,405 185,430 170" stroke="rgba(255,255,255,0.11)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M10 280 C45 255,80 305,115 280 C150 255,185 305,220 280 C255 255,290 305,325 280" stroke="rgba(255,255,255,0.07)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- Big star top-right -->
+          <path d="M380 28 L387 50 L410 50 L392 63 L399 85 L380 72 L361 85 L368 63 L350 50 L373 50Z" fill="rgba(245,200,66,0.48)" stroke="rgba(245,200,66,0.22)" stroke-width="1.5" stroke-linejoin="round"/>
+
+          <!-- Small star mid-left -->
+          <path d="M55 130 L59 142 L72 142 L62 150 L66 162 L55 154 L44 162 L48 150 L38 142 L51 142Z" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-linejoin="round"/>
+
+          <!-- Open book, center-left -->
+          <g transform="translate(55, 60)">
+            <path d="M90 0 C72 2,18 9,4 22 L4 150 C18 139,70 132,90 134Z" fill="rgba(255,255,255,0.17)" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M90 0 C108 2,162 9,176 22 L176 150 C162 139,110 132,90 134Z" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linejoin="round"/>
+            <line x1="90" y1="0" x2="90" y2="134" stroke="rgba(255,255,255,0.32)" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="20" y1="40" x2="78" y2="36" stroke="rgba(255,255,255,0.26)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="20" y1="55" x2="78" y2="51" stroke="rgba(255,255,255,0.20)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="20" y1="70" x2="68" y2="66" stroke="rgba(255,255,255,0.16)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="102" y1="36" x2="160" y2="40" stroke="rgba(255,255,255,0.26)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="102" y1="51" x2="160" y2="55" stroke="rgba(255,255,255,0.20)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="102" y1="66" x2="150" y2="70" stroke="rgba(255,255,255,0.16)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M122 18 L125 27 L135 27 L127 33 L130 42 L122 36 L114 42 L117 33 L109 27 L119 27Z" fill="rgba(245,200,66,0.55)"/>
+          </g>
+
+          <!-- Speech bubble top-right -->
+          <g transform="translate(270, 55)">
+            <rect x="0" y="0" width="120" height="68" rx="18" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>
+            <path d="M20 68 L30 86 L44 68" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="32" cy="34" r="6" fill="rgba(255,255,255,0.38)"/>
+            <circle cx="60" cy="34" r="6" fill="rgba(255,255,255,0.38)"/>
+            <circle cx="88" cy="34" r="6" fill="rgba(255,255,255,0.38)"/>
+          </g>
+
+          <!-- Pencil bottom-right -->
+          <g transform="translate(310, 210) rotate(-28, 18, 55)">
+            <rect x="5" y="0" width="26" height="95" rx="6" fill="rgba(245,200,66,0.52)" stroke="rgba(245,200,66,0.28)" stroke-width="1.5"/>
+            <polygon points="5,95 31,95 18,120" fill="rgba(255,210,80,0.65)"/>
+            <polygon points="10,112 26,112 18,120" fill="rgba(255,255,255,0.48)"/>
+            <rect x="5" y="0" width="26" height="18" rx="6" fill="rgba(232,114,90,0.52)" stroke="rgba(232,114,90,0.28)" stroke-width="1.5"/>
+            <line x1="5" y1="18" x2="31" y2="18" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+          </g>
+
+          <!-- Small blob left -->
+          <path d="M28 240 C10 222,8 198,28 186 C48 174,74 186,80 206 C88 228,76 252,56 260 C36 268,46 258,28 240Z" fill="rgba(255,255,255,0.08)"/>
+
+          <!-- Dots cluster -->
+          <circle cx="268" cy="42" r="5" fill="rgba(255,255,255,0.20)"/>
+          <circle cx="285" cy="32" r="3.5" fill="rgba(255,255,255,0.14)"/>
+          <circle cx="256" cy="30" r="4" fill="rgba(255,255,255,0.12)"/>
+
+          <!-- Curly squiggle bottom -->
+          <path d="M40 345 C70 324,92 362,122 345 C152 328,174 362,204 345 C234 328,256 358,286 345" stroke="rgba(255,255,255,0.12)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- Heart bottom right -->
+          <path d="M390 310 C390 310,370 293,370 283 C370 276,376 271,383 273 C387 274,390 278,390 278 C390 278,393 274,397 273 C404 271,410 276,410 283 C410 293,390 310,390 310Z" fill="rgba(232,114,90,0.28)"/>
+
+          <!-- Level badge pill -->
+          <g transform="translate(170, 265)">
+            <rect x="0" y="0" width="130" height="44" rx="22" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.24)" stroke-width="1.5"/>
+            <circle cx="22" cy="22" r="10" fill="rgba(245,200,66,0.55)"/>
+            <line x1="17" y1="22" x2="27" y2="22" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="22" y1="17" x2="22" y2="27" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/>
+            <rect x="40" y="16" width="75" height="8" rx="4" fill="rgba(255,255,255,0.28)"/>
+            <rect x="40" y="28" width="50" height="6" rx="3" fill="rgba(255,255,255,0.18)"/>
+          </g>
+
+        </svg>
+      </div>
+
     </div>
   </section>
 
