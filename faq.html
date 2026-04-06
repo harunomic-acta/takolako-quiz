@@ -295,7 +295,7 @@
       position: relative;
       z-index: 1;
       overflow: hidden;
-      padding: 80px 24px 72px;
+      padding: 72px 40px 72px 5%;
       background: linear-gradient(150deg, var(--blue) 0%, var(--blue-dark) 100%);
     }
     #hero-section::before {
@@ -307,17 +307,23 @@
       pointer-events: none;
       z-index: 0;
     }
-    .hero-deco { position: absolute; pointer-events: none; z-index: 0; }
-    .hero-deco-1 { top: 20px; left: 5%; }
-    .hero-deco-2 { top: 30px; right: 6%; }
-    .hero-deco-3 { bottom: 20px; left: 10%; }
-    .hero-deco-4 { bottom: 16px; right: 8%; }
-    #hero {
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
       position: relative;
       z-index: 2;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
+    }
+    .hero-text-side {
+      flex: 0 0 55%;
+      padding-right: 40px;
+    }
+    .hero-illus-side {
+      flex: 0 0 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .hero-pill {
       display: inline-flex;
@@ -342,18 +348,23 @@
       display: block;
     }
     #hero h1 {
-      font-size: clamp(28px, 4.5vw, 50px);
+      font-size: clamp(26px, 3.8vw, 48px);
       color: #fff;
       margin-bottom: 18px;
       letter-spacing: -0.025em;
       line-height: 1.18;
     }
     #hero .hero-sub {
-      font-size: clamp(15px, 2vw, 18px);
+      font-size: clamp(15px, 1.8vw, 17px);
       color: rgba(255,255,255,0.82);
-      max-width: 580px;
-      margin: 0 auto;
       line-height: 1.72;
+      max-width: 460px;
+    }
+    @media (max-width: 820px) {
+      #hero-section { padding: 60px 24px; }
+      .hero-layout { flex-direction: column; }
+      .hero-text-side { flex: none; width: 100%; padding-right: 0; }
+      .hero-illus-side { flex: none; width: 100%; margin-top: 28px; }
     }
 
     /* STICKY CATEGORY NAV */
@@ -795,32 +806,85 @@
 
   <!-- HERO -->
   <section id="hero-section">
-    <span class="hero-deco hero-deco-1" aria-hidden="true">
-      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M26 4L29.3 16.5H42.5L32.2 24.3L35.5 36.8L26 29L16.5 36.8L19.8 24.3L9.5 16.5H22.7Z" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.20)" stroke-width="1.5" stroke-linejoin="round"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-2" aria-hidden="true">
-      <svg width="70" height="40" viewBox="0 0 70 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 20 Q8.75 4,17.5 20 Q26.25 36,35 20 Q43.75 4,52.5 20 Q61.25 36,70 20" stroke="rgba(255,255,255,0.18)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-3" aria-hidden="true">
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="18" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2.5"/>
-        <circle cx="24" cy="24" r="10" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="2"/>
-      </svg>
-    </span>
-    <span class="hero-deco hero-deco-4" aria-hidden="true">
-      <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 4 C27 5,38 11,37 21 C36 32,27 38,21 38 C10 37,4 31,6 21 C8 11,15 3,21 4Z" fill="rgba(245,200,66,0.18)"/>
-      </svg>
-    </span>
+    <div class="hero-layout">
 
-    <div id="hero">
-      <div class="hero-pill">Pitanja i odgovori</div>
-      <h1>Sve što roditelji pitaju - na jednom mjestu</h1>
-      <p class="hero-sub">Pronađite odgovor na vaše pitanje. Ako ga nema ovdje, pišite nam na dnu stranice.</p>
+      <!-- LEFT: text -->
+      <div class="hero-text-side" id="hero">
+        <div class="hero-pill">Pitanja i odgovori</div>
+        <h1>Sve što roditelji pitaju - na jednom mjestu</h1>
+        <p class="hero-sub">Pronađite odgovor na vaše pitanje. Ako ga nema ovdje, pišite nam na dnu stranice.</p>
+      </div>
+
+      <!-- RIGHT: FAQ/Q&A themed illustrations -->
+      <div class="hero-illus-side" aria-hidden="true">
+        <svg width="100%" height="360" viewBox="0 0 420 360" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Soft blobs -->
+          <ellipse cx="300" cy="90" rx="120" ry="95" fill="rgba(255,255,255,0.06)"/>
+          <ellipse cx="110" cy="280" rx="95" ry="72" fill="rgba(245,200,66,0.08)"/>
+
+          <!-- Big question mark bubble, center -->
+          <g transform="translate(100, 40)">
+            <rect x="0" y="0" width="160" height="110" rx="22" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.26)" stroke-width="2"/>
+            <path d="M30 110 L44 134 L62 110" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.26)" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Big ? character -->
+            <text x="80" y="78" text-anchor="middle" font-size="62" font-weight="700" fill="rgba(255,255,255,0.45)" font-family="Georgia, serif">?</text>
+          </g>
+
+          <!-- Small thought bubble top-right -->
+          <g transform="translate(295, 20)">
+            <rect x="0" y="0" width="100" height="68" rx="18" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+            <circle cx="20" cy="80" r="6" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+            <circle cx="32" cy="94" r="4" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.16)" stroke-width="1.5"/>
+            <text x="50" y="42" text-anchor="middle" font-size="28" font-weight="700" fill="rgba(255,255,255,0.38)" font-family="Georgia, serif">?</text>
+          </g>
+
+          <!-- FAQ list card mid-left -->
+          <g transform="translate(30, 175)">
+            <rect x="0" y="0" width="185" height="140" rx="16" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+            <!-- rows -->
+            <line x1="16" y1="30" x2="169" y2="30" stroke="rgba(255,255,255,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="16" y1="60" x2="169" y2="60" stroke="rgba(255,255,255,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="16" y1="90" x2="169" y2="90" stroke="rgba(255,255,255,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="16" y1="120" x2="169" y2="120" stroke="rgba(255,255,255,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+            <!-- Q dots -->
+            <circle cx="26" cy="15" r="6" fill="rgba(232,114,90,0.55)"/>
+            <circle cx="26" cy="45" r="6" fill="rgba(245,200,66,0.55)"/>
+            <circle cx="26" cy="75" r="6" fill="rgba(255,255,255,0.30)"/>
+            <circle cx="26" cy="105" r="6" fill="rgba(76,175,130,0.50)"/>
+            <!-- text bars -->
+            <rect x="42" y="10" width="90" height="8" rx="4" fill="rgba(255,255,255,0.28)"/>
+            <rect x="42" y="40" width="110" height="8" rx="4" fill="rgba(255,255,255,0.22)"/>
+            <rect x="42" y="70" width="75" height="8" rx="4" fill="rgba(255,255,255,0.18)"/>
+            <rect x="42" y="100" width="95" height="8" rx="4" fill="rgba(255,255,255,0.15)"/>
+          </g>
+
+          <!-- Magnifying glass right -->
+          <g transform="translate(280, 155)">
+            <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="5"/>
+            <circle cx="44" cy="44" r="36" fill="rgba(255,255,255,0.08)"/>
+            <line x1="70" y1="70" x2="95" y2="95" stroke="rgba(255,255,255,0.30)" stroke-width="7" stroke-linecap="round"/>
+            <!-- shine dot -->
+            <circle cx="30" cy="30" r="8" fill="rgba(255,255,255,0.18)"/>
+          </g>
+
+          <!-- Star small -->
+          <path d="M368 48 L372 60 L385 60 L375 68 L379 80 L368 72 L357 80 L361 68 L351 60 L364 60Z" fill="rgba(245,200,66,0.42)" stroke="rgba(245,200,66,0.20)" stroke-width="1.5" stroke-linejoin="round"/>
+
+          <!-- Small question mark floating -->
+          <text x="370" y="200" text-anchor="middle" font-size="36" font-weight="700" fill="rgba(255,255,255,0.14)" font-family="Georgia, serif">?</text>
+
+          <!-- Wavy bottom -->
+          <path d="M30 330 C60 310,85 348,115 330 C145 312,170 348,200 330 C230 312,255 345,285 330" stroke="rgba(255,255,255,0.10)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- Dots cluster -->
+          <circle cx="255" cy="48" r="5" fill="rgba(255,255,255,0.18)"/>
+          <circle cx="270" cy="36" r="3.5" fill="rgba(255,255,255,0.13)"/>
+          <circle cx="244" cy="36" r="4" fill="rgba(255,255,255,0.11)"/>
+
+        </svg>
+      </div>
+
     </div>
   </section>
 
