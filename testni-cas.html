@@ -139,29 +139,10 @@
       position: relative;
       overflow: hidden;
     }
-    .hero-image-wrap img {
+    .hero-image-wrap svg {
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      opacity: 0.75;
-    }
-    .hero-image-wrap::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, #4a52b0 0%, rgba(74,82,176,0.55) 60%, rgba(74,82,176,0.30) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-    .hero-image-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(74,82,176,0.20);
-      z-index: 0;
-      pointer-events: none;
     }
     .hero-chip {
       display: inline-flex;
@@ -717,7 +698,82 @@
       <p>Probni čas nije obaveza — to je prilika da Vi i Vaše dijete upoznate naš pristup, nastavnicu i način rada. Bez pritiska, bez testiranja, bez obaveza.</p>
     </div>
     <div class="hero-image-wrap">
-      <img src="image-name.jpg" alt="Porodica zajedno">
+      <!-- Cartoon illustration panel - no photo -->
+      <svg width="100%" height="100%" viewBox="0 0 520 480" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+        <!-- Large soft blob background shapes -->
+        <ellipse cx="380" cy="120" rx="140" ry="110" fill="rgba(255,255,255,0.06)" />
+        <ellipse cx="160" cy="360" rx="120" ry="90" fill="rgba(255,255,255,0.05)" />
+        <ellipse cx="430" cy="360" rx="90" ry="80" fill="rgba(245,200,66,0.10)" />
+
+        <!-- Big wavy lines -->
+        <path d="M40 200 C80 170,120 230,160 200 C200 170,240 230,280 200 C320 170,360 230,400 200 C440 170,480 220,510 200" stroke="rgba(255,255,255,0.12)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M20 310 C60 280,100 340,140 310 C180 280,220 340,260 310 C300 280,340 340,380 310 C420 280,460 330,500 310" stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- Star top-right -->
+        <path d="M430 50 L436 68 L455 68 L440 79 L446 97 L430 86 L414 97 L420 79 L405 68 L424 68Z" fill="rgba(245,200,66,0.45)" stroke="rgba(245,200,66,0.25)" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Star small top-left area -->
+        <path d="M90 80 L94 92 L107 92 L97 100 L101 112 L90 104 L79 112 L83 100 L73 92 L86 92Z" fill="rgba(255,255,255,0.20)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Blob shape mid-left -->
+        <path d="M80 220 C60 200,55 170,80 155 C105 140,135 155,145 175 C158 200,145 230,125 240 C105 250,100 240,80 220Z" fill="rgba(255,255,255,0.09)"/>
+
+        <!-- Open book illustration, center -->
+        <g transform="translate(160, 155)">
+          <!-- Book left page -->
+          <path d="M100 0 C80 2,20 10,4 24 L4 160 C20 148,78 140,100 142Z" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.30)" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Book right page -->
+          <path d="M100 0 C120 2,180 10,196 24 L196 160 C180 148,122 140,100 142Z" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Spine -->
+          <line x1="100" y1="0" x2="100" y2="142" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Lines on left page -->
+          <line x1="22" y1="44" x2="88" y2="40" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="60" x2="88" y2="56" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="76" x2="75" y2="72" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="92" x2="82" y2="88" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Lines on right page -->
+          <line x1="112" y1="40" x2="178" y2="44" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="112" y1="56" x2="178" y2="60" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="112" y1="72" x2="165" y2="76" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Small star on book -->
+          <path d="M148 20 L151 29 L161 29 L153 35 L156 44 L148 38 L140 44 L143 35 L135 29 L145 29Z" fill="rgba(245,200,66,0.55)"/>
+        </g>
+
+        <!-- Speech bubble top-right area -->
+        <g transform="translate(340, 80)">
+          <rect x="0" y="0" width="110" height="64" rx="18" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>
+          <path d="M18 64 L26 80 L38 64" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linejoin="round"/>
+          <!-- dots inside bubble -->
+          <circle cx="30" cy="32" r="5" fill="rgba(255,255,255,0.40)"/>
+          <circle cx="55" cy="32" r="5" fill="rgba(255,255,255,0.40)"/>
+          <circle cx="80" cy="32" r="5" fill="rgba(255,255,255,0.40)"/>
+        </g>
+
+        <!-- Pencil illustration bottom-right -->
+        <g transform="translate(360, 300) rotate(-30, 20, 60)">
+          <rect x="8" y="0" width="24" height="90" rx="5" fill="rgba(245,200,66,0.55)" stroke="rgba(245,200,66,0.30)" stroke-width="1.5"/>
+          <polygon points="8,90 32,90 20,115" fill="rgba(255,220,100,0.70)"/>
+          <polygon points="12,108 28,108 20,115" fill="rgba(255,255,255,0.50)"/>
+          <rect x="8" y="0" width="24" height="16" rx="5" fill="rgba(232,114,90,0.55)" stroke="rgba(232,114,90,0.30)" stroke-width="1.5"/>
+          <line x1="8" y1="16" x2="32" y2="16" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+        </g>
+
+        <!-- Small blob bottom-left -->
+        <path d="M60 390 C40 370,38 345,58 332 C78 319,105 332,112 352 C120 375,108 400,88 408 C68 416,80 410,60 390Z" fill="rgba(245,200,66,0.12)"/>
+
+        <!-- Dotted cluster top area -->
+        <circle cx="310" cy="55" r="5" fill="rgba(255,255,255,0.22)"/>
+        <circle cx="328" cy="44" r="3.5" fill="rgba(255,255,255,0.16)"/>
+        <circle cx="298" cy="38" r="4" fill="rgba(255,255,255,0.14)"/>
+
+        <!-- Curly squiggle bottom -->
+        <path d="M60 440 C90 420,110 460,140 440 C170 420,190 460,220 440 C250 420,270 455,300 440" stroke="rgba(255,255,255,0.14)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- Small heart bottom-right area -->
+        <path d="M450 400 C450 400,430 382,430 372 C430 365,436 360,443 362 C447 363,450 367,450 367 C450 367,453 363,457 362 C464 360,470 365,470 372 C470 382,450 400,450 400Z" fill="rgba(232,114,90,0.30)"/>
+
+      </svg>
     </div>
   </section>
 
