@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Conversion Analysis — takolako.online</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --coral: #e8725a;
+    --coral-light: rgba(232,114,90,0.08);
+    --green: #2d7a5f;
+    --green-light: #f0faf5;
+    --yellow: #b45309;
+    --yellow-light: #fefce8;
+    --red: #b91c1c;
+    --red-light: #fef2f2;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --white: #ffffff;
+  }
+
+  html { font-size: 15px; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--navy);
+    background: var(--bg);
+    line-height: 1.7;
+    padding: 48px 0 80px;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 56px 52px 48px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(232,114,90,0.12);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .cover-label {
+    display: inline-block;
+    background: rgba(232,114,90,0.2);
+    color: #f4a896;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .cover h1 {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .cover h1 span { color: var(--coral); }
+  .cover-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    z-index: 1;
+  }
+  .cover-meta strong { color: rgba(255,255,255,0.8); }
+
+  /* ── CONTEXT BOX ── */
+  .context-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+  }
+  .context-box h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .context-box p { font-size: 14px; color: #334155; line-height: 1.75; }
+  .context-box p + p { margin-top: 10px; }
+  .pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 100px;
+    margin-right: 4px;
+  }
+  .pill-coral { background: var(--coral-light); color: var(--coral); }
+  .pill-navy  { background: rgba(26,39,68,0.07); color: var(--navy); }
+
+  /* ── SECTION HEADINGS ── */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-num {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+  }
+
+  section { margin-bottom: 52px; }
+
+  /* ── ISSUE CARDS ── */
+  .issue {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .issue-header {
+    padding: 18px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .issue-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    padding-top: 2px;
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .issue h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+  }
+  .issue-body {
+    padding: 20px 24px;
+  }
+  .issue-body > * + * { margin-top: 14px; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .label-problem { color: #dc2626; }
+  .label-fix     { color: #16a34a; }
+
+  .issue-body p, .issue-body li {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.75;
+  }
+  .issue-body ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .quote-block {
+    background: #f8fafc;
+    border-left: 3px solid var(--border);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    color: #475569;
+    font-style: italic;
+  }
+  .quote-block strong { font-style: normal; color: var(--navy); }
+
+  .fix-block {
+    background: var(--green-light);
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .fix-block p, .fix-block li {
+    font-size: 14px;
+    color: #166534;
+    line-height: 1.7;
+  }
+  .fix-block ul { padding-left: 18px; gap: 5px; }
+
+  /* ── COPY COMPARE ── */
+  .copy-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .copy-before, .copy-after {
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .copy-before {
+    background: var(--red-light);
+    border: 1px solid #fecaca;
+  }
+  .copy-after {
+    background: var(--green-light);
+    border: 1px solid #bbf7d0;
+  }
+  .copy-before .label { color: var(--red); }
+  .copy-after  .label { color: var(--green); }
+  .copy-before p, .copy-after p {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #1e293b;
+    font-style: italic;
+  }
+  .copy-after p strong { font-style: normal; color: var(--green); font-weight: 700; }
+
+  /* ── PRIORITY TABLE ── */
+  .priority-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    font-size: 13.5px;
+  }
+  .priority-table th {
+    background: #f1f5f9;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .priority-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: #334155;
+    vertical-align: top;
+  }
+  .priority-table tr:last-child td { border-bottom: none; }
+  .priority-table tr:hover td { background: #f8fafc; }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge-high   { background: #fef2f2; color: #dc2626; }
+  .badge-medium { background: #fefce8; color: #ca8a04; }
+  .badge-low    { background: var(--green-light); color: #16a34a; }
+
+  /* ── QUICK WINS ── */
+  .quick-wins {
+    background: linear-gradient(135deg, #fff7ed, #fef3c7);
+    border: 1px solid #fed7aa;
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .quick-wins h3 {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .win-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(180,130,0,0.15);
+  }
+  .win-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .win-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: #92400e;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .win-content strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #78350f;
+    margin-bottom: 3px;
+  }
+  .win-content p {
+    font-size: 13.5px;
+    color: #92400e;
+    line-height: 1.65;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; padding: 0; }
+    .page { padding: 0 24px; }
+    .cover { border-radius: 0; }
+    .issue, .context-box { break-inside: avoid; }
+    section { break-inside: avoid; }
+  }
+
+  @page {
+    margin: 20mm 18mm;
+    size: A4;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-label">CRO Analysis</div>
+    <h1>Conversion Analysis<br><span>takolako.online</span></h1>
+    <p class="cover-meta">
+      <strong>Date:</strong> April 2026 &nbsp;·&nbsp;
+      <strong>Scope:</strong> Quiz funnel (index.html) + main marketing site &nbsp;·&nbsp;
+      <strong>Goal:</strong> More quiz starts, email captures, and trial class bookings
+    </p>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="context-box">
+    <h2>What we're working with</h2>
+    <p>The project is a <strong>two-layer funnel</strong>. Layer 1 is the main marketing site at takolako.online — a full school website with navigation, offerings, testimonials, video, teachers, pricing, FAQ, and footer. Layer 2 is this project's <span class="pill pill-coral">index.html</span> — a standalone 10-question assessment quiz that captures an email, delivers a personalized result, and offers CTAs to book a trial class.</p>
+    <p>The analysis covers both layers because they're part of the same conversion chain. A visitor may enter at the main site, start the quiz, hit an email gate, see a result, and then book — or drop off at any of those steps.</p>
+  </div>
+
+  <!-- ───────────── SECTION 1: ARCHITECTURE ───────────── -->
+  <section>
+    <div class="section-title">
+      <div class="section-num">1</div>
+      <h2>Architecture issues</h2>
+    </div>
+
+    <!-- 1.1 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">1.1</span>
+        <h3>The funnel entry point is split between two pages</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The main site has an age-selection quiz widget in its hero. This project (index.html) is also a complete quiz funnel. It's unclear which is the canonical entry. If both exist simultaneously, visitors who start on the main site and continue to index.html must re-answer the age question — breaking continuity and adding pointless friction.</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <p>Make index.html the one canonical quiz entry point. The main site CTA should link directly to it. Alternatively, embed the quiz flow inside the main site without a page transition. The hybrid creates a perception of two separate products.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.2 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">1.2</span>
+        <h3>Main site navigation creates exit points before conversion</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The top nav shows: Početna, Naša Priča, Blog, language selector, Contact. Each link is an escape route. "Blog" and "Our Story" pull curious visitors away at exactly the moment they should be evaluating a trial class.</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <p>For a primary landing page (especially one receiving paid traffic), use a minimal header — logo only, or logo + single CTA button. Move Blog and About to the footer. This is standard practice for high-converting school landing pages.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.3 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">1.3</span>
+        <h3>Three equally weighted CTAs on the result screen</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>After completing the quiz and seeing their child's result, visitors face three buttons of roughly equal size and visual weight:</p>
+          <ul>
+            <li>"Razgovarajmo o Vašem djetetu" — coral, primary style</li>
+            <li>"Kako izgleda testni čas?" — blue (sends them to another info page)</li>
+            <li>"Zakaži testni čas odmah" — green</li>
+          </ul>
+          <p style="margin-top:10px;">Three competing CTAs diffuse focus. More critically, the blue "learn more" button sends a warm lead who just invested time in a quiz back into passive information-gathering mode.</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <p><strong>"Zakaži testni čas odmah"</strong> should be the single dominant CTA. Demote "Razgovarajmo" to a ghost/secondary button underneath. Remove the blue "Kako izgleda" button from the result screen entirely — if someone needs it at this stage, the problem is in the results copy, not solvable by offering more reading.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.4 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">1.4</span>
+        <h3>Email gate reads as a toll, not as delivery</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>Current headline on the email capture step: <em>"Unesite email da biste vidjeli rezultate"</em> (Enter email to see results). This is transactional — it tells the user they must pay with their email to unlock content they've already earned.</p>
+        </div>
+        <div class="copy-compare">
+          <div class="copy-before">
+            <div class="label label-problem">Current</div>
+            <p>"Unesite email da biste vidjeli rezultate"</p>
+          </div>
+          <div class="copy-after">
+            <div class="label label-fix">Improved</div>
+            <p><strong>"Gdje da pošaljemo procjenu Vašeg djeteta?"</strong><br><small>Pošaljemo vam i PDF s prijedlogom programa.</small></p>
+          </div>
+        </div>
+        <p style="margin-top:10px;">This shift moves the framing from "pay to see" to "we'll deliver something useful." Conversion on this step typically improves 15–30% with this change alone.</p>
+      </div>
+    </div>
+
+    <!-- 1.5 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">1.5</span>
+        <h3>Country question belongs in email capture, not in the quiz</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>Quiz question 2 is "Gdje živite?" (country of residence). This question: (a) feels like CRM segmentation rather than a language assessment, (b) breaks the "this is about your child" frame that every other question maintains, and (c) has no bearing on the child's level result.</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <p>Move the country question to the email capture step as an additional field ("Zemlja stanovanja") where it genuinely belongs as contact enrichment. This shortens the quiz to 9 focused questions and removes an out-of-place moment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.6 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">1.6</span>
+        <h3>Risk-free guarantee is buried as section 9</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The "Isprobajte bez rizika" section (free trial, sibling discount, 3-week money-back guarantee) is the strongest trust argument on the entire page. It appears at section 9 of the main site — far below the fold, seen by fewer than half of mobile visitors.</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <p>Surface a condensed trust row directly underneath the hero CTA button:</p>
+          <p style="margin-top:8px;">🎁 Besplatan probni čas &nbsp;|&nbsp; 💚 3-sedmična garancija povrata &nbsp;|&nbsp; 👨‍👩‍👧 Popust za braću i sestre</p>
+          <p style="margin-top:6px;">The guarantee section can remain in full at the bottom of the page for those who scroll — but its core message must be visible above the fold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── SECTION 2: COPY ───────────── -->
+  <section>
+    <div class="section-title">
+      <div class="section-num">2</div>
+      <h2>Copy issues</h2>
+    </div>
+
+    <!-- 2.1 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">2.1</span>
+        <h3>Quiz hero subhead is procedural, not emotional</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The quiz headline "Koliko Vaše dijete zaista zna bosanski?" is strong — "zaista" (actually/truly) creates productive tension. But the subhead just describes the mechanics: "Odgovorite na 10 brzih pitanja i saznajte na kojem je nivou Vaše dijete." It doesn't connect the action to why it matters.</p>
+        </div>
+        <div class="copy-compare">
+          <div class="copy-before">
+            <div class="label label-problem">Current</div>
+            <p>"Odgovorite na 10 brzih pitanja i saznajte na kojem je nivou Vaše dijete — i šta je sljedeći korak."</p>
+          </div>
+          <div class="copy-after">
+            <div class="label label-fix">Option A (practical)</div>
+            <p><strong>"Tačna procjena pomaže nam da predložimo pravi program — ne preopširan, ne prelak."</strong></p>
+          </div>
+        </div>
+        <div class="copy-compare" style="margin-top:8px;">
+          <div style="grid-column: 1 / -1;" class="copy-after">
+            <div class="label label-fix">Option B (emotional)</div>
+            <p><strong>"Mnogi roditelji misle da im dijete 'dovoljno' zna bosanski. Saznajte gdje zaista stoji — i šta je konkretno sljedeći korak."</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.2 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">2.2</span>
+        <h3>Social proof stats have a credibility problem</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <ul>
+            <li><strong>"100% preporuka roditelja"</strong> — 100% of what? How many? When surveyed? Unsupported superlatives read as marketing fluff to skeptical parents.</li>
+            <li><strong>"500+ djece"</strong> — no time frame. Is this since 2020? Since last month? A number without context doesn't anchor.</li>
+            <li><strong>"20+ zemalja"</strong> — compelling, but not visually supported. No flags, no list.</li>
+          </ul>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <ul>
+            <li>Replace "100% preporuka" with an auditable rating: <strong>"4.9/5 ★ — 120+ roditelja"</strong> (use your real number)</li>
+            <li>Add a time frame: <strong>"500+ djece od 2020. godine"</strong></li>
+            <li>Add 4–6 country flag emojis (🇩🇪 🇦🇹 🇨🇭 🇸🇪 🇺🇸 🇦🇺) next to the country count</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.3 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">2.3</span>
+        <h3>Main site hero headline is a brand statement, not a value prop</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The main site leads with: <em>"Nauči bosanski jezik uz Tako Lako"</em> (Learn Bosnian with Tako Lako) — a generic, self-referential tagline. The subhead <em>"Sačuvajte bosanski jezik u Vašoj porodici"</em> (Preserve Bosnian in your family) is actually the stronger, emotionally resonant line.</p>
+        </div>
+        <div class="copy-compare">
+          <div class="copy-before">
+            <div class="label label-problem">Current order</div>
+            <p>H1: "Nauči bosanski jezik uz Tako Lako"<br>Subhead: "Sačuvajte bosanski jezik u Vašoj porodici"</p>
+          </div>
+          <div class="copy-after">
+            <div class="label label-fix">Swap them</div>
+            <p>H1: <strong>"Sačuvajte bosanski jezik u Vašoj porodici"</strong><br>Subhead: "Online časovi bosanskog za djecu u dijaspori — od početnog do naprednog nivoa."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.4 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">2.4</span>
+        <h3>"Why parents choose" section lists features, not outcomes</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The four differentiators are written as capability claims ("Strukturirani sistem nivoa", "Aktivna govorna praksa i samopouzdanje"). They answer "what is it?" not "what changes for my child?"</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Outcome-reframed versions</div>
+          <ul>
+            <li>"Strukturirani sistem nivoa" → <strong>"Dijete koje tačno zna gdje stoji i kuda ide"</strong></li>
+            <li>"Aktivna govorna praksa" → <strong>"Iz stidljive šutnje do sigurnog razgovora"</strong></li>
+            <li>"Program za djecu u dijaspori" → keep as-is, already strong</li>
+            <li>"Vidljiv napredak i predvidiv plan" → <strong>"Nikad više 'ne znam je li napredovalo'"</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.5 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">2.5</span>
+        <h3>Testimonials are warm but lack a measurable before/after</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>All three testimonials describe general satisfaction: "accepted online lessons", "now motivated to speak Bosnian", "increasingly interested in Bosnian culture." None include a specific challenge that was solved or a concrete result (how long, what changed, which format).</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <p>When requesting or updating testimonials, guide toward this structure:</p>
+          <ul>
+            <li><strong>Specific before:</strong> "Moja kćerka je odbijala da priča bosanski kod kuće"</li>
+            <li><strong>Specific after:</strong> "Nakon 3 mjeseca, sama inicira razgovor na bosanskom"</li>
+            <li><strong>Format tag:</strong> "Nidžara F., Danska — grupni časovi, 2. nivo"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.6 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">2.6</span>
+        <h3>Pricing appears before value has been established</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The pricing section (from 8€, 11€, 22€ per class) appears in section 4 of the main site, before testimonials, before the video, and before the guarantee. A parent seeing "22€ po času" before understanding the curriculum depth or typical progress trajectory has no frame of reference to judge whether that's worth it.</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Fix</div>
+          <p>Move pricing to after the testimonial section and before the guarantee section. Immediately above the pricing table, place the guarantee statement: <em>"Ako niste zadovoljni u prve tri sedmice, vraćamo novac."</em> This reduces the perceived risk of committing to a price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── SECTION 3: MISSING SECTIONS ───────────── -->
+  <section>
+    <div class="section-title">
+      <div class="section-num">3</div>
+      <h2>Missing or weak sections</h2>
+    </div>
+
+    <!-- 3.1 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">3.1</span>
+        <h3>No "What happens in a class?" section</h3>
+      </div>
+      <div class="issue-body">
+        <p>Parents evaluating an online school have a core anxiety: <em>will my child actually engage with this?</em> The teacher videos help, but they don't show structure. A simple 3-step visual breakdown of a 45-minute class (e.g., 10 min warm-up → 20 min active speaking → 15 min structured exercise) would directly address the "but what do they actually do?" objection. Even a stylized timeline graphic with 3 labelled phases would serve this.</p>
+      </div>
+    </div>
+
+    <!-- 3.2 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">3.2</span>
+        <h3>Teacher cards lack credential callouts</h3>
+      </div>
+      <div class="issue-body">
+        <p>The teacher section (Ivona, Samira, Staša) shows faces and video introductions but no certifications, years of experience, or specialization. Parents in Germany, Austria, and Scandinavia are accustomed to evaluating professional credentials before entrusting their child to a teacher.</p>
+        <div class="fix-block" style="margin-top:12px;">
+          <div class="label label-fix">Fix</div>
+          <p>Add a 1–2 line tag under each teacher name: e.g., <strong>"10 godina iskustva · specijalizovana za djecu 7–12 godina · certifikat XY"</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.3 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">3.3</span>
+        <h3>Journey preview isn't shown before the quiz starts</h3>
+      </div>
+      <div class="issue-body">
+        <p>The 3-step "Kako početi" section (fill questionnaire → book trial class → choose format) appears mid-page on the main site. This is valuable framing — it tells visitors what happens after they click. But only ~40% of mobile visitors will scroll to it before deciding whether to start the quiz.</p>
+        <div class="fix-block" style="margin-top:12px;">
+          <div class="label label-fix">Fix</div>
+          <p>Add a condensed one-line journey preview directly under the hero CTA button, before the quiz starts:</p>
+          <p style="margin-top:8px; font-style:italic;">① Procjena (2 min) &rarr; ② Besplatan testni čas &rarr; ③ Pravi program za Vaše dijete</p>
+          <p style="margin-top:6px;">This makes the CTA feel safe and bounded, not open-ended.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.4 -->
+    <div class="issue">
+      <div class="issue-header">
+        <span class="issue-num">3.4</span>
+        <h3>FAQ is too sparse — key parent anxieties are unanswered</h3>
+      </div>
+      <div class="issue-body">
+        <div>
+          <div class="label label-problem">Problem</div>
+          <p>The FAQ has 3 generic questions. The FAQ is often the last thing a nearly-convinced parent reads before booking. Every unanswered question is a lost conversion.</p>
+        </div>
+        <div class="fix-block">
+          <div class="label label-fix">Add these questions</div>
+          <ul>
+            <li>U koje termine su dostupni časovi? Kako funkcioniše s vremenskim razlikama?</li>
+            <li>Može li dijete koje uopšte ne govori bosanski krenuti s grupnim časom?</li>
+            <li>Koliko dugo traje jedan nivo? Kako mjerimo napredak?</li>
+            <li>Šta ako nastavnica nije dobra za naše dijete — možemo li promijeniti?</li>
+            <li>Jesu li nastavnice certificirane? Po čijem programu rade?</li>
+            <li>Mogu li pratiti časove kao roditelj?</li>
+            <li>Šta je uključeno u cijenu časa — materijali, domaći zadaci?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── SECTION 4: PRIORITY ───────────── -->
+  <section>
+    <div class="section-title">
+      <div class="section-num">4</div>
+      <h2>Priority ranking</h2>
+    </div>
+
+    <table class="priority-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Issue</th>
+          <th>Effort</th>
+          <th>Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Result screen: one primary CTA only (book now)</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Surface guarantee as trust row under hero CTA</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Email gate: "Gdje da pošaljemo procjenu?"</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Replace "100% preporuka" with a real rating</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Move country question to email capture step</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Add journey preview line under hero CTA</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Expand FAQ to 8–10 questions</td>
+          <td><span class="badge badge-medium">Medium</span></td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Move pricing section after testimonials</td>
+          <td><span class="badge badge-medium">Medium</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Reframe "Why parents choose" as outcomes</td>
+          <td><span class="badge badge-medium">Medium</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Add credential tags to teacher cards</td>
+          <td><span class="badge badge-medium">Medium</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Swap main site H1 and subhead</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Rewrite testimonials with before/after specificity</td>
+          <td><span class="badge badge-high">High</span></td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Add "What happens in a class?" section</td>
+          <td><span class="badge badge-high">High</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Consolidate quiz to one canonical entry point</td>
+          <td><span class="badge badge-high">High</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ───────────── QUICK WINS ───────────── -->
+  <div class="quick-wins">
+    <h3>⚡ Quick wins — implement these first</h3>
+    <p style="font-size:13.5px; color:#92400e; margin-bottom:20px;">These are copy-only changes. No design or structural work needed. Do all five before touching anything else.</p>
+
+    <div class="win-item">
+      <div class="win-num">1</div>
+      <div class="win-content">
+        <strong>Result page: one CTA</strong>
+        <p>Make "Zakaži testni čas odmah" the only primary button. Demote the info call to a text link. Remove the blue "Kako izgleda testni čas?" button from this screen.</p>
+      </div>
+    </div>
+    <div class="win-item">
+      <div class="win-num">2</div>
+      <div class="win-content">
+        <strong>Email gate headline</strong>
+        <p>Change to: <em>"Gdje da pošaljemo procjenu Vašeg djeteta?"</em> — positions delivery over gatekeeping.</p>
+      </div>
+    </div>
+    <div class="win-item">
+      <div class="win-num">3</div>
+      <div class="win-content">
+        <strong>Social proof fix</strong>
+        <p>Replace "100% preporuka roditelja" with a real number. Add "od 2020. godine" after the 500+ stat. Add 4–6 country flags to the country count.</p>
+      </div>
+    </div>
+    <div class="win-item">
+      <div class="win-num">4</div>
+      <div class="win-content">
+        <strong>Trust row under the hero CTA</strong>
+        <p>Add: 🎁 Besplatan probni čas &nbsp;|&nbsp; 💚 3-sedmična garancija &nbsp;|&nbsp; 👨‍👩‍👧 Popust za braću i sestre — as a small icon-row directly below the "Započni procjenu" button.</p>
+      </div>
+    </div>
+    <div class="win-item">
+      <div class="win-num">5</div>
+      <div class="win-content">
+        <strong>Journey preview line</strong>
+        <p>Add below the CTA: <em>① Procjena (2 min) → ② Besplatan testni čas → ③ Pravi program za Vaše dijete</em></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

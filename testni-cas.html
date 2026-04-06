@@ -582,7 +582,92 @@
       .hero-image-wrap { height: 240px; }
       .final-cta-wrap { padding: 48px 16px 64px; }
       .testimonials-grid { columns: 1; }
+      .contact-form-wrap { padding: 0 16px 64px; }
+      .cf-row { grid-template-columns: 1fr; }
     }
+
+    /* ── CONTACT FORM ── */
+    .contact-form-wrap {
+      padding: 0 24px 80px;
+    }
+    .contact-form-box {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 52px 48px;
+    }
+    .contact-form-header {
+      margin-bottom: 32px;
+    }
+    .contact-form-header h2 {
+      color: #fff;
+      font-size: clamp(22px, 3vw, 30px);
+      margin-bottom: 8px;
+    }
+    .contact-form-header p {
+      color: rgba(255,255,255,0.55);
+      font-size: 15px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cf-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .cf-input {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 15px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .cf-input::placeholder { color: rgba(255,255,255,0.38); }
+    .cf-input:focus {
+      border-color: var(--coral);
+      background: rgba(255,255,255,0.1);
+    }
+    .cf-textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .cf-submit {
+      align-self: flex-start;
+      background: var(--coral);
+      color: #fff;
+      font-family: 'Baloo Chettan 2', cursive;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .cf-submit:hover {
+      background: var(--coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,114,90,0.4);
+    }
+    .cf-success {
+      display: none;
+      color: #4caf82;
+      font-size: 15px;
+      font-weight: 600;
+      padding-top: 4px;
+    }
+    @media (max-width: 720px) {
+      .contact-form-box { padding: 36px 24px; }
   </style>
 </head>
 <body>
@@ -924,11 +1009,7 @@
     <div class="final-cta">
       <h2>Vaše dijete može — treba mu samo pravi pristup.</h2>
       <p>Jedan besplatan, 15-minutni razgovor — i dobit ćete jasnu, personalnu preporuku prilagođenu baš Vašem djetetu.</p>
-      <div class="final-cta-actions">
-        <div class="cta-btn-item">
-          <a href="#" class="btn-cta">Razgovarajmo o Vašem djetetu</a>
-          <span class="cta-micro">Info razgovor · Besplatno</span>
-        </div>
+      <div class="final-cta-actions" style="justify-content:center;">
         <div class="cta-btn-item">
           <a href="zakazi-cas.html" class="btn-cta-green">Zakaži testni čas</a>
           <span class="cta-micro">Direktno zakazivanje</span>
@@ -937,7 +1018,34 @@
     </div>
   </div>
 
+  <!-- CONTACT FORM -->
+  <div class="contact-form-wrap">
+    <div class="contact-form-box">
+      <div class="contact-form-header">
+        <span class="section-label" style="text-align:left;margin-bottom:8px;">Kontakt</span>
+        <h2>Imate dodatnih pitanja?</h2>
+        <p>Pošaljite nam poruku i javit ćemo Vam se u roku od 24 sata.</p>
+      </div>
+      <form class="contact-form" onsubmit="handleContactForm(event)">
+        <div class="cf-row">
+          <input class="cf-input" type="text" placeholder="Ime" required>
+          <input class="cf-input" type="text" placeholder="Prezime" required>
+        </div>
+        <input class="cf-input" type="email" placeholder="E-mail" required>
+        <textarea class="cf-input cf-textarea" placeholder="Poruka..." required></textarea>
+        <button class="cf-submit" type="submit">Pošalji poruku</button>
+        <div class="cf-success" id="cf-success">Hvala! Javit ćemo Vam se uskoro. 👋</div>
+      </form>
+    </div>
+  </div>
+
   <script>
+    function handleContactForm(e) {
+      e.preventDefault();
+      e.target.querySelector('.cf-submit').style.display = 'none';
+      document.getElementById('cf-success').style.display = 'block';
+    }
+
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
