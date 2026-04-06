@@ -120,6 +120,16 @@
       z-index: 1;
       overflow: hidden;
       padding: 80px 24px 72px;
+      background: linear-gradient(150deg, #5B63C5 0%, #4a52b0 100%);
+    }
+    #hero-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 55%),
+                  radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
     }
     .hero-deco {
       position: absolute;
@@ -139,14 +149,15 @@
       max-width: 740px;
       margin: 0 auto;
       text-align: center;
+      /* sits above the ::after overlay */
     }
 
     .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: rgba(232,114,90,0.10);
-      color: var(--coral);
+      background: rgba(255,255,255,0.18);
+      color: #fff;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -154,6 +165,7 @@
       padding: 6px 16px;
       border-radius: 100px;
       margin-bottom: 28px;
+      border: 1px solid rgba(255,255,255,0.3);
     }
     .hero-pill::before {
       content: '';
@@ -165,14 +177,14 @@
 
     #hero h1 {
       font-size: clamp(28px, 4.5vw, 52px);
-      color: var(--navy);
+      color: #fff;
       margin-bottom: 20px;
       letter-spacing: -0.025em;
       line-height: 1.18;
     }
     #hero .hero-sub {
       font-size: clamp(15px, 2vw, 18px);
-      color: var(--muted);
+      color: rgba(255,255,255,0.82);
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.72;
@@ -395,18 +407,15 @@
       transform: translateY(-3px);
     }
     .teacher-avatar {
-      width: 72px; height: 72px;
+      width: 96px; height: 96px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(232,114,90,0.18) 0%, rgba(26,39,68,0.12) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--navy);
+      background: var(--bg);
+      display: block;
       margin: 0 auto 16px;
       border: 3px solid var(--border);
       flex-shrink: 0;
+      object-fit: cover;
+      object-position: top center;
     }
     .teacher-name {
       font-size: 18px;
@@ -631,7 +640,7 @@
     <a class="logo" href="index.html">
       <img src="https://takolako.netlify.app/photos/takolako-2.svg" alt="Tako Lako">
     </a>
-    <a class="header-back" href="index.html">Nazad na pocetnu</a>
+    <a class="header-back" href="index.html">Nazad na početnu</a>
   </header>
 
   <!-- ================================
@@ -673,9 +682,9 @@
     </span>
 
     <div id="hero">
-      <div class="hero-pill">Nas program</div>
-      <h1>Nastava koja zaista funkcionise - za djecu koja zive između dva jezika</h1>
-      <p class="hero-sub">Nasa nastava nije improvizacija niti aplikacija sa zadacima. To je pazljivo dizajniran sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
+      <div class="hero-pill">Naš program</div>
+      <h1>Nastava koja zaista funkcioniše - za djecu koja žive između dva jezika</h1>
+      <p class="hero-sub">Naša nastava nije improvizacija niti aplikacija sa zadacima. To je pažljivo dizajniran sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
     </div>
   </section>
 
@@ -685,8 +694,8 @@
   <section class="section alt">
     <div class="inner">
       <span class="section-label">Strukturirani sistem nivoa</span>
-      <h2 class="section-title">Cetiri nivoa - jedan put prema sigurnom govoru</h2>
-      <p class="section-sub">Svako dijete pocinje tamo gdje zaista jeste - ne tamo gdje bismo zeljeli da bude.</p>
+      <h2 class="section-title">Četiri nivoa - jedan put prema sigurnom govoru</h2>
+      <p class="section-sub">Svako dijete počinje tamo gdje zaista jeste - ne tamo gdje bismo željeli da bude.</p>
 
       <div class="level-grid">
 
@@ -695,13 +704,13 @@
           <div class="level-header">
             <span class="level-num">1</span>
             <div>
-              <div class="level-name">Pocetni</div>
+              <div class="level-name">Početni</div>
             </div>
           </div>
           <span class="level-age">4-7 god.</span>
           <ul class="level-bullets">
             <li>Upoznaje se s glasovima i ritmom bosanskog</li>
-            <li>Usvaja prve rijeci kroz igru i pjesmu</li>
+            <li>Usvaja prve riječi kroz igru i pjesmu</li>
             <li>Reaguje na jednostavne naloge i pozdrave</li>
           </ul>
         </div>
@@ -717,8 +726,8 @@
           <span class="level-age">6-10 god.</span>
           <ul class="level-bullets">
             <li>Razumije bosanski ali odgovara na drugom jeziku</li>
-            <li>Prepoznaje recenice i kratke price</li>
-            <li>Pocinje graditi aktivni rjecnik</li>
+            <li>Prepoznaje rečenice i kratke priče</li>
+            <li>Počinje graditi aktivni rječnik</li>
           </ul>
         </div>
 
@@ -727,14 +736,14 @@
           <div class="level-header">
             <span class="level-num">3</span>
             <div>
-              <div class="level-name">Aktivno ucenje</div>
+              <div class="level-name">Aktivno učenje</div>
             </div>
           </div>
           <span class="level-age">8-12 god.</span>
           <ul class="level-bullets">
             <li>Govori bosanski u strukturiranim razgovorima</li>
-            <li>Cita i pise kratke tekstove</li>
-            <li>Razvija gramaticku sigurnost</li>
+            <li>Čita i piše kratke tekstove</li>
+            <li>Razvija gramatičku sigurnost</li>
           </ul>
         </div>
 
@@ -749,15 +758,15 @@
           <span class="level-age">10-13 god.</span>
           <ul class="level-bullets">
             <li>Vodi slobodne razgovore na bosanskom</li>
-            <li>Razumije kulturni i porodicni kontekst jezika</li>
-            <li>Priprema se za samostalno izrazavanje</li>
+            <li>Razumije kulturni i porodični kontekst jezika</li>
+            <li>Priprema se za samostalno izražavanje</li>
           </ul>
         </div>
 
       </div><!-- /level-grid -->
 
       <div class="level-note">
-        <strong>Nivo djeteta procjenjujemo prije prvog casa</strong> - kroz kratak upitnik i razgovor s nastavnicom.
+        <strong>Nivo djeteta procjenjujemo prije prvog časa</strong> - kroz kratak upitnik i razgovor s nastavnicom.
       </div>
     </div>
   </section>
@@ -767,8 +776,8 @@
   ================================= -->
   <section class="section">
     <div class="inner">
-      <span class="section-label">Struktura casa</span>
-      <h2 class="section-title">Svaki cas ima jasnu strukturu</h2>
+      <span class="section-label">Struktura časa</span>
+      <h2 class="section-title">Svaki čas ima jasnu strukturu</h2>
 
       <div class="steps-row">
 
@@ -807,7 +816,7 @@
               <path d="M30 13 L22 13" stroke="#f5c842" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <div class="step-title">Aktivna jezicka praksa</div>
+          <div class="step-title">Aktivna jezička praksa</div>
           <span class="step-duration">20 min</span>
           <p class="step-desc">Djeca govore, pitaju, reaguju - ne slušaju predavanje</p>
         </div>
@@ -829,9 +838,9 @@
               <rect x="28" y="27" width="5" height="14" rx="1.5" transform="rotate(-35 28 27)" fill="#f5c842" fill-opacity="0.7" stroke="#f5c842" stroke-width="1.5"/>
             </svg>
           </div>
-          <div class="step-title">Vjezba i zakljucak</div>
+          <div class="step-title">Vježba i zaključak</div>
           <span class="step-duration">15 min</span>
-          <p class="step-desc">Strukturirana vjezba, kratak pregled napretka, zadatak za sljedeci put</p>
+          <p class="step-desc">Strukturirana vježba, kratak pregled napretka, zadatak za sljedeći put</p>
         </div>
 
       </div><!-- /steps-row -->
@@ -843,15 +852,15 @@
   ================================= -->
   <section class="section alt">
     <div class="inner">
-      <span class="section-label">Nase nastavnice</span>
-      <h2 class="section-title">Svaka nastavnica razumije šta znaci odrastati između dva jezika</h2>
-      <p class="section-sub">Ne biramo nastavnice samo po obrazovanju. Biramo one koje razumiju djecu koja zive između dvije kulture i dva jezika.</p>
+      <span class="section-label">Naše nastavnice</span>
+      <h2 class="section-title">Svaka nastavnica razumije šta znači odrastati između dva jezika</h2>
+      <p class="section-sub">Ne biramo nastavnice samo po obrazovanju. Biramo one koje razumiju djecu koja žive između dvije kulture i dva jezika.</p>
 
       <div class="teachers-grid">
 
         <!-- Vedad: zamijeni s tacnim podacima, fotografijom i citatom -->
         <div class="teacher-card">
-          <div class="teacher-avatar">I</div>
+          <img class="teacher-avatar" src="ivona.webp" alt="Ivona">
           <div class="teacher-name">Ivona</div>
           <div class="teacher-subtitle">Specijalizovana za djecu 4-8 godina</div>
           <div class="teacher-tags">
@@ -859,33 +868,33 @@
             <span class="teacher-tag">Rani razvoj govora</span>
             <span class="teacher-tag">Certifikat XY</span>
           </div>
-          <p class="teacher-quote">"Djeca ne uce jezik - ona ga dozivljavaju. Moj posao je stvoriti to iskustvo."</p>
+          <p class="teacher-quote">"Djeca ne uče jezik - ona ga doživljavaju. Moj posao je stvoriti to iskustvo."</p>
         </div>
 
         <!-- Vedad: zamijeni s tacnim podacima, fotografijom i citatom -->
         <div class="teacher-card">
-          <div class="teacher-avatar" style="background: linear-gradient(135deg,rgba(74,144,217,0.18) 0%,rgba(26,39,68,0.12) 100%);">S</div>
+          <img class="teacher-avatar" src="samira.webp" alt="Samira">
           <div class="teacher-name">Samira</div>
           <div class="teacher-subtitle">Specijalizovana za djecu 8-12 godina</div>
           <div class="teacher-tags">
             <span class="teacher-tag">6 god. iskustva</span>
             <span class="teacher-tag">Govorna praksa</span>
-            <span class="teacher-tag">Rad s dvojezicnom djecom</span>
+            <span class="teacher-tag">Rad s dvojezičnom djecom</span>
           </div>
           <p class="teacher-quote">"Stidljivo dijete koje progovori bosanski - to je moj omiljeni trenutak u svakom ciklusu."</p>
         </div>
 
         <!-- Vedad: zamijeni s tacnim podacima, fotografijom i citatom -->
         <div class="teacher-card">
-          <div class="teacher-avatar" style="background: linear-gradient(135deg,rgba(76,175,130,0.18) 0%,rgba(26,39,68,0.12) 100%);">S</div>
+          <img class="teacher-avatar" src="stasa.webp" alt="Staša">
           <div class="teacher-name">Staša</div>
           <div class="teacher-subtitle">Specijalizovana za djecu 10-13 godina</div>
           <div class="teacher-tags">
             <span class="teacher-tag">5 god. iskustva</span>
             <span class="teacher-tag">Napredni nivoi</span>
-            <span class="teacher-tag">Knjizevnost i kultura</span>
+            <span class="teacher-tag">Književnost i kultura</span>
           </div>
-          <p class="teacher-quote">"U ovim godinama dijete moze zavoliti jezik - ako mu damo pravi razlog."</p>
+          <p class="teacher-quote">"U ovim godinama dijete može zavoliti jezik - ako mu damo pravi razlog."</p>
         </div>
 
       </div><!-- /teachers-grid -->
@@ -960,7 +969,7 @@
           </svg>
         </div>
         <div class="trust-stat">4.9/5</div>
-        <div class="trust-label">Ocjena roditelja</div>
+        <div class="trust-label">Ocjena 120+ roditelja</div>
       </div>
 
     </div><!-- /trust-row -->
@@ -971,11 +980,11 @@
   ================================= -->
   <section class="cta-section">
     <div class="cta-inner">
-      <h2>Zelite vidjeti kako Vase dijete reaguje na cas?</h2>
-      <p>Probni cas je besplatan i bez obaveza. Nastavnica procijeni nivo i preporucí pravi program.</p>
+      <h2>Želite vidjeti kako Vaše dijete reaguje na čas?</h2>
+      <p>Probni čas je besplatan i bez obaveza. Nastavnica procijeni nivo i preporuči pravi program.</p>
       <div class="cta-buttons">
-        <a href="testni-cas.html" class="btn-primary">Zakazi besplatan testni cas -&gt;</a>
-        <a href="testni-cas.html" class="btn-secondary">Kako izgleda probni cas?</a>
+        <a href="testni-cas.html" class="btn-primary">Zakaži besplatan testni čas -&gt;</a>
+        <a href="testni-cas.html" class="btn-secondary">Kako izgleda probni čas?</a>
       </div>
       <p class="cta-fine">Bez kreditne kartice. Bez obaveze upisa.</p>
     </div>

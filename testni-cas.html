@@ -111,10 +111,19 @@
     .hero {
       display: flex;
       align-items: stretch;
-      min-height: 540px;
+      min-height: 480px;
       overflow: hidden;
       position: relative;
       z-index: 1;
+      background: linear-gradient(150deg, #5B63C5 0%, #4a52b0 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 15% 50%, rgba(255,255,255,0.08) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
     }
     .hero-text {
       flex: 0 0 50%;
@@ -122,6 +131,8 @@
       flex-direction: column;
       justify-content: center;
       padding: 80px 56px 80px 80px;
+      position: relative;
+      z-index: 1;
     }
     .hero-image-wrap {
       flex: 0 0 50%;
@@ -134,12 +145,13 @@
       object-fit: cover;
       object-position: center;
       display: block;
+      opacity: 0.55;
     }
     .hero-image-wrap::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, var(--bg) 0%, transparent 40%);
+      background: linear-gradient(to right, #4a52b0 0%, transparent 50%);
       z-index: 1;
       pointer-events: none;
     }
@@ -147,8 +159,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(232,114,90,0.1);
-      color: var(--coral);
+      background: rgba(255,255,255,0.18);
+      color: #fff;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.07em;
@@ -157,6 +169,7 @@
       border-radius: 100px;
       margin-bottom: 28px;
       align-self: flex-start;
+      border: 1px solid rgba(255,255,255,0.3);
     }
     .hero-chip::before {
       content: '';
@@ -166,14 +179,14 @@
     }
     .hero h1 {
       font-size: clamp(28px, 3.2vw, 52px);
-      color: var(--navy);
+      color: #fff;
       margin-bottom: 20px;
       letter-spacing: -0.02em;
       text-align: left;
     }
     .hero p {
       font-size: clamp(15px, 1.4vw, 18px);
-      color: var(--muted);
+      color: rgba(255,255,255,0.80);
       line-height: 1.7;
       text-align: left;
       max-width: 420px;
@@ -203,7 +216,7 @@
         height: 300px;
       }
       .hero-image-wrap::before {
-        background: linear-gradient(to bottom, var(--bg) 0%, transparent 35%);
+        background: linear-gradient(to bottom, #4a52b0 0%, transparent 40%);
       }
     }
 

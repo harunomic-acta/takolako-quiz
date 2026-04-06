@@ -78,27 +78,18 @@
       position: relative;
       z-index: 1;
       overflow: hidden;
+      background: linear-gradient(150deg, #5B63C5 0%, #4a52b0 100%);
     }
     #hero-section::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('/Users/harun/Downloads/2595f9fe-af2a-4966-b616-880302fd2bb8.jpeg');
-      background-size: cover;
-      background-position: center 30%;
-      opacity: 0.1;
+      background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 55%),
+                  radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 50%);
       z-index: 0;
       pointer-events: none;
     }
-    /* vignette: strong fade at edges, clear in centre where text sits */
-    #hero-section::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 50% 50%, transparent 30%, var(--bg) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
+    #hero-section::after { display: none; }
     #hero {
       position: relative;
       z-index: 2;
@@ -113,8 +104,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(232,114,90,0.1);
-      color: var(--coral);
+      background: rgba(255,255,255,0.18);
+      color: #fff;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.07em;
@@ -122,6 +113,7 @@
       padding: 6px 14px;
       border-radius: 100px;
       margin-bottom: 28px;
+      border: 1px solid rgba(255,255,255,0.3);
     }
     .hero-chip::before {
       content: '';
@@ -132,14 +124,14 @@
 
     #hero h1 {
       font-size: clamp(30px, 5vw, 54px);
-      color: var(--navy);
+      color: #fff;
       margin-bottom: 20px;
       letter-spacing: -0.02em;
     }
 
     .hero-subhead {
       font-size: clamp(16px, 2vw, 19px);
-      color: var(--muted);
+      color: rgba(255,255,255,0.82);
       max-width: 580px;
       margin: 0 auto 20px;
     }
@@ -151,7 +143,7 @@
       flex-wrap: wrap;
       gap: 6px 20px;
       font-size: 14px;
-      color: var(--muted);
+      color: rgba(255,255,255,0.72);
       margin-bottom: 36px;
     }
     .hero-friction span {
@@ -161,7 +153,7 @@
     }
     .hero-friction span::before {
       content: '✓';
-      color: var(--coral);
+      color: #f5c842;
       font-weight: 700;
       font-size: 13px;
     }
@@ -206,13 +198,13 @@
       display: block;
       font-family: 'Baloo Chettan 2', cursive;
       font-size: 34px;
-      color: var(--navy);
+      color: #fff;
       line-height: 1;
       margin-bottom: 4px;
     }
     .stat-lbl {
       font-size: 13px;
-      color: var(--muted);
+      color: rgba(255,255,255,0.65);
     }
 
     /* ── QUIZ ── */
