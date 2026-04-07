@@ -369,19 +369,17 @@
 
     /* STICKY CATEGORY NAV */
     .cat-nav-wrap {
-      position: sticky;
-      top: 64px;
-      z-index: 200;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px;
+      background: var(--bg);
+      padding: 20px 24px 0;
     }
     .cat-nav {
       max-width: 900px;
       margin: 0 auto;
       display: flex;
       gap: 8px;
-      padding: 12px 0;
+      padding: 0;
+      justify-content: center;
+      flex-wrap: wrap;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -782,28 +780,6 @@
     <a class="header-back" href="index.html">Nazad na početnu</a>
   </header>
 
-  <!-- STICKY CATEGORY NAV -->
-  <div class="cat-nav-wrap" role="navigation" aria-label="Kategorije pitanja">
-    <nav class="cat-nav">
-      <a href="#o-programu" class="cat-pill">
-        <span class="dot" style="background:#e8725a;"></span>
-        O programu
-      </a>
-      <a href="#prakticno" class="cat-pill">
-        <span class="dot" style="background:#f5c842;"></span>
-        Praktično
-      </a>
-      <a href="#za-roditelje" class="cat-pill">
-        <span class="dot" style="background:#3a9e8f;"></span>
-        Za roditelje koji razmišljaju
-      </a>
-      <a href="#upis" class="cat-pill">
-        <span class="dot" style="background:#5B63C5;"></span>
-        Upis i probni čas
-      </a>
-    </nav>
-  </div>
-
   <!-- HERO -->
   <section id="hero-section">
     <div class="hero-layout">
@@ -887,6 +863,28 @@
 
     </div>
   </section>
+
+  <!-- CATEGORY NAV -->
+  <div class="cat-nav-wrap" role="navigation" aria-label="Kategorije pitanja">
+    <nav class="cat-nav">
+      <a href="#o-programu" class="cat-pill">
+        <span class="dot" style="background:#e8725a;"></span>
+        O programu
+      </a>
+      <a href="#prakticno" class="cat-pill">
+        <span class="dot" style="background:#f5c842;"></span>
+        Praktično
+      </a>
+      <a href="#za-roditelje" class="cat-pill">
+        <span class="dot" style="background:#3a9e8f;"></span>
+        Za roditelje koji razmišljaju
+      </a>
+      <a href="#upis" class="cat-pill">
+        <span class="dot" style="background:#5B63C5;"></span>
+        Upis i probni čas
+      </a>
+    </nav>
+  </div>
 
   <!-- FAQ MAIN -->
   <main class="faq-main">
