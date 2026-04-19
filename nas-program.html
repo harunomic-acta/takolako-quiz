@@ -1656,12 +1656,10 @@
       <p class="chat-caption">Ovo je isje&#269;ak od 4 minute. Pravi &#269;as traje 45 minuta - i svaki je ovakav.</p>
 
       <div style="padding:48px 0 16px;text-align:center;">
-        <div class="rough-cta" data-stroke="rgba(26,39,68,0.3)" style="max-width:680px;margin:0 auto;position:relative;padding:40px 48px;">
-          <div style="position:relative;z-index:1;text-align:center;">
-            <h3 class="section-title navy" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Vidite sebe u ovoj pri&#269;i?</h3>
-            <p class="section-sub muted" style="margin-bottom:24px;">Svaki &#269;as izgleda ovako - za svako dijete, na svakom nivou.</p>
-            <a href="testni-cas.html" class="btn btn-coral">Zaka&#382;ite besplatan probni &#269;as &rarr;</a>
-          </div>
+        <div style="max-width:680px;margin:0 auto;padding:40px 48px;border:1.5px solid rgba(26,39,68,0.3);border-radius:24px 20px 26px 22px / 22px 26px 20px 24px;text-align:center;">
+          <h3 class="section-title navy" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Vidite sebe u ovoj pri&#269;i?</h3>
+          <p class="section-sub muted" style="margin-bottom:24px;">Svaki &#269;as izgleda ovako - za svako dijete, na svakom nivou.</p>
+          <a href="testni-cas.html" class="btn btn-coral">Zaka&#382;ite besplatan probni &#269;as &rarr;</a>
         </div>
       </div>
     </div>
@@ -2105,12 +2103,10 @@
       </div>
 
       <div style="padding:48px 0 16px;text-align:center;">
-        <div class="rough-cta" data-stroke="rgba(26,39,68,0.3)" style="max-width:680px;margin:0 auto;position:relative;padding:40px 48px;">
-          <div style="position:relative;z-index:1;text-align:center;">
-            <h3 class="section-title navy" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Znate li na kom je nivou Va&#353;e dijete?</h3>
-            <p class="section-sub muted" style="margin-bottom:24px;">Nastavnica &#263;e to potvrditi na prvom probnom &#269;asu - besplatno i bez obaveza.</p>
-            <a href="testni-cas.html" class="btn btn-coral">Zaka&#382;ite besplatan probni &#269;as &rarr;</a>
-          </div>
+        <div style="max-width:680px;margin:0 auto;padding:40px 48px;border:1.5px solid rgba(26,39,68,0.3);border-radius:24px 20px 26px 22px / 22px 26px 20px 24px;text-align:center;">
+          <h3 class="section-title navy" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Znate li na kom je nivou Va&#353;e dijete?</h3>
+          <p class="section-sub muted" style="margin-bottom:24px;">Nastavnica &#263;e to potvrditi na prvom probnom &#269;asu - besplatno i bez obaveza.</p>
+          <a href="testni-cas.html" class="btn btn-coral">Zaka&#382;ite besplatan probni &#269;as &rarr;</a>
         </div>
       </div>
     </div>
@@ -2184,12 +2180,10 @@
       </div>
 
       <div style="text-align:center;padding-top:64px;padding-bottom:24px;">
-        <div class="rough-cta" data-stroke="rgba(255,255,255,0.4)" style="max-width:680px;margin:0 auto;position:relative;padding:40px 48px;">
-          <div style="position:relative;z-index:1;text-align:center;">
-            <h3 class="section-title white" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Upoznajte nastavnicu li&#269;no.</h3>
-            <p class="section-sub" style="color:rgba(255,255,255,0.75);margin-bottom:28px;">Na besplatnom probnom &#269;asu - bez pritiska, bez obaveza.</p>
-            <a href="testni-cas.html" class="btn btn-coral">Zaka&#382;ite besplatan probni &#269;as &rarr;</a>
-          </div>
+        <div style="max-width:680px;margin:0 auto;padding:40px 48px;border:1.5px solid rgba(255,255,255,0.4);border-radius:24px 20px 26px 22px / 22px 26px 20px 24px;text-align:center;">
+          <h3 class="section-title white" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Upoznajte nastavnicu li&#269;no.</h3>
+          <p class="section-sub" style="color:rgba(255,255,255,0.75);margin-bottom:28px;">Na besplatnom probnom &#269;asu - bez pritiska, bez obaveza.</p>
+          <a href="testni-cas.html" class="btn btn-coral">Zaka&#382;ite besplatan probni &#269;as &rarr;</a>
         </div>
       </div>
     </div>
@@ -2285,64 +2279,6 @@
     </div>
   </section>
 
-  <script src="https://unpkg.com/roughjs@4.6.6/bundled/rough.js"></script>
-  <script>
-    (function () {
-      function rrPath(x, y, w, h, r) {
-        return 'M' + (x+r) + ',' + y +
-               ' L' + (x+w-r) + ',' + y +
-               ' Q' + (x+w) + ',' + y + ' ' + (x+w) + ',' + (y+r) +
-               ' L' + (x+w) + ',' + (y+h-r) +
-               ' Q' + (x+w) + ',' + (y+h) + ' ' + (x+w-r) + ',' + (y+h) +
-               ' L' + (x+r) + ',' + (y+h) +
-               ' Q' + x + ',' + (y+h) + ' ' + x + ',' + (y+h-r) +
-               ' L' + x + ',' + (y+r) +
-               ' Q' + x + ',' + y + ' ' + (x+r) + ',' + y + ' Z';
-      }
-
-      function drawRoughCTA(el) {
-        var old = el.querySelector('.rough-cta-svg');
-        if (old) old.parentNode.removeChild(old);
-        var w = el.offsetWidth;
-        var h = el.offsetHeight;
-        var stroke = el.getAttribute('data-stroke');
-        var pad = 3;
-        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('width', w);
-        svg.setAttribute('height', h);
-        svg.className = 'rough-cta-svg';
-        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;';
-        var rc = rough.svg(svg);
-        var node = rc.path(rrPath(pad, pad, w - pad * 2, h - pad * 2, 18), {
-          roughness: 0.6,
-          strokeWidth: 1.5,
-          bowing: 0.5,
-          disableMultiStroke: true,
-          fill: 'none',
-          stroke: stroke,
-          seed: 42
-        });
-        svg.appendChild(node);
-        el.insertBefore(svg, el.firstChild);
-      }
-
-      function init() {
-        document.querySelectorAll('.rough-cta').forEach(drawRoughCTA);
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-
-      var resizeTimer;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(init, 100);
-      });
-    })();
-  </script>
 
 </body>
 </html>
