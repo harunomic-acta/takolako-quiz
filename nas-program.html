@@ -6,7 +6,7 @@
   <title>Nas program - Tako Lako</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -31,14 +31,15 @@
 
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
       min-height: 100vh;
     }
     h1, h2, h3 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
       line-height: 1.18;
     }
 
@@ -111,23 +112,14 @@
     .pill-label {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      gap: 6px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 7px 18px;
-      border-radius: 100px;
-      margin-bottom: 22px;
-    }
-    .pill-label::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      opacity: 0.7;
-      flex-shrink: 0;
+      letter-spacing: 0.08em;
+      padding: 6px 14px 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
     }
     .pill-navy { background: rgba(26,39,68,0.08); color: var(--navy); }
     .pill-coral { background: rgba(232,114,90,0.12); color: var(--coral); }
@@ -139,8 +131,8 @@
 
     /* ── SECTION HEADINGS ── */
     .section-title {
-      font-size: clamp(28px, 4vw, 44px);
-      letter-spacing: -0.02em;
+      font-size: clamp(22px, 2.6vw, 34px);
+      letter-spacing: -0.01em;
       margin-bottom: 28px;
     }
     .wobbly-underline {
@@ -160,7 +152,7 @@
     /* ── BUTTONS ── */
     .btn {
       display: inline-block;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 15px;
       font-weight: 700;
       padding: 15px 36px;
@@ -223,9 +215,9 @@
     }
     .hero-inner .pill-label { margin-bottom: 30px; }
     #hero-section h1 {
-      font-size: clamp(30px, 4.2vw, 54px);
+      font-size: clamp(24px, 3vw, 42px);
       color: #fff;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.02em;
       margin-bottom: 24px;
     }
     #hero-section .hero-sub {
@@ -246,16 +238,21 @@
     .hero-chip {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.13);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: rgba(255,255,255,0.90);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 16px 8px 12px;
-      border-radius: 100px;
+      gap: 9px;
+      background: rgba(255,255,255,0.18);
+      border: 2px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 9px 18px 9px 13px;
+      border-radius: 14px;
+      box-shadow: 0 3px 0 rgba(0,0,0,0.15);
     }
+    .hero-chip-coral { background: var(--coral); border-color: rgba(255,255,255,0.20); box-shadow: 0 3px 0 rgba(160,50,30,0.35); }
+    .hero-chip-yellow { background: #c49b00; border-color: rgba(255,255,255,0.20); color: #fff; box-shadow: 0 3px 0 rgba(120,90,0,0.35); }
+    .hero-chip-teal { background: var(--teal); border-color: rgba(255,255,255,0.20); box-shadow: 0 3px 0 rgba(20,100,90,0.35); }
+    .hero-chip-periwinkle { background: var(--periwinkle); border-color: rgba(255,255,255,0.20); box-shadow: 0 3px 0 rgba(50,55,150,0.35); }
     .hero-chip svg { flex-shrink: 0; }
 
     /* ========================================
@@ -278,7 +275,7 @@
     .filo-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
     .filo-card .icon-sq { margin-bottom: 18px; }
     .filo-card h3 {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 16px;
       font-weight: 700;
       color: var(--navy);
@@ -297,7 +294,7 @@
       margin-top: 52px;
     }
     .kurikulum-text p {
-      font-size: 16px;
+      font-size: 18px;
       color: var(--muted);
       line-height: 1.78;
       margin-bottom: 22px;
@@ -327,16 +324,18 @@
     .faza-card:hover { background: rgba(255,255,255,0.10); }
     .faza-num {
       width: 40px; height: 40px;
-      border-radius: 50%;
+      border-radius: 10px;
       background: var(--coral);
       color: #fff;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 17px;
-      font-weight: 700;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transform: rotate(-5deg);
+      box-shadow: 0 3px 0 rgba(160,50,30,0.30);
     }
     .faza-body { flex: 1; }
     .faza-header {
@@ -346,7 +345,7 @@
       margin-bottom: 8px;
       flex-wrap: wrap;
     }
-    .faza-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
+    .faza-title { font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
     .faza-dur {
       font-size: 11px;
       font-weight: 600;
@@ -412,10 +411,10 @@
       margin-bottom: 18px;
     }
     .tok-icon svg { width: 28px; height: 28px; }
-    .tok-card.accent-coral .tok-icon { background: rgba(232,114,90,0.12); }
-    .tok-card.accent-periwinkle .tok-icon { background: rgba(91,99,197,0.10); }
-    .tok-card.accent-teal .tok-icon { background: rgba(58,158,143,0.10); }
-    .tok-card h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .tok-card.accent-coral .tok-icon { background: var(--coral); }
+    .tok-card.accent-periwinkle .tok-icon { background: var(--periwinkle); }
+    .tok-card.accent-teal .tok-icon { background: var(--teal); }
+    .tok-card h3 { font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
     .tok-card p { font-size: 15px; color: var(--muted); line-height: 1.70; }
 
     .vjezb-box {
@@ -437,7 +436,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .vjezb-icon svg { width: 28px; height: 28px; }
+    .vjezb-icon svg { width: 38px; height: 38px; }
     .vjezb-body h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
     .vjezb-body p { font-size: 15px; color: var(--muted); line-height: 1.68; margin-bottom: 20px; }
 
@@ -471,17 +470,18 @@
       gap: 14px;
     }
     .nivo-card-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
+      width: 48px; height: 48px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      padding: 8px;
     }
-    .nivo-card-icon svg { width: 22px; height: 22px; }
-    .nivo-card-icon.c1 { background: rgba(232,114,90,0.13); }
-    .nivo-card-icon.c2 { background: rgba(91,99,197,0.12); }
-    .nivo-card-icon.c3 { background: rgba(58,158,143,0.12); }
+    .nivo-card-icon svg { width: 100%; height: 100%; }
+    .nivo-card-icon.c1 { background: var(--yellow); }
+    .nivo-card-icon.c2 { background: var(--coral); }
+    .nivo-card-icon.c3 { background: var(--periwinkle); }
     .nivo-card h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
     .nivo-card-body {
       padding: 0 22px 22px;
@@ -501,9 +501,9 @@
       margin-bottom: 16px;
       align-self: flex-start;
     }
-    .nivo-age-tag.c1 { background: var(--coral); }
-    .nivo-age-tag.c2 { background: var(--periwinkle); }
-    .nivo-age-tag.c3 { background: var(--teal); }
+    .nivo-age-tag.c1 { background: var(--yellow); color: var(--navy); }
+    .nivo-age-tag.c2 { background: var(--coral); }
+    .nivo-age-tag.c3 { background: var(--periwinkle); }
     .nivo-bullets {
       list-style: none;
       display: flex;
@@ -526,9 +526,9 @@
       width: 6px; height: 6px;
       border-radius: 50%;
     }
-    .nivo-card:nth-child(1) .nivo-bullets li::before { background: var(--coral); }
-    .nivo-card:nth-child(2) .nivo-bullets li::before { background: var(--periwinkle); }
-    .nivo-card:nth-child(3) .nivo-bullets li::before { background: var(--teal); }
+    .nivo-card:nth-child(1) .nivo-bullets li::before { background: var(--yellow); }
+    .nivo-card:nth-child(2) .nivo-bullets li::before { background: var(--coral); }
+    .nivo-card:nth-child(3) .nivo-bullets li::before { background: var(--periwinkle); }
     .nivo-footer-pill {
       font-size: 12px;
       font-weight: 600;
@@ -554,16 +554,18 @@
     }
     .nivo-card-b:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
     .nivo-card-b-num {
-      width: 28px; height: 28px;
+      width: 32px; height: 32px;
       background: var(--periwinkle);
       color: #fff;
-      border-radius: 50%;
-      font-size: 13px;
-      font-weight: 700;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      transform: rotate(-4deg);
+      box-shadow: 0 3px 0 rgba(91,99,197,0.35);
     }
     .nivo-card-b h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
     .nivo-card-b ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
@@ -623,7 +625,7 @@
       display: block;
       border: 3px solid var(--border);
     }
-    .nas-name { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .nas-name { font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
     .nas-subtitle { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
     .nas-badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px; }
     .nas-badge {
@@ -725,7 +727,7 @@
       gap: 12px;
     }
     .chat-header-info {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 13px;
       font-weight: 600;
       color: rgba(255,255,255,0.88);
@@ -741,7 +743,7 @@
     .chat-live-pill {
       background: var(--coral);
       color: #fff;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 12px;
       font-weight: 700;
       padding: 5px 13px;
@@ -777,7 +779,7 @@
     .chat-avatar.teacher { background: #3d448f; }
     .chat-avatar.child { background: rgba(245,200,66,0.30); border: 2px solid rgba(245,200,66,0.50); }
     .chat-avatar-label {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -788,7 +790,7 @@
     .chat-col { display: flex; flex-direction: column; align-items: flex-start; }
     .chat-row.right .chat-col { align-items: flex-end; }
     .chat-bubble {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 14.5px;
       line-height: 1.60;
       padding: 11px 16px;
@@ -811,7 +813,7 @@
       border-bottom-right-radius: 4px;
     }
     .chat-note {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 12px;
       font-style: italic;
       margin-top: 5px;
@@ -832,7 +834,7 @@
       text-align: center;
     }
     .vocab-card .vocab-label {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -841,13 +843,14 @@
       margin-bottom: 6px;
     }
     .vocab-card .vocab-de {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 13px;
       color: var(--muted);
       margin-bottom: 2px;
     }
     .vocab-card .vocab-bs {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
       font-size: 17px;
       color: var(--navy);
     }
@@ -863,7 +866,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 13.5px;
       font-weight: 600;
       color: var(--navy);
@@ -879,7 +882,7 @@
     }
     .chat-caption {
       text-align: center;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 14px;
       color: var(--muted);
       font-style: italic;
@@ -895,7 +898,7 @@
       border-radius: 0 12px 12px 0;
       padding: 18px 20px;
       margin-top: 18px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 14px;
       color: #1a4a34;
       line-height: 1.68;
@@ -916,13 +919,13 @@
       overflow: hidden;
     }
     .closing-statement h2 {
-      font-size: clamp(30px, 4vw, 50px);
+      font-size: clamp(22px, 2.8vw, 36px);
       color: #fff;
       letter-spacing: -0.02em;
       margin-bottom: 22px;
     }
     .closing-statement p {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: clamp(16px, 1.9vw, 19px);
       color: rgba(255,255,255,0.82);
       line-height: 1.75;
@@ -1010,42 +1013,37 @@
     <div class="hero-inner">
       <span class="pill-label pill-white">Na&#353; program</span>
       <h1>Svako dijete napreduje druga&#269;ije.<br>Na&#353; kurikulum je osmi&#353;ljen upravo za to.</h1>
-      <p class="hero-sub">Na&#353;a nastava nije improvizacija niti aplikacija sa zadacima. To je pa&#382;ljivo dizajniran sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
+      <p class="hero-sub" style="max-width:600px;margin-left:auto;margin-right:auto;">Na&#353;a nastava nije improvizacija niti aplikacija sa zadacima - to je sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
 
       <div class="hero-chips">
-        <div class="hero-chip">
-          <!-- smiley / children -->
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
-            <circle cx="8.5" cy="8.5" r="7" stroke="rgba(255,255,255,0.85)" stroke-width="1.6" fill="none"/>
-            <circle cx="6.2" cy="7.5" r="1.2" fill="rgba(255,255,255,0.85)"/>
-            <circle cx="10.8" cy="7.5" r="1.2" fill="rgba(255,255,255,0.85)"/>
-            <path d="M5.8 10.5 Q8.5 13 11.2 10.5" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <div class="hero-chip hero-chip-coral" style="transform:rotate(-1.5deg);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,0.95)" stroke-width="2" fill="rgba(255,255,255,0.18)"/>
+            <circle cx="6.5" cy="8" r="1.4" fill="rgba(255,255,255,0.95)"/>
+            <circle cx="11.5" cy="8" r="1.4" fill="rgba(255,255,255,0.95)"/>
+            <path d="M6 11.5 Q9 14 12 11.5" stroke="rgba(255,255,255,0.95)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
           </svg>
           Djeca 4&#8211;14 godina
         </div>
-        <div class="hero-chip">
-          <!-- star -->
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
-            <path d="M8.5 2 L10 6.5 L14.8 6.5 L11 9.4 L12.5 13.9 L8.5 11 L4.5 13.9 L6 9.4 L2.2 6.5 L7 6.5Z" fill="rgba(245,200,66,0.90)"/>
+        <div class="hero-chip hero-chip-yellow" style="transform:rotate(1deg);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M9 2 L10.6 7 L16 7 L11.8 10.2 L13.4 15.2 L9 12 L4.6 15.2 L6.2 10.2 L2 7 L7.4 7Z" fill="#ffffff"/>
           </svg>
           4 nivoa u&#269;enja
         </div>
-        <div class="hero-chip">
-          <!-- group / people -->
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
-            <circle cx="6.5" cy="5.5" r="2.5" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" fill="none"/>
-            <path d="M1.5 15.5 C1.5 11.5,3.5 10,6.5 10 C9.5 10,11.5 11.5,11.5 15.5" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <circle cx="12" cy="5" r="2" stroke="rgba(255,255,255,0.60)" stroke-width="1.4" fill="none"/>
-            <path d="M12 9 C14 9,15.5 10.2,15.5 13.5" stroke="rgba(255,255,255,0.60)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        <div class="hero-chip hero-chip-teal" style="transform:rotate(-1deg);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <circle cx="7" cy="6" r="2.8" stroke="rgba(255,255,255,0.95)" stroke-width="1.8" fill="rgba(255,255,255,0.18)"/>
+            <path d="M1.5 16 C1.5 12,3.5 10.5,7 10.5 C10.5 10.5,12.5 12,12.5 16" stroke="rgba(255,255,255,0.95)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <circle cx="13" cy="5.5" r="2.2" stroke="rgba(255,255,255,0.70)" stroke-width="1.6" fill="none"/>
+            <path d="M13 9 C15 9,16.5 10.2,16.5 13.5" stroke="rgba(255,255,255,0.70)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
           </svg>
           Grupni &#269;asovi online
         </div>
-        <div class="hero-chip">
-          <!-- rocket -->
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
-            <path d="M8.5 2 C8.5 2,13 5.5,13 9.5 L8.5 12.5 L4 9.5 C4 5.5,8.5 2,8.5 2Z" fill="rgba(255,255,255,0.82)"/>
-            <circle cx="8.5" cy="7.5" r="1.7" fill="rgba(91,99,197,0.50)" stroke="rgba(255,255,255,0.50)" stroke-width="0.8"/>
-            <path d="M6 9.5 Q7.5 14,8.5 12 Q9.5 14,11 9.5" fill="rgba(245,200,66,0.70)"/>
+        <div class="hero-chip hero-chip-periwinkle" style="transform:rotate(1.5deg);">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="6.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M5 8.5 L7 10.5 L11 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Besplatan probni &#269;as
         </div>
@@ -1062,23 +1060,29 @@
     <svg style="position:absolute;top:-60px;right:-80px;opacity:0.06;pointer-events:none;" width="420" height="420" viewBox="0 0 420 420" fill="none" aria-hidden="true">
       <path d="M210 30 C280 20,370 80,390 160 C410 240,360 340,290 380 C220 420,110 400,60 330 C10 260,20 140,80 80 C120 40,170 38,210 30Z" fill="#e8725a"/>
     </svg>
-    <!-- deco: top-right wavy -->
-    <svg style="position:absolute;top:32px;right:5%;opacity:0.45;" width="90" height="32" viewBox="0 0 90 32" fill="none" aria-hidden="true">
-      <path d="M0 16 C12 4,20 28,32 16 C44 4,52 28,64 16 C76 4,84 24,90 16" stroke="#e8725a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- deco: top-right squiggle -->
+    <svg style="position:absolute;top:32px;right:5%;opacity:0.50;" width="96" height="40" viewBox="0 0 96 40" fill="none" aria-hidden="true">
+      <path d="M4 28 C10 14,18 36,28 22 C36 10,44 34,56 20 C64 10,74 32,88 18" stroke="#e8725a" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <circle cx="90" cy="16" r="3.5" fill="#f5c842" opacity="0.75"/>
     </svg>
     <!-- deco: bottom-left star -->
     <svg style="position:absolute;bottom:28px;left:4%;opacity:0.35;" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
       <path d="M24 4 L27.5 15 L39 15 L30 22 L33.5 33 L24 26 L14.5 33 L18 22 L9 15 L20.5 15Z" fill="#f5c842" stroke="#f5c842" stroke-width="1" stroke-linejoin="round"/>
     </svg>
     <!-- pencil deco top-right -->
-    <svg style="position:absolute;top:44px;right:9%;opacity:0.14;" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-      <path d="M30 4 L40 14 L14 40 L4 40 L4 30Z" stroke="#e8725a" stroke-width="2" stroke-linejoin="round"/>
-      <line x1="29" y1="5" x2="39" y2="15" stroke="#e8725a" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    <svg style="position:absolute;top:44px;right:9%;opacity:0.18;transform:rotate(-12deg);" width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+      <path d="M32 4 L42 14 L14 42 L4 42 L4 32Z" stroke="#e8725a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(232,114,90,0.08)"/>
+      <path d="M31 5 L41 15" stroke="#e8725a" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M4 32 L4 42 L14 42" stroke="#e8725a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="rgba(232,114,90,0.15)"/>
+      <path d="M38 8 L42 12 L38 16 L34 12Z" fill="rgba(245,200,66,0.55)" stroke="#f5c842" stroke-width="1.5" stroke-linejoin="round"/>
     </svg>
     <div class="inner">
       <div style="text-align:center;">
-        <span class="pill-label pill-coral">Na&#353; pristup</span>
-        <h2 class="section-title navy">U&#269;enje koje ima smisla</h2>
+        <span class="pill-label pill-coral">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2 C2 1,4 0.5,7 0.5 C10 0.5,12 1,12 2 L12 7.5 C12 8.5,10 9,7 9 C5.5 9,4 8.5,3 8 L1 11 L2 8.5 C1.5 8,2 7.5,2 7.5 Z" stroke="#e8725a" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M7 6.5 C7 6.5,4.5 4.5,4.5 3.2 C4.5 2.4,5.2 2,6 2 C6.5 2,7 2.5,7 2.5 C7 2.5,7.5 2,8 2 C8.8 2,9.5 2.4,9.5 3.2 C9.5 4.5,7 6.5,7 6.5Z" fill="#e8725a" opacity="0.75"/></svg>
+          Na&#353; pristup
+        </span>
+        <h2 class="section-title navy">U&#269;enje koje ima smisla.</h2>
       </div>
 
       <div class="filozofija-grid">
@@ -1134,29 +1138,35 @@
        SECTION 3 - KURIKULUM STRUKTURA
   ================================================= -->
   <section class="section section-cream">
-    <!-- deco: dashed circle top-left -->
-    <svg style="position:absolute;top:36px;left:4%;opacity:0.30;" width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-      <circle cx="28" cy="28" r="24" stroke="#5B63C5" stroke-width="2" stroke-dasharray="6 5"/>
+    <!-- deco: wobbly circle top-left -->
+    <svg style="position:absolute;top:32px;left:4%;opacity:0.32;transform:rotate(8deg);" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+      <path d="M30 6 C42 5,54 14,55 28 C56 42,46 55,32 56 C18 57,5 47,4 32 C3 18,14 6,30 6Z" stroke="#5B63C5" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <circle cx="46" cy="12" r="3" fill="rgba(245,200,66,0.70)"/>
     </svg>
-    <!-- deco: dots top-right -->
-    <svg style="position:absolute;top:44px;right:6%;opacity:0.35;" width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true">
-      <circle cx="10" cy="10" r="4" fill="#3a9e8f"/>
-      <circle cx="26" cy="10" r="4" fill="#3a9e8f" opacity="0.6"/>
-      <circle cx="42" cy="10" r="4" fill="#3a9e8f" opacity="0.35"/>
-      <circle cx="10" cy="26" r="4" fill="#3a9e8f" opacity="0.6"/>
-      <circle cx="26" cy="26" r="4" fill="#3a9e8f" opacity="0.35"/>
-      <circle cx="10" cy="42" r="4" fill="#3a9e8f" opacity="0.35"/>
+    <!-- deco: scattered dots top-right -->
+    <svg style="position:absolute;top:36px;right:6%;opacity:0.38;" width="64" height="60" viewBox="0 0 64 60" fill="none" aria-hidden="true">
+      <circle cx="8" cy="12" r="5.5" fill="#3a9e8f"/>
+      <circle cx="28" cy="8" r="4" fill="#3a9e8f" opacity="0.65"/>
+      <circle cx="48" cy="14" r="6" fill="#3a9e8f" opacity="0.40"/>
+      <circle cx="16" cy="32" r="4.5" fill="#3a9e8f" opacity="0.55"/>
+      <circle cx="40" cy="36" r="3" fill="#f5c842" opacity="0.75"/>
+      <circle cx="8" cy="50" r="3.5" fill="#3a9e8f" opacity="0.30"/>
+      <circle cx="56" cy="50" r="5" fill="#3a9e8f" opacity="0.25"/>
     </svg>
     <!-- graduation cap deco bottom-right -->
-    <svg style="position:absolute;bottom:36px;right:6%;opacity:0.13;" width="60" height="46" viewBox="0 0 60 46" fill="none" aria-hidden="true">
-      <polygon points="30,6 6,20 30,34 54,20" stroke="#1a2744" stroke-width="2" stroke-linejoin="round" fill="none"/>
-      <path d="M14 25 L14 36 C14 36,21 43,30 43 C39 43,46 36,46 36 L46 25" stroke="#1a2744" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <line x1="54" y1="20" x2="54" y2="31" stroke="#1a2744" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="54" cy="33.5" r="2.5" fill="#1a2744"/>
+    <svg style="position:absolute;bottom:36px;right:6%;opacity:0.16;transform:rotate(6deg);" width="64" height="52" viewBox="0 0 64 52" fill="none" aria-hidden="true">
+      <polygon points="32,5 6,20 32,35 58,20" stroke="#1a2744" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" fill="rgba(26,39,68,0.06)"/>
+      <path d="M14 26 L14 38 C14 38,22 47,32 47 C42 47,50 38,50 38 L50 26" stroke="#1a2744" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <line x1="58" y1="20" x2="58" y2="32" stroke="#1a2744" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="58" cy="36" r="4" fill="#e8725a"/>
+      <path d="M58 36 L62 44 M58 36 L54 43 M58 36 L60 46" stroke="#e8725a" stroke-width="2" stroke-linecap="round"/>
     </svg>
     <div class="inner">
       <div style="text-align:center;">
-        <span class="pill-label pill-yellow">Kurikulum</span>
+        <span class="pill-label pill-yellow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 3 C6 2.5,2 2.5,1 3.5 L1 11 C2 10.5,6 10.5,7 11Z" stroke="#8a6c00" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M7 3 C8 2.5,12 2.5,13 3.5 L13 11 C12 10.5,8 10.5,7 11Z" stroke="#8a6c00" stroke-width="1.8" stroke-linecap="round" fill="none"/><line x1="7" y1="3" x2="7" y2="11" stroke="#8a6c00" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Kurikulum
+        </span>
         <h2 class="section-title navy">Jasna struktura u&#269;enja</h2>
       </div>
 
@@ -1195,35 +1205,39 @@
        SECTION 4 - SEST FAZA CASA
   ================================================= -->
   <section class="section section-navy">
-    <svg style="position:absolute;top:24px;right:40px;opacity:0.25;" width="88" height="88" viewBox="0 0 88 88" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="4.5" fill="white"/>
-      <circle cx="33" cy="11" r="4.5" fill="white"/>
-      <circle cx="55" cy="11" r="4.5" fill="white"/>
-      <circle cx="77" cy="11" r="4.5" fill="white"/>
-      <circle cx="11" cy="33" r="4.5" fill="white"/>
-      <circle cx="33" cy="33" r="4.5" fill="white"/>
-      <circle cx="55" cy="33" r="4.5" fill="white"/>
-      <circle cx="77" cy="33" r="4.5" fill="white"/>
-      <circle cx="11" cy="55" r="4.5" fill="white"/>
-      <circle cx="33" cy="55" r="4.5" fill="white"/>
-      <circle cx="55" cy="55" r="4.5" fill="white"/>
-      <circle cx="77" cy="55" r="4.5" fill="white"/>
+    <svg style="position:absolute;top:20px;right:36px;opacity:0.22;" width="90" height="90" viewBox="0 0 90 90" fill="none" aria-hidden="true">
+      <path d="M15 15 L16.5 20 L22 20 L17.8 23.2 L19.3 28 L15 25 L10.7 28 L12.2 23.2 L8 20 L13.5 20Z" fill="white"/>
+      <path d="M75 12 L76.2 16 L80.5 16 L77.1 18.5 L78.3 22.5 L75 20 L71.7 22.5 L72.9 18.5 L69.5 16 L73.8 16Z" fill="white" opacity="0.75"/>
+      <path d="M15 75 L16.2 79 L20.5 79 L17.1 81.5 L18.3 85.5 L15 83 L11.7 85.5 L12.9 81.5 L9.5 79 L13.8 79Z" fill="white" opacity="0.80"/>
+      <circle cx="75" cy="75" r="5.5" fill="white" opacity="0.55"/>
+      <circle cx="45" cy="15" r="4" fill="rgba(245,200,66,0.70)"/>
+      <circle cx="15" cy="45" r="3" fill="white" opacity="0.40"/>
+      <circle cx="75" cy="45" r="3.5" fill="white" opacity="0.35"/>
+      <circle cx="45" cy="75" r="4" fill="white" opacity="0.45"/>
     </svg>
     <!-- clock deco top-left -->
-    <svg style="position:absolute;top:36px;left:5%;opacity:0.11;" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <circle cx="24" cy="24" r="19" stroke="white" stroke-width="2"/>
-      <line x1="24" y1="24" x2="24" y2="11" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      <line x1="24" y1="24" x2="33" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    <svg style="position:absolute;top:36px;left:5%;opacity:0.14;" width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+      <circle cx="26" cy="26" r="20" stroke="white" stroke-width="3" fill="rgba(255,255,255,0.05)"/>
+      <line x1="26" y1="26" x2="26" y2="11" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <line x1="26" y1="26" x2="37" y2="31" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="21" cy="22" r="2" fill="white" opacity="0.65"/>
+      <circle cx="31" cy="22" r="2" fill="white" opacity="0.65"/>
+      <path d="M20 30 C22 33,30 33,32 30" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
     </svg>
     <!-- lightbulb deco bottom-left -->
-    <svg style="position:absolute;bottom:32px;left:7%;opacity:0.11;" width="42" height="52" viewBox="0 0 42 52" fill="none" aria-hidden="true">
-      <path d="M21 4 C11 4,5 10,5 18 C5 24,9 28,13 31 L13 36 L29 36 L29 31 C33 28,37 24,37 18 C37 10,31 4,21 4Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-      <line x1="14" y1="40" x2="28" y2="40" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      <line x1="16" y1="45" x2="26" y2="45" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <svg style="position:absolute;bottom:32px;left:7%;opacity:0.15;" width="48" height="56" viewBox="0 0 48 56" fill="none" aria-hidden="true">
+      <path d="M24 4 C14 4,6 10,6 20 C6 26,10 30,14 33 L14 38 L34 38 L34 33 C38 30,42 26,42 20 C42 10,34 4,24 4Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.05)"/>
+      <path d="M24 12 L24 22" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+      <line x1="15" y1="42" x2="33" y2="42" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="17" y1="47" x2="31" y2="47" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M4 8 L4.5 9.6 L6.2 9.6 L4.9 10.6 L5.4 12.2 L4 11.2 L2.6 12.2 L3.1 10.6 L1.8 9.6 L3.5 9.6Z" fill="rgba(245,200,66,0.80)"/>
     </svg>
     <div class="inner">
       <div style="text-align:center;">
-        <span class="pill-label pill-coral-solid">Struktura &#269;asa</span>
+        <span class="pill-label pill-coral-solid">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="white" stroke-width="1.8"/><line x1="7" y1="7" x2="7" y2="3.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/><line x1="7" y1="7" x2="10" y2="8.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Struktura &#269;asa
+        </span>
         <h2 class="section-title white">Svaki &#269;as ima jasnu strukturu</h2>
         <p class="section-sub white-muted" style="max-width:520px;margin:0 auto;">Postoji 6 faza svakog &#269;asa - svaka ima svoju svrhu.</p>
       </div>
@@ -1312,20 +1326,21 @@
   ================================================= -->
   <section class="section section-lavender">
     <!-- speech bubble deco top-right -->
-    <svg style="position:absolute;top:36px;right:6%;opacity:0.18;" width="60" height="46" viewBox="0 0 60 46" fill="none" aria-hidden="true">
-      <rect x="2" y="2" width="48" height="30" rx="11" stroke="#5B63C5" stroke-width="2"/>
-      <path d="M8 32 L6 44 L22 32" stroke="#5B63C5" stroke-width="2" stroke-linejoin="round" fill="none"/>
-      <circle cx="16" cy="17" r="3.5" fill="#5B63C5" opacity="0.35"/>
-      <circle cx="28" cy="17" r="3.5" fill="#5B63C5" opacity="0.35"/>
-      <circle cx="40" cy="17" r="3.5" fill="#5B63C5" opacity="0.35"/>
+    <svg style="position:absolute;top:28px;right:6%;opacity:0.20;" width="68" height="54" viewBox="0 0 68 54" fill="none" aria-hidden="true">
+      <path d="M4 4 C4 2,8 0,34 0 C60 0,64 2,64 4 L64 30 C64 32,60 34,34 34 C24 34,18 33,12 32 L4 44 L8 32 C6 31,4 30,4 29 Z" stroke="#5B63C5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(91,99,197,0.07)"/>
+      <path d="M34 22 C34 22,24 15,24 10 C24 7,26.5 5,29 5 C31 5,33 7,34 9 C35 7,37 5,39 5 C41.5 5,44 7,44 10 C44 15,34 22,34 22Z" fill="#5B63C5" opacity="0.40"/>
     </svg>
     <!-- magnifying glass deco bottom-left -->
-    <svg style="position:absolute;bottom:38px;left:5%;opacity:0.15;" width="48" height="52" viewBox="0 0 48 52" fill="none" aria-hidden="true">
-      <circle cx="20" cy="20" r="15" stroke="#5B63C5" stroke-width="2"/>
-      <line x1="31" y1="33" x2="44" y2="48" stroke="#5B63C5" stroke-width="3" stroke-linecap="round"/>
+    <svg style="position:absolute;bottom:38px;left:5%;opacity:0.18;transform:rotate(-8deg);" width="54" height="58" viewBox="0 0 54 58" fill="none" aria-hidden="true">
+      <circle cx="22" cy="22" r="17" stroke="#5B63C5" stroke-width="3" fill="rgba(91,99,197,0.05)"/>
+      <line x1="35" y1="37" x2="50" y2="54" stroke="#5B63C5" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 14 L23.5 18.8 L28.5 18.8 L24.5 21.7 L26 26.5 L22 23.5 L18 26.5 L19.5 21.7 L15.5 18.8 L20.5 18.8Z" fill="rgba(91,99,197,0.50)"/>
     </svg>
     <div class="inner" style="text-align:center;">
-      <span class="pill-label pill-periwinkle">Primjer iz prakse</span>
+      <span class="pill-label pill-periwinkle">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="#5B63C5" stroke-width="1.8"/><path d="M5.5 5 L5.5 9 L10 7Z" fill="#5B63C5" opacity="0.80"/></svg>
+        Primjer iz prakse
+      </span>
       <h2 class="section-title navy">Pogledajte kako izgleda pravi &#269;as</h2>
       <svg class="wobbly-underline" width="220" height="14" viewBox="0 0 220 14" fill="none" aria-hidden="true">
         <path d="M4 8 C20 3,38 13,58 7 C78 1,96 12,116 7 C136 2,154 12,174 7 C190 3,206 10,216 7" stroke="#e8725a" stroke-width="3" stroke-linecap="round" fill="none"/>
@@ -1514,29 +1529,38 @@
     <svg style="position:absolute;bottom:-60px;left:-80px;opacity:0.05;pointer-events:none;" width="400" height="400" viewBox="0 0 400 400" fill="none" aria-hidden="true">
       <path d="M200 20 C280 10,370 70,385 150 C400 230,350 320,280 370 C210 420,100 400,50 330 C0 260,10 140,70 80 C110 40,160 28,200 20Z" fill="#3a9e8f"/>
     </svg>
-    <!-- deco: rotated square top-right -->
-    <svg style="position:absolute;top:36px;right:5%;opacity:0.28;" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
-      <rect x="10" y="10" width="40" height="40" rx="10" fill="rgba(245,200,66,0.55)" transform="rotate(20 30 30)"/>
+    <!-- deco: rounded square top-right -->
+    <svg style="position:absolute;top:32px;right:5%;opacity:0.30;" width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <rect x="8" y="8" width="46" height="46" rx="14" stroke="#f5c842" stroke-width="3" fill="rgba(245,200,66,0.10)" transform="rotate(15 31 31)"/>
+      <circle cx="52" cy="12" r="4" fill="rgba(245,200,66,0.70)"/>
     </svg>
     <!-- deco: wavy line bottom-left -->
-    <svg style="position:absolute;bottom:32px;left:4%;opacity:0.35;" width="100" height="28" viewBox="0 0 100 28" fill="none" aria-hidden="true">
-      <path d="M0 14 C14 3,22 25,36 14 C50 3,58 25,72 14 C86 3,94 22,100 14" stroke="#5B63C5" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <svg style="position:absolute;bottom:28px;left:4%;opacity:0.38;" width="112" height="34" viewBox="0 0 112 34" fill="none" aria-hidden="true">
+      <path d="M4 18 C14 4,24 30,38 16 C50 4,62 28,76 14 C88 3,100 26,108 16" stroke="#5B63C5" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <circle cx="4" cy="18" r="4" fill="#5B63C5" opacity="0.55"/>
     </svg>
     <!-- open book deco top-left -->
-    <svg style="position:absolute;top:40px;left:5%;opacity:0.13;" width="58" height="46" viewBox="0 0 58 46" fill="none" aria-hidden="true">
-      <path d="M29 8 C24 6,8 7,4 10 L4 38 C8 36,24 35,29 38Z" stroke="#1a2744" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M29 8 C34 6,50 7,54 10 L54 38 C50 36,34 35,29 38Z" stroke="#1a2744" stroke-width="2" stroke-linejoin="round"/>
-      <line x1="29" y1="8" x2="29" y2="38" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round"/>
+    <svg style="position:absolute;top:40px;left:5%;opacity:0.15;transform:rotate(-5deg);" width="64" height="52" viewBox="0 0 64 52" fill="none" aria-hidden="true">
+      <path d="M32 8 C27 6,8 7,4 10 L4 44 C8 42,27 41,32 44Z" stroke="#1a2744" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(26,39,68,0.05)"/>
+      <path d="M32 8 C37 6,56 7,60 10 L60 44 C56 42,37 41,32 44Z" stroke="#1a2744" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(26,39,68,0.04)"/>
+      <line x1="32" y1="8" x2="32" y2="44" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="12" y1="18" x2="26" y2="17" stroke="#1a2744" stroke-width="2" stroke-linecap="round" opacity="0.40"/>
+      <line x1="12" y1="24" x2="24" y2="23" stroke="#1a2744" stroke-width="2" stroke-linecap="round" opacity="0.30"/>
+      <line x1="38" y1="18" x2="52" y2="17" stroke="#1a2744" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
     </svg>
     <!-- apple deco bottom-right -->
-    <svg style="position:absolute;bottom:38px;right:7%;opacity:0.15;" width="44" height="52" viewBox="0 0 44 52" fill="none" aria-hidden="true">
-      <circle cx="22" cy="30" r="17" stroke="#e8725a" stroke-width="2"/>
-      <path d="M22 13 C22 9,26 5,30 4" stroke="#e8725a" stroke-width="2" stroke-linecap="round"/>
-      <path d="M22 13 C18 9,13 7,10 9" stroke="#e8725a" stroke-width="1.5" stroke-linecap="round"/>
+    <svg style="position:absolute;bottom:36px;right:7%;opacity:0.18;transform:rotate(5deg);" width="50" height="58" viewBox="0 0 50 58" fill="none" aria-hidden="true">
+      <path d="M25 16 C12 16,6 24,6 33 C6 44,14 55,25 55 C36 55,44 44,44 33 C44 24,38 16,25 16Z" stroke="#e8725a" stroke-width="3" stroke-linecap="round" fill="rgba(232,114,90,0.08)"/>
+      <path d="M25 16 C25 10,29 5,34 4" stroke="#e8725a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M25 14 C22 8,16 6,12 8" stroke="#3a9e8f" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M12 8 C14 5,20 5,22 10" stroke="#3a9e8f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
     </svg>
     <div class="inner">
       <div style="text-align:center;">
-        <span class="pill-label pill-teal">Kako u&#269;imo</span>
+        <span class="pill-label pill-teal">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5 C4.5 1.5,2.5 3.5,2.5 6 C2.5 7.5,3.5 8.5,4.5 9.2 L4.5 10.5 L9.5 10.5 L9.5 9.2 C10.5 8.5,11.5 7.5,11.5 6 C11.5 3.5,9.5 1.5,7 1.5Z" stroke="#3a9e8f" stroke-width="1.8" stroke-linecap="round" fill="none"/><line x1="5" y1="12" x2="9" y2="12" stroke="#3a9e8f" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Kako u&#269;imo
+        </span>
         <h2 class="section-title navy">Mali koraci. Veliki napredak.</h2>
       </div>
 
@@ -1639,45 +1663,49 @@
   ================================================= -->
   <section class="section section-bg">
     <!-- deco: star top-left -->
-    <svg style="position:absolute;top:40px;left:5%;opacity:0.40;" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-      <path d="M22 3 L25.5 13.5 L37 13.5 L27.5 20 L31 30.5 L22 24 L13 30.5 L16.5 20 L7 13.5 L18.5 13.5Z" fill="#e8725a" stroke="#e8725a" stroke-width="1" stroke-linejoin="round"/>
+    <svg style="position:absolute;top:36px;left:5%;opacity:0.42;transform:rotate(8deg);" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M24 4 L28 16 L41 16 L31 24 L35 36 L24 28 L13 36 L17 24 L7 16 L20 16Z" fill="rgba(232,114,90,0.20)" stroke="#e8725a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <!-- deco: blob circle top-right -->
-    <svg style="position:absolute;top:28px;right:4%;opacity:0.22;" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-      <ellipse cx="40" cy="40" rx="38" ry="32" fill="#3a9e8f" transform="rotate(15 40 40)"/>
+    <!-- deco: wobbly blob top-right -->
+    <svg style="position:absolute;top:24px;right:4%;opacity:0.20;" width="88" height="80" viewBox="0 0 88 80" fill="none" aria-hidden="true">
+      <path d="M44 6 C62 4,80 16,82 34 C84 52,68 72,50 75 C32 78,10 68,6 50 C2 32,14 10,32 6 C36 5,40 6,44 6Z" stroke="#3a9e8f" stroke-width="3" stroke-linecap="round" fill="rgba(58,158,143,0.08)"/>
     </svg>
     <!-- musical note deco top-right edge -->
-    <svg style="position:absolute;top:48px;right:12%;opacity:0.14;" width="36" height="50" viewBox="0 0 36 50" fill="none" aria-hidden="true">
-      <ellipse cx="11" cy="38" rx="9" ry="6" transform="rotate(-15 11 38)" stroke="#3a9e8f" stroke-width="2"/>
-      <line x1="20" y1="34" x2="20" y2="10" stroke="#3a9e8f" stroke-width="2" stroke-linecap="round"/>
-      <line x1="20" y1="10" x2="33" y2="5" stroke="#3a9e8f" stroke-width="2" stroke-linecap="round"/>
+    <svg style="position:absolute;top:44px;right:12%;opacity:0.17;transform:rotate(5deg);" width="42" height="56" viewBox="0 0 42 56" fill="none" aria-hidden="true">
+      <ellipse cx="12" cy="44" rx="10" ry="7" transform="rotate(-15 12 44)" stroke="#3a9e8f" stroke-width="3" stroke-linecap="round" fill="rgba(58,158,143,0.10)"/>
+      <line x1="22" y1="39" x2="22" y2="10" stroke="#3a9e8f" stroke-width="3" stroke-linecap="round"/>
+      <path d="M22 10 L38 5 L38 18 L22 23" stroke="#3a9e8f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="rgba(58,158,143,0.12)"/>
     </svg>
     <!-- pencil deco bottom-right -->
-    <svg style="position:absolute;bottom:40px;right:8%;opacity:0.12;" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <path d="M28 3 L37 12 L12 37 L3 37 L3 28Z" stroke="#1a2744" stroke-width="2" stroke-linejoin="round"/>
-      <line x1="27" y1="4" x2="36" y2="13" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    <svg style="position:absolute;bottom:36px;right:8%;opacity:0.16;transform:rotate(10deg);" width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+      <path d="M30 3 L43 16 L16 43 L3 43 L3 30Z" stroke="#1a2744" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(26,39,68,0.05)"/>
+      <path d="M29 4 L42 17" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M40 9 L43 12 L39 16 L36 13Z" fill="rgba(245,200,66,0.60)" stroke="#f5c842" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M3 30 L3 43 L16 43" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="rgba(26,39,68,0.10)"/>
     </svg>
     <div class="inner">
       <div style="text-align:center;">
-        <span class="pill-label pill-teal">Tok u&#269;enja</span>
-        <h2 class="section-title navy">U&#269;enje se ne zavr&#353;ava na &#269;asu</h2>
+        <span class="pill-label pill-teal">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 4 L4 4 L4 2 L7 4.5 L4 7 L4 5 L1 5Z" stroke="#3a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="rgba(58,158,143,0.15)"/><path d="M5 7 L8 7 L8 5 L11 7.5 L8 10 L8 8 L5 8Z" stroke="#3a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="rgba(58,158,143,0.10)"/></svg>
+          Tok u&#269;enja
+        </span>
+        <h2 class="section-title navy">U&#269;enje se ne zavr&#353;ava na &#269;asu.</h2>
         <p class="section-sub muted" style="max-width:540px;margin:0 auto;">Kod nas u&#269;enje ima svoj tok prije, tokom i nakon &#269;asa.</p>
       </div>
 
       <div class="tok-grid">
 
         <div class="tok-card accent-coral">
-          <div class="tok-icon">
-            <!-- smiling clock for "before class" -->
+          <div class="tok-icon" style="transform:rotate(-5deg);">
+            <!-- smiling clock: floating elements on solid bg -->
             <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="14" cy="14" r="11" stroke="#e8725a" stroke-width="2.5" fill="rgba(232,114,90,0.09)"/>
-              <line x1="14" y1="14" x2="14" y2="6.5" stroke="#e8725a" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="14" y1="14" x2="19.5" y2="17" stroke="#e8725a" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="14" cy="14" r="2" fill="#e8725a" opacity="0.35"/>
-              <path d="M10.5 18.5 Q14 21.5 17.5 18.5" stroke="#e8725a" stroke-width="2" stroke-linecap="round" fill="none"/>
-              <circle cx="10" cy="11" r="1.3" fill="#e8725a" opacity="0.55"/>
-              <circle cx="18" cy="11" r="1.3" fill="#e8725a" opacity="0.55"/>
-              <path d="M25 3 L25.5 4.5 L27 4.5 L25.8 5.4 L26.3 6.9 L25 6 L23.7 6.9 L24.2 5.4 L23 4.5 L24.5 4.5Z" fill="#f5c842" opacity="0.80"/>
+              <circle cx="14" cy="15" r="10" stroke="rgba(255,255,255,0.92)" stroke-width="2.8" fill="rgba(255,255,255,0.15)"/>
+              <line x1="14" y1="15" x2="14" y2="8" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="14" y1="15" x2="20" y2="18" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="10.5" cy="12.5" r="1.8" fill="white"/>
+              <circle cx="17.5" cy="12.5" r="1.8" fill="white"/>
+              <path d="M10.5 18.5 C11.5 21,16.5 21,17.5 18.5" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+              <path d="M22 3 L22.6 5 L24.8 5 L23.1 6.3 L23.7 8.3 L22 7 L20.3 8.3 L20.9 6.3 L19.2 5 L21.4 5Z" fill="#f5c842"/>
             </svg>
           </div>
           <h3>Prije &#269;asa</h3>
@@ -1685,15 +1713,15 @@
         </div>
 
         <div class="tok-card accent-periwinkle">
-          <div class="tok-icon">
-            <!-- open laptop with speech bubble -->
+          <div class="tok-icon" style="transform:rotate(4deg);">
+            <!-- laptop with speech bubble: floating illustration on solid bg -->
             <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="8" width="18" height="12" rx="2.5" stroke="#5B63C5" stroke-width="2.5" fill="rgba(91,99,197,0.09)"/>
-              <line x1="7" y1="12" x2="17" y2="12" stroke="#5B63C5" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
-              <line x1="7" y1="15" x2="13" y2="15" stroke="#5B63C5" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
-              <path d="M1 20 L27 20 L25.5 23 L2.5 23Z" stroke="#5B63C5" stroke-width="1.8" fill="rgba(91,99,197,0.10)" stroke-linejoin="round"/>
-              <path d="M20 2 C21 2,26 2,26 5 C26 8,21 8,20 8 L17.5 11 L18 8 C17 8,16 6.5,16 5 C16 3,17.5 2,20 2Z" stroke="#e8725a" stroke-width="2" stroke-linecap="round" fill="rgba(232,114,90,0.12)"/>
-              <path d="M18.5 5 C19.5 4.5,21 5.5,22.5 5 C24 4.5,25 5.5,25.5 5" stroke="#e8725a" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.70"/>
+              <rect x="3" y="9" width="17" height="11" rx="2" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.20)"/>
+              <line x1="6" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.75)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="6" y1="16" x2="12" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M1 20 L27 20 L25 24 L3 24Z" fill="rgba(255,255,255,0.22)" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M19 3 C20 3,25 3,25 6 C25 9,20 9,19 9 L17 12 L17.5 9 C16.5 9,15.5 7.5,15.5 6 C15.5 4,17 3,19 3Z" stroke="#f5c842" stroke-width="2.2" stroke-linecap="round" fill="rgba(245,200,66,0.30)"/>
+              <path d="M17.5 6 C18.5 5.5,20 6.5,21.5 6 C23 5.5,24 6.5,24.5 6" stroke="#f5c842" stroke-width="1.6" stroke-linecap="round"/>
             </svg>
           </div>
           <h3>Tokom &#269;asa</h3>
@@ -1701,43 +1729,40 @@
         </div>
 
         <div class="tok-card accent-teal">
-          <div class="tok-icon">
-            <!-- open notebook with pencil -->
+          <div class="tok-icon" style="transform:rotate(-3deg);">
+            <!-- notebook + pencil: floating illustration on solid bg -->
             <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="3" width="16" height="22" rx="3" stroke="#3a9e8f" stroke-width="2.5" fill="rgba(58,158,143,0.09)"/>
-              <line x1="7" y1="9" x2="15" y2="9" stroke="#3a9e8f" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="7" y1="13" x2="15" y2="13" stroke="#3a9e8f" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="7" y1="17" x2="11" y2="17" stroke="#3a9e8f" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="3" cy="7.5" r="1.2" fill="#3a9e8f" opacity="0.45"/>
-              <circle cx="3" cy="12" r="1.2" fill="#3a9e8f" opacity="0.45"/>
-              <circle cx="3" cy="16.5" r="1.2" fill="#3a9e8f" opacity="0.45"/>
-              <!-- pencil overlapping right side -->
-              <path d="M19 19 L25 12 L23.5 10.5 L17.5 17.5Z" stroke="#f5c842" stroke-width="2" stroke-linejoin="round" fill="rgba(245,200,66,0.30)"/>
-              <path d="M17.5 17.5 L19 19 L16.5 20Z" fill="#3a9e8f" opacity="0.55"/>
-              <line x1="24" y1="11.5" x2="25" y2="12" stroke="#f5c842" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="2" y="2" width="16" height="22" rx="3" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.20)"/>
+              <line x1="6" y1="8" x2="14" y2="8" stroke="rgba(255,255,255,0.80)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="6" y1="12" x2="14" y2="12" stroke="rgba(255,255,255,0.65)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="6" y1="16" x2="11" y2="16" stroke="rgba(255,255,255,0.50)" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M18 19 L25 10 L23 8 L16 17Z" fill="rgba(245,200,66,0.50)" stroke="#f5c842" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M16 17 L18 19 L15 21Z" fill="#f5c842"/>
+              <path d="M23.2 8.8 L25 10 L23 12 L21.2 10.8Z" fill="rgba(255,255,255,0.35)"/>
             </svg>
           </div>
           <h3>Nakon &#269;asa</h3>
           <p>U&#269;iteljica na Padlet postavlja doma&#263;i zadatak (u formi kviza - nije obavezno, ali postoji za one koji &#382;ele vi&#353;e), dodatne materijale i na&#353;u posebnu Vje&#382;banku.</p>
-          <div class="parent-note-box">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px;">
-              <path d="M9 1.5 L10.5 6.2 L15.5 6.2 L11.5 9.2 L13 13.8 L9 10.8 L5 13.8 L6.5 9.2 L2.5 6.2 L7.5 6.2Z" fill="#3a9e8f"/>
-            </svg>
-            Najve&#263;i napredak ostvaruju u&#269;enici koji i pored &#269;asa koriste bosanski u svakodnevnoj komunikaciji.
-          </div>
         </div>
 
       </div>
 
+      <div class="parent-note-box" style="margin-top:24px;justify-content:center;text-align:center;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px;">
+          <path d="M9 1.5 L10.5 6.2 L15.5 6.2 L11.5 9.2 L13 13.8 L9 10.8 L5 13.8 L6.5 9.2 L2.5 6.2 L7.5 6.2Z" fill="#3a9e8f"/>
+        </svg>
+        Najve&#263;i napredak ostvaruju u&#269;enici koji i pored &#269;asa koriste bosanski u svakodnevnoj komunikaciji.
+      </div>
+
       <!-- Vje&#382;banka highlight box -->
       <div class="vjezb-box">
-        <div class="vjezb-icon">
-          <!-- open book with big bright star -->
+        <div class="vjezb-icon" style="transform:rotate(-5deg);">
+          <!-- open book floating on yellow bg -->
           <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 6 C11 5,5 5.5,3 7 L3 22 C5 21,11 21,14 22Z" fill="rgba(26,39,68,0.18)" stroke="rgba(26,39,68,0.45)" stroke-width="1.5" stroke-linejoin="round"/>
-            <path d="M14 6 C17 5,23 5.5,25 7 L25 22 C23 21,17 21,14 22Z" fill="rgba(26,39,68,0.10)" stroke="rgba(26,39,68,0.32)" stroke-width="1.5" stroke-linejoin="round"/>
-            <line x1="14" y1="6" x2="14" y2="22" stroke="rgba(26,39,68,0.50)" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M20 7.5 L21.2 11 L24.8 11 L21.9 13.2 L23 16.7 L20 14.5 L17 16.7 L18.1 13.2 L15.2 11 L18.8 11Z" fill="rgba(232,114,90,0.85)" stroke="rgba(232,114,90,0.30)" stroke-width="0.5"/>
+            <path d="M14 3 C11 2,3 2.5,1 4 L1 24 C3 23,11 22.5,14 24Z" stroke="rgba(26,39,68,0.70)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M14 3 C17 2,25 2.5,27 4 L27 24 C25 23,17 22.5,14 24Z" stroke="rgba(26,39,68,0.55)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="14" y1="3" x2="14" y2="24" stroke="rgba(26,39,68,0.65)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 5 L20.2 8.8 L24.2 8.8 L21 11.2 L22.2 15 L19 12.6 L15.8 15 L17 11.2 L13.8 8.8 L17.8 8.8Z" fill="#e8725a"/>
           </svg>
         </div>
         <div class="vjezb-body">
@@ -1755,16 +1780,18 @@
        SECTION 7 - NIVOI
   ================================================= -->
   <section class="section section-pale-coral">
-    <!-- deco: dashed circle bottom-right -->
-    <svg style="position:absolute;bottom:32px;right:4%;opacity:0.28;" width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-      <circle cx="32" cy="32" r="28" stroke="#f5c842" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <!-- deco: wobbly circle bottom-right -->
+    <svg style="position:absolute;bottom:28px;right:4%;opacity:0.30;transform:rotate(-5deg);" width="70" height="70" viewBox="0 0 70 70" fill="none" aria-hidden="true">
+      <path d="M35 6 C50 4,64 16,65 32 C66 48,54 64,38 66 C22 68,6 58,4 42 C2 26,14 8,35 6Z" stroke="#f5c842" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M55 10 L56 13.5 L60 13.5 L57.1 15.7 L58.1 19.2 L55 17 L51.9 19.2 L52.9 15.7 L50 13.5 L54 13.5Z" fill="rgba(245,200,66,0.65)"/>
     </svg>
     <!-- graduation cap deco top-right -->
-    <svg style="position:absolute;top:36px;right:6%;opacity:0.17;" width="58" height="46" viewBox="0 0 58 46" fill="none" aria-hidden="true">
-      <polygon points="29,6 5,20 29,34 53,20" stroke="#5B63C5" stroke-width="2" stroke-linejoin="round" fill="none"/>
-      <path d="M13 25 L13 36 C13 36,20 43,29 43 C38 43,45 36,45 36 L45 25" stroke="#5B63C5" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <line x1="53" y1="20" x2="53" y2="31" stroke="#5B63C5" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="53" cy="33.5" r="2.5" fill="#5B63C5"/>
+    <svg style="position:absolute;top:32px;right:6%;opacity:0.20;transform:rotate(5deg);" width="64" height="54" viewBox="0 0 64 54" fill="none" aria-hidden="true">
+      <polygon points="32,5 5,22 32,37 59,22" stroke="#5B63C5" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" fill="rgba(91,99,197,0.07)"/>
+      <path d="M14 28 L14 40 C14 40,22 50,32 50 C42 50,50 40,50 40 L50 28" stroke="#5B63C5" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <line x1="59" y1="22" x2="59" y2="35" stroke="#5B63C5" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="59" cy="39" r="4.5" fill="#e8725a"/>
+      <path d="M59 39 L63 48 M59 39 L55 47" stroke="#e8725a" stroke-width="2" stroke-linecap="round"/>
     </svg>
     <!-- dot column left -->
     <svg style="position:absolute;top:50%;left:1.5%;transform:translateY(-50%);opacity:0.25;" width="20" height="120" viewBox="0 0 20 120" fill="none" aria-hidden="true">
@@ -1776,7 +1803,10 @@
     </svg>
     <div class="inner">
       <div style="text-align:center;">
-        <span class="pill-label pill-coral">Program po nivoima</span>
+        <span class="pill-label pill-coral">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1.5" y="9" width="3" height="3" rx="1" fill="#e8725a" opacity="0.75"/><rect x="5.5" y="6" width="3" height="6" rx="1" fill="#e8725a" opacity="0.85"/><rect x="9.5" y="3" width="3" height="9" rx="1" fill="#e8725a"/></svg>
+          Program po nivoima
+        </span>
         <h2 class="section-title navy">Gdje je Va&#353;e dijete danas?</h2>
         <p class="section-sub muted" style="max-width:560px;margin:0 auto;">Program je podijeljen u vi&#353;e faza, kako bi napredak bio jasan i postepen. Svaki u&#269;enik po&#269;inje tamo gdje zaista jeste.</p>
       </div>
@@ -1790,13 +1820,15 @@
 
           <div class="nivo-card">
             <div class="nivo-card-header">
-              <div class="nivo-card-icon c1">
-                <!-- cute smiley face for young learners -->
-                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="11" cy="11" r="8" stroke="#e8725a" stroke-width="1.8" fill="none"/>
-                  <circle cx="8.5" cy="10" r="1.5" fill="#e8725a"/>
-                  <circle cx="13.5" cy="10" r="1.5" fill="#e8725a"/>
-                  <path d="M8 13.5 Q11 16.5 14 13.5" stroke="#e8725a" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <div class="nivo-card-icon c1" style="transform:rotate(-5deg);">
+                <!-- child figure with arms raised: navy on yellow bg -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="5" r="3" stroke="#1a2744" stroke-width="2.5" fill="rgba(26,39,68,0.12)"/>
+                  <line x1="12" y1="8" x2="12" y2="16" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M12 10 L7 7" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M12 10 L17 7" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M12 16 L9 21" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M12 16 L15 21" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
                 </svg>
               </div>
               <div>
@@ -1817,13 +1849,13 @@
 
           <div class="nivo-card">
             <div class="nivo-card-header">
-              <div class="nivo-card-icon c2">
-                <!-- open book with star for beginners -->
-                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 5 C9 4,4 4.5,3 6 L3 18 C4 17,9 17,11 18Z" stroke="#5B63C5" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
-                  <path d="M11 5 C13 4,18 4.5,19 6 L19 18 C18 17,13 17,11 18Z" stroke="#5B63C5" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
-                  <line x1="11" y1="5" x2="11" y2="18" stroke="#5B63C5" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
-                  <path d="M15.5 7.5 L16.2 9.5 L18.3 9.5 L16.7 10.7 L17.3 12.7 L15.5 11.5 L13.7 12.7 L14.3 10.7 L12.7 9.5 L14.8 9.5Z" fill="#5B63C5" opacity="0.65"/>
+              <div class="nivo-card-icon c2" style="transform:rotate(4deg);">
+                <!-- open book with bookmark: white on coral bg -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5 C10 4,4 4.5,2.5 6 L2.5 19 C4 18,10 17.5,12 19Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <path d="M12 5 C14 4,20 4.5,21.5 6 L21.5 19 C20 18,14 17.5,12 19Z" stroke="rgba(255,255,255,0.80)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <line x1="12" y1="5" x2="12" y2="19" stroke="rgba(255,255,255,0.70)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M18 4 L18 13 L16 11.5 L14 13 L14 4Z" fill="rgba(255,255,255,0.90)" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div>
@@ -1844,13 +1876,14 @@
 
           <div class="nivo-card">
             <div class="nivo-card-header">
-              <div class="nivo-card-icon c3">
-                <!-- lightbulb for adult learners -->
-                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 3 C7.5 3,5 5.5,5 8.5 C5 11,6.5 12.5,7.5 13.5 L7.5 15.5 L14.5 15.5 L14.5 13.5 C15.5 12.5,17 11,17 8.5 C17 5.5,14.5 3,11 3Z" stroke="#3a9e8f" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
-                  <line x1="8.5" y1="17.5" x2="13.5" y2="17.5" stroke="#3a9e8f" stroke-width="1.6" stroke-linecap="round"/>
-                  <line x1="9.5" y1="19.5" x2="12.5" y2="19.5" stroke="#3a9e8f" stroke-width="1.6" stroke-linecap="round"/>
-                  <line x1="11" y1="6" x2="11" y2="11" stroke="#3a9e8f" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+              <div class="nivo-card-icon c3" style="transform:rotate(-4deg);">
+                <!-- person silhouette + speech bubble: white on periwinkle bg -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="9" cy="7" r="3.5" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.18)"/>
+                  <path d="M3 21 C3 16.5,5.5 14,9 14 C12.5 14,15 16.5,15 21" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  <rect x="15" y="3" width="7" height="6" rx="2" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.15)"/>
+                  <path d="M17.5 9 L16.5 12 L19.5 9" stroke="white" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+                  <line x1="17" y1="5.5" x2="19.5" y2="5.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
                 </svg>
               </div>
               <div>
@@ -1936,18 +1969,21 @@
       <path d="M0 19 C100 5,200 33,300 19 C400 5,500 33,600 19 C700 5,800 33,900 19 C1000 5,1100 33,1200 19" stroke="white" stroke-width="3" stroke-linecap="round"/>
     </svg>
     <!-- apple deco top-right -->
-    <svg style="position:absolute;top:44px;right:7%;opacity:0.12;" width="44" height="52" viewBox="0 0 44 52" fill="none" aria-hidden="true">
-      <circle cx="22" cy="30" r="17" stroke="white" stroke-width="2"/>
-      <path d="M22 13 C22 9,26 5,30 4" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      <path d="M22 13 C18 9,13 7,10 9" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <svg style="position:absolute;top:40px;right:7%;opacity:0.15;transform:rotate(5deg);" width="52" height="60" viewBox="0 0 52 60" fill="none" aria-hidden="true">
+      <path d="M26 16 C14 16,6 26,6 36 C6 48,16 58,26 58 C36 58,46 48,46 36 C46 26,38 16,26 16Z" stroke="white" stroke-width="3" stroke-linecap="round" fill="rgba(255,255,255,0.05)"/>
+      <path d="M26 16 C26 10,30 5,35 4" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M26 14 C23 8,16 6,12 9" stroke="rgba(255,255,255,0.60)" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
     <!-- heart deco bottom-right -->
-    <svg style="position:absolute;bottom:42px;right:9%;opacity:0.10;" width="44" height="40" viewBox="0 0 44 40" fill="none" aria-hidden="true">
-      <path d="M22 36 C22 36,3 23,3 13 C3 7,8 3,15 3 C18 3,20 4,22 7 C24 4,26 3,29 3 C36 3,41 7,41 13 C41 23,22 36,22 36Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+    <svg style="position:absolute;bottom:38px;right:9%;opacity:0.14;transform:rotate(-8deg);" width="50" height="48" viewBox="0 0 50 48" fill="none" aria-hidden="true">
+      <path d="M25 43 C25 43,3 28,3 14 C3 7,9 2,17 2 C20.5 2,23 4,25 7.5 C27 4,29.5 2,33 2 C41 2,47 7,47 14 C47 28,25 43,25 43Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.07)"/>
     </svg>
     <div class="inner">
       <div style="text-align:center;">
-        <span class="pill-label pill-coral-solid">Na&#353;e nastavnice</span>
+        <span class="pill-label pill-coral-solid">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="4.5" r="2.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M1.5 13 C1.5 10,3.5 8.5,7 8.5 C10.5 8.5,12.5 10,12.5 13" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M10 1 L10.4 2.3 L11.8 2.3 L10.7 3.1 L11.1 4.4 L10 3.6 L8.9 4.4 L9.3 3.1 L8.2 2.3 L9.6 2.3Z" fill="rgba(245,200,66,0.90)"/></svg>
+          Na&#353;e nastavnice
+        </span>
         <h2 class="section-title white">Svaka nastavnica razumije &#353;ta zna&#269;i<br>odrastati izme&#273;u dva jezika.</h2>
         <p class="section-sub white-muted" style="max-width:560px;margin:0 auto;">Ne biramo nastavnice samo po obrazovanju. Biramo one koje razumiju djecu koja &#382;ive izme&#273;u dvije kulture i dva jezika.</p>
       </div>
@@ -2016,7 +2052,7 @@
       <path d="M0 20 C150 5,250 35,400 20 C550 5,650 35,800 20 C950 5,1050 32,1200 20" stroke="white" stroke-width="3" stroke-linecap="round"/>
     </svg>
     <div class="inner-sm" style="position:relative;z-index:2;">
-      <h2>Tako Lako - ali s razlogom</h2>
+      <h2>Tako Lako - ali s razlogom.</h2>
       <p>U&#269;enje mo&#382;e biti jasno, prirodno i opu&#353;teno - kada se radi na pravi na&#269;in. Zato na&#353;i u&#269;enici ne u&#269;e napamet - nego razumiju, koriste i vole jezik.</p>
     </div>
   </section>
@@ -2026,18 +2062,22 @@
   ================================================= -->
   <section class="section section-white" style="text-align:center;position:relative;">
     <!-- pencil deco bottom-left -->
-    <svg style="position:absolute;bottom:36px;left:6%;opacity:0.13;" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <path d="M28 3 L37 12 L12 37 L3 37 L3 28Z" stroke="#1a2744" stroke-width="2" stroke-linejoin="round"/>
-      <line x1="27" y1="4" x2="36" y2="13" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    <svg style="position:absolute;bottom:32px;left:6%;opacity:0.16;transform:rotate(-8deg);" width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+      <path d="M30 3 L43 16 L16 43 L3 43 L3 30Z" stroke="#1a2744" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(26,39,68,0.05)"/>
+      <path d="M29 4 L42 17" stroke="#1a2744" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M40 9 L43 12 L39 16 L36 13Z" fill="rgba(245,200,66,0.60)" stroke="#f5c842" stroke-width="1.5" stroke-linejoin="round"/>
     </svg>
-    <svg style="position:absolute;top:48px;right:8%;opacity:0.50;" width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-      <path d="M28 6 L32 20 L47 20 L36 29 L40 43 L28 34 L16 43 L20 29 L9 20 L24 20Z" fill="rgba(91,99,197,0.20)" stroke="rgba(91,99,197,0.22)" stroke-width="1.5" stroke-linejoin="round"/>
+    <svg style="position:absolute;top:44px;right:8%;opacity:0.42;transform:rotate(-10deg);" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+      <path d="M30 5 L35 21 L52 21 L39 31 L44 47 L30 37 L16 47 L21 31 L8 21 L25 21Z" fill="rgba(91,99,197,0.15)" stroke="rgba(91,99,197,0.55)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <svg style="position:absolute;bottom:40px;left:6%;opacity:0.35;" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-      <circle cx="22" cy="22" r="18" stroke="rgba(232,114,90,0.45)" stroke-width="2" stroke-dasharray="5 5"/>
+    <svg style="position:absolute;bottom:36px;left:6%;opacity:0.32;transform:rotate(12deg);" width="50" height="50" viewBox="0 0 50 50" fill="none" aria-hidden="true">
+      <path d="M25 6 C34 5,44 12,45 23 C46 34,38 44,27 46 C16 48,5 40,4 29 C3 18,10 8,25 6Z" stroke="rgba(232,114,90,0.60)" stroke-width="3" stroke-linecap="round" fill="none"/>
     </svg>
     <div class="inner-sm" style="position:relative;z-index:2;">
-      <span class="pill-label pill-periwinkle">Imate pitanja?</span>
+      <span class="pill-label pill-periwinkle">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="#5B63C5" stroke-width="1.8"/><path d="M5.5 5.5 C5.5 4,8.5 4,8.5 6 C8.5 7,7 7.5,7 8.5" stroke="#5B63C5" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="7" cy="10.5" r="1" fill="#5B63C5"/></svg>
+        Imate pitanja?
+      </span>
       <h2 class="section-title navy">Mo&#382;da smo ve&#263; odgovorili.</h2>
       <p class="section-sub muted" style="max-width:480px;margin:0 auto 32px;">Pogledajte &#269;esto postavljena pitanja roditelja iz dijaspore - od cijene i termina do motivacije i napretka.</p>
       <a href="faq.html" class="btn btn-navy">&#268;esto postavljena pitanja &rarr;</a>
@@ -2047,7 +2087,28 @@
   <!-- ================================================
        SECTION 10 - CTA
   ================================================= -->
-  <section class="section section-coral" style="padding:96px 24px;">
+  <section class="section section-coral" style="padding:96px 24px;position:relative;overflow:hidden;">
+    <!-- star top-left -->
+    <svg style="position:absolute;top:32px;left:6%;opacity:0.25;" width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+      <path d="M28 5 L33 19 L48 19 L37 28 L42 42 L28 33 L14 42 L19 28 L8 19 L23 19Z" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <!-- speech bubble bottom-right -->
+    <svg style="position:absolute;bottom:28px;right:6%;opacity:0.20;" width="72" height="54" viewBox="0 0 72 54" fill="none" aria-hidden="true">
+      <path d="M4 4 C4 2,8 0,36 0 C64 0,68 2,68 4 L68 30 C68 32,64 34,36 34 C26 34,18 33,12 32 L4 44 L8 32 C6 31,4 30,4 29 Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.08)"/>
+      <path d="M36 22 C36 22,26 15,26 10 C26 7,28.5 5,31 5 C33 5,35 7,36 9 C37 7,39 5,41 5 C43.5 5,46 7,46 10 C46 15,36 22,36 22Z" fill="white" opacity="0.30"/>
+    </svg>
+    <!-- sparkle dots -->
+    <svg style="position:absolute;top:40px;right:12%;opacity:0.22;" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="4" fill="white"/>
+      <circle cx="24" cy="4" r="3" fill="white" opacity="0.70"/>
+      <circle cx="40" cy="12" r="5" fill="white" opacity="0.55"/>
+      <circle cx="6" cy="32" r="3.5" fill="white" opacity="0.45"/>
+      <circle cx="40" cy="38" r="3" fill="white" opacity="0.60"/>
+    </svg>
+    <!-- wobbly circle top-right -->
+    <svg style="position:absolute;bottom:40px;left:10%;opacity:0.15;" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+      <path d="M40 6 C54 4,70 16,72 32 C74 48,62 68,46 72 C30 76,10 66,6 50 C2 34,14 10,40 6Z" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </svg>
     <div class="cta-section-inner">
       <h2>&#381;elite vidjeti kako Va&#353;e dijete reaguje na &#269;as?</h2>
       <p class="cta-sub">Probni &#269;as je besplatan i bez obaveza. Nastavnica procijeni nivo i preporu&#269;i pravi program.</p>
