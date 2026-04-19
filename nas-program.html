@@ -776,17 +776,27 @@
     }
     .chat-header-info {
       font-family: 'Nunito', sans-serif;
-      font-size: 13px;
       font-weight: 600;
       color: rgba(255,255,255,0.88);
       display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .chat-header-title {
+      font-size: 13px;
+    }
+    .chat-header-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
     }
     .chat-header-info span {
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.45);
       font-weight: 400;
+    }
+    @media (max-width: 768px) {
+      .chat-header-title { font-size: 12px; }
+      .chat-header-meta { font-size: 11px; }
     }
     .chat-live-pill {
       background: var(--coral);
@@ -1849,13 +1859,8 @@
         <!-- header bar -->
         <div class="chat-header">
           <div class="chat-header-info">
-            &#268;as u toku - Nivo 2
-            <span>/</span>
-            Tema: U supermarketu
-            <span>-</span>
-            45 min
-            <span>-</span>
-            Nastavnica Ivona
+            <div class="chat-header-title">&#268;as u toku - Nivo 2 <span>/</span> Tema: U supermarketu</div>
+            <div class="chat-header-meta">45 min <span>·</span> Nastavnica Ivona</div>
           </div>
           <div class="chat-live-pill">
             <span class="chat-live-dot"></span>
