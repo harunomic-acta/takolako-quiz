@@ -530,21 +530,22 @@
     .nivo-card:nth-child(2) .nivo-bullets li::before { background: var(--coral); }
     .nivo-card:nth-child(3) .nivo-bullets li::before { background: var(--periwinkle); }
     .nivo-footer-pill {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--coral);
       background: rgba(232,114,90,0.08);
       border: 1px solid rgba(232,114,90,0.18);
-      padding: 5px 12px;
+      padding: 3px 9px;
       border-radius: 100px;
       display: inline-block;
     }
 
     .nivo-cards-b {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 16px;
     }
+    .nivo-card-b { width: fit-content; min-width: 160px; }
     .nivo-card-b {
       background: var(--white);
       border-radius: var(--radius);
@@ -713,7 +714,8 @@
         gap: 12px;
       }
       .faze-grid .faza-card { padding: 16px 14px; }
-      .vjezb-box { flex-direction: column; gap: 16px; padding: 26px 22px; }
+      .vjezb-box { flex-direction: column; gap: 16px; padding: 26px 22px; align-items: center; text-align: center; }
+      .vjezb-box .btn { align-self: center; }
       .cta-buttons { flex-direction: column; align-items: center; }
     }
     @media (max-width: 640px) {
@@ -1012,7 +1014,9 @@
       .tok-card {
         flex: 0 0 80vw;
         scroll-snap-align: start;
+        text-align: center;
       }
+      .tok-card .tok-icon { margin-left: auto; margin-right: auto; }
 
       /* CHANGE 6 — Level cards: horizontal carousels */
       .nivo-cards-a {
@@ -1133,7 +1137,7 @@
     <div class="hero-inner">
       <span class="pill-label pill-white">Na&#353; program</span>
       <h1>Svako dijete napreduje druga&#269;ije.<br>Na&#353; kurikulum je osmi&#353;ljen upravo za to.</h1>
-      <p class="hero-sub" style="max-width:600px;margin-left:auto;margin-right:auto;">Na&#353;a nastava nije improvizacija niti aplikacija sa zadacima - to je sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
+      <p class="hero-sub" style="max-width:600px;margin-left:auto;margin-right:auto;">Na&#353;a nastava nije improvizacija niti aplikacija sa zadacima.<br>To je sistem koji gradi znanje, sigurnost i ljubav prema jeziku.</p>
 
       <div class="hero-chips">
         <div class="hero-chip hero-chip-coral" style="transform:rotate(-1.5deg);">
@@ -2199,7 +2203,7 @@
         Imate pitanja?
       </span>
       <h2 class="section-title navy">Mo&#382;da smo ve&#263; odgovorili.</h2>
-      <p class="section-sub muted" style="max-width:480px;margin:0 auto 32px;">Pogledajte &#269;esto postavljena pitanja roditelja iz dijaspore - od cijene i termina do motivacije i napretka.</p>
+      <p class="section-sub muted" style="max-width:480px;margin:0 auto 32px;">Pogledajte &#269;esto postavljena pitanja roditelja iz dijaspore.<br>Od cijene i termina do motivacije i napretka.</p>
       <a href="faq.html" class="btn btn-navy">&#268;esto postavljena pitanja &rarr;</a>
     </div>
   </section>
