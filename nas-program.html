@@ -751,49 +751,6 @@
       .filozofija-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .inline-cta { padding: 40px 80px; }
-    @media (max-width: 780px) {
-      .inline-cta { padding: 32px 24px; }
-      .filozofija-grid { grid-template-columns: 1fr; }
-      .kurikulum-layout { grid-template-columns: 1fr; gap: 36px; }
-      .kurikulum-illus { display: none; }
-      .meto-grid { grid-template-columns: 1fr; }
-      .tok-grid { grid-template-columns: 1fr; }
-      .nivo-cards-a { grid-template-columns: 1fr; }
-      .nivo-cards-b { grid-template-columns: 1fr; }
-      .nas-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .nas-grid::-webkit-scrollbar { display: none; }
-      .nas-grid .nas-card {
-        flex: 0 0 80vw;
-        scroll-snap-align: start;
-      }
-      .faze-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        grid-template-columns: unset;
-      }
-      .faze-grid::-webkit-scrollbar { display: none; }
-      .faze-grid .faza-card { flex: 0 0 82vw; max-width: 340px; scroll-snap-align: start; padding: 20px 18px; }
-      .vjezb-box { padding: 28px 24px; }
-      .cta-buttons { flex-direction: column; align-items: center; }
-    }
-    @media (max-width: 640px) {
-      .section { padding: 64px 20px; }
-      .chat-vocab-row { flex-direction: column; }
-      .chat-results { flex-direction: column; gap: 10px; }
-    }
 
     /* ========================================
        PRIMJER IZ PRAKSE - CHAT SIMULATION
@@ -1030,34 +987,71 @@
     .mobile-hero-br { display: none; }
 
     @media (max-width: 768px) {
-      .mobile-hero-br { display: block; }
+      /* Section padding */
+      .section { padding: 64px 20px; }
+      .inline-cta { padding: 32px 24px; }
 
-      /* CHANGE 1 — Hero pills: 2x2 grid */
+      /* Fixed max-width inner content constraint */
+      .inner, .inner-md, .inner-sm { max-width: 420px; margin-left: auto; margin-right: auto; }
+      .hero-inner { max-width: 420px; }
+      .cta-section-inner { max-width: 420px; }
+      .inner-cta-box { padding-left: 0 !important; padding-right: 0 !important; }
+
+      /* Layout adjustments */
+      .filozofija-grid { grid-template-columns: 1fr; }
+      .kurikulum-layout { grid-template-columns: 1fr; gap: 36px; }
+      .kurikulum-illus { display: none; }
+      .vjezb-box { padding: 28px 24px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+
+      /* Carousels */
+      .nas-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nas-grid::-webkit-scrollbar { display: none; }
+      .nas-grid .nas-card { flex: 0 0 80vw; scroll-snap-align: start; }
+      .faze-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: unset;
+      }
+      .faze-grid::-webkit-scrollbar { display: none; }
+      .faze-grid .faza-card { flex: 0 0 82vw; max-width: 340px; scroll-snap-align: start; padding: 20px 18px; }
+
+      /* Chat section */
+      .chat-results { flex-direction: column; gap: 10px; }
+
+      /* Mobile line breaks */
+      .mobile-hero-br { display: block; }
+      .mobile-break::before { content: '\A'; white-space: pre; }
+
+      /* Hero pills: 2x2 grid */
       .hero-chips {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
-      .hero-chip {
-        justify-content: center;
-      }
-      .mobile-break::before { content: '\A'; white-space: pre; }
+      .hero-chip { justify-content: center; }
 
-      /* CHANGE 2 — "Učenje koje ima smisla" cards: center text and icon */
-      .filo-card {
-        text-align: center;
-      }
-      .filo-card .icon-sq {
-        margin-left: auto;
-        margin-right: auto;
-      }
+      /* "Učenje koje ima smisla" cards: center */
+      .filo-card { text-align: center; }
+      .filo-card .icon-sq { margin-left: auto; margin-right: auto; }
 
-      /* CHANGE 3 — "Jasna struktura učenja" paragraphs: center text */
-      .kurikulum-text p {
-        text-align: center;
-      }
+      /* "Jasna struktura učenja" paragraphs: center */
+      .kurikulum-text p { text-align: center; }
 
-      /* CHANGE 4 — "Mali koraci. Veliki napredak." cards: horizontal carousel */
+      /* "Mali koraci. Veliki napredak." carousel */
       .meto-grid {
         display: flex;
         overflow-x: auto;
@@ -1069,12 +1063,9 @@
         grid-template-columns: unset;
       }
       .meto-grid::-webkit-scrollbar { display: none; }
-      .meto-card {
-        flex: 0 0 80vw;
-        scroll-snap-align: start;
-      }
+      .meto-card { flex: 0 0 80vw; scroll-snap-align: start; }
 
-      /* CHANGE 5 — "Učenje se ne završava na času" columns: horizontal carousel */
+      /* "Tok učenja" carousel */
       .tok-grid {
         display: flex;
         overflow-x: auto;
@@ -1086,14 +1077,10 @@
         grid-template-columns: unset;
       }
       .tok-grid::-webkit-scrollbar { display: none; }
-      .tok-card {
-        flex: 0 0 80vw;
-        scroll-snap-align: start;
-        text-align: center;
-      }
+      .tok-card { flex: 0 0 80vw; scroll-snap-align: start; text-align: center; }
       .tok-card .tok-icon { margin-left: auto; margin-right: auto; }
 
-      /* CHANGE 6 — Level cards: horizontal carousels */
+      /* Level cards: carousels */
       .nivo-cards-a {
         display: flex;
         overflow-x: auto;
@@ -1105,11 +1092,7 @@
         grid-template-columns: unset;
       }
       .nivo-cards-a::-webkit-scrollbar { display: none; }
-      .nivo-card {
-        flex: 0 0 82vw;
-        max-width: 340px;
-        scroll-snap-align: start;
-      }
+      .nivo-card { flex: 0 0 82vw; max-width: 340px; scroll-snap-align: start; }
       .nivo-cards-b {
         display: flex;
         overflow-x: auto;
@@ -1121,18 +1104,17 @@
         grid-template-columns: unset;
       }
       .nivo-cards-b::-webkit-scrollbar { display: none; }
-      .nivo-card-b {
-        flex: 0 0 auto;
-        width: fit-content;
-        max-width: 88vw;
-        scroll-snap-align: start;
-      }
+      .nivo-card-b { flex: 0 0 auto; width: fit-content; max-width: 88vw; scroll-snap-align: start; }
 
-      /* CHANGES 7 & 8 — Mobile line breaks */
-      .mobile-break-line {
-        display: block;
-        margin-top: 4px;
-      }
+      /* Fix A: Vocab cards horizontal (3-up) */
+      .chat-vocab-row { gap: 6px; }
+      .vocab-card { padding: 8px 6px; }
+      .vocab-card .vocab-label { font-size: 9px; margin-bottom: 4px; }
+      .vocab-card .vocab-de { font-size: 11px; }
+      .vocab-card .vocab-bs { font-size: 14px; }
+
+      /* Mobile line-break-line */
+      .mobile-break-line { display: block; margin-top: 4px; }
     }
   </style>
 </head>
@@ -1684,7 +1666,7 @@
             </div>
             <div class="chat-col">
               <div class="chat-bubble bubble-child-bs">Moj omiljeni je... majmun. Jer... on se penje na drvo!</div>
-              <div class="chat-note teal-bold">Prva potpuna re&#269;enica na bosanskom u ovom &#269;asu</div>
+              <div class="chat-note teal-bold">Prva potpuna re&#269;enica na<br class="mobile-hero-br"> bosanskom u ovom &#269;asu</div>
             </div>
           </div>
 
@@ -1722,7 +1704,7 @@
       <p class="chat-caption">Ovo je isje&#269;ak od 4 minute.<br class="mobile-hero-br"> Pravi &#269;as traje 45 minuta.<br class="mobile-hero-br"> I svaki je ovakav.</p>
 
       <div style="padding:48px 0 16px;text-align:center;">
-        <div style="max-width:680px;margin:0 auto;padding:0 48px;text-align:center;">
+        <div class="inner-cta-box" style="max-width:680px;margin:0 auto;padding:0 48px;text-align:center;">
           <svg width="240" height="20" viewBox="0 0 240 20" fill="none" aria-hidden="true" style="display:block;margin:0 auto 28px;"><path d="M0 10 C15 4,45 4,60 10 C75 16,105 16,120 10 C135 4,165 4,180 10 C195 16,225 16,240 10" stroke="rgba(26,39,68,0.3)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <h3 class="section-title navy" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Vidite sebe u ovoj pri&#269;i?</h3>
           <p class="section-sub muted" style="margin-bottom:24px;">Svaki &#269;as izgleda ovako - za svako dijete, na svakom nivou.</p>
@@ -2174,7 +2156,7 @@
       </div>
 
       <div style="padding:48px 0 16px;text-align:center;">
-        <div style="max-width:680px;margin:0 auto;padding:0 48px;text-align:center;">
+        <div class="inner-cta-box" style="max-width:680px;margin:0 auto;padding:0 48px;text-align:center;">
           <svg width="240" height="20" viewBox="0 0 240 20" fill="none" aria-hidden="true" style="display:block;margin:0 auto 28px;"><path d="M0 10 C15 4,45 4,60 10 C75 16,105 16,120 10 C135 4,165 4,180 10 C195 16,225 16,240 10" stroke="rgba(26,39,68,0.3)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <h3 class="section-title navy" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Znate li na kojem nivou<br class="mobile-hero-br"> je Va&#353;e dijete?</h3>
           <p class="section-sub muted" style="margin-bottom:24px;">Nastavnica &#263;e to potvrditi na prvom probnom &#269;asu - besplatno i bez obaveza.</p>
@@ -2208,7 +2190,7 @@
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="4.5" r="2.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M1.5 13 C1.5 10,3.5 8.5,7 8.5 C10.5 8.5,12.5 10,12.5 13" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M10 1 L10.4 2.3 L11.8 2.3 L10.7 3.1 L11.1 4.4 L10 3.6 L8.9 4.4 L9.3 3.1 L8.2 2.3 L9.6 2.3Z" fill="rgba(245,200,66,0.90)"/></svg>
           Na&#353;e nastavnice
         </span>
-        <h2 class="section-title white">Svaka nastavnica razumije &#353;ta zna&#269;i<br>odrastati izme&#273;u dva jezika.</h2>
+        <h2 class="section-title white">Svaka nastavnica razumije<br class="mobile-hero-br"> &#353;ta zna&#269;i odrastati<br class="mobile-hero-br"> izme&#273;u dva jezika.</h2>
         <p class="section-sub white-muted" style="max-width:560px;margin:0 auto;">Ne biramo nastavnice samo po obrazovanju. Biramo one koje razumiju djecu koja &#382;ive izme&#273;u dvije kulture i dva jezika.</p>
       </div>
 
@@ -2253,7 +2235,7 @@
       </div>
 
       <div style="text-align:center;padding-top:64px;padding-bottom:24px;">
-        <div style="max-width:680px;margin:0 auto;padding:0 48px;text-align:center;">
+        <div class="inner-cta-box" style="max-width:680px;margin:0 auto;padding:0 48px;text-align:center;">
           <svg width="240" height="20" viewBox="0 0 240 20" fill="none" aria-hidden="true" style="display:block;margin:0 auto 28px;"><path d="M0 10 C15 4,45 4,60 10 C75 16,105 16,120 10 C135 4,165 4,180 10 C195 16,225 16,240 10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <h3 class="section-title white" style="font-size:clamp(18px,2vw,22px);margin-bottom:10px;">Upoznajte nastavnicu li&#269;no.</h3>
           <p class="section-sub" style="color:rgba(255,255,255,0.75);margin-bottom:28px;">Na besplatnom probnom &#269;asu - bez pritiska, bez obaveza.</p>
