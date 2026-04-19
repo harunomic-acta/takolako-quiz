@@ -932,6 +932,104 @@
       max-width: 580px;
       margin: 0 auto;
     }
+
+    /* ── MOBILE-ONLY CHANGES ── */
+    .mobile-break-line { display: inline; }
+
+    @media (max-width: 768px) {
+      /* CHANGE 1 — Hero pills: 2x2 grid */
+      .hero-chips {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      /* CHANGE 2 — "Učenje koje ima smisla" cards: center text and icon */
+      .filo-card {
+        text-align: center;
+      }
+      .filo-card .icon-sq {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* CHANGE 3 — "Jasna struktura učenja" paragraphs: center text */
+      .kurikulum-text p {
+        text-align: center;
+      }
+
+      /* CHANGE 4 — "Mali koraci. Veliki napredak." cards: horizontal carousel */
+      .meto-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: unset;
+      }
+      .meto-grid::-webkit-scrollbar { display: none; }
+      .meto-card {
+        flex: 0 0 80vw;
+        scroll-snap-align: start;
+      }
+
+      /* CHANGE 5 — "Učenje se ne završava na času" columns: horizontal carousel */
+      .tok-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: unset;
+      }
+      .tok-grid::-webkit-scrollbar { display: none; }
+      .tok-card {
+        flex: 0 0 80vw;
+        scroll-snap-align: start;
+      }
+
+      /* CHANGE 6 — Level cards: horizontal carousels */
+      .nivo-cards-a {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: unset;
+      }
+      .nivo-cards-a::-webkit-scrollbar { display: none; }
+      .nivo-card {
+        flex: 0 0 80vw;
+        scroll-snap-align: start;
+      }
+      .nivo-cards-b {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: unset;
+      }
+      .nivo-cards-b::-webkit-scrollbar { display: none; }
+      .nivo-card-b {
+        flex: 0 0 80vw;
+        scroll-snap-align: start;
+      }
+
+      /* CHANGES 7 & 8 — Mobile line breaks */
+      .mobile-break-line {
+        display: block;
+        margin-top: 4px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2053,7 +2151,7 @@
     </svg>
     <div class="inner-sm" style="position:relative;z-index:2;">
       <h2>Tako Lako - ali s razlogom.</h2>
-      <p>U&#269;enje mo&#382;e biti jasno, prirodno i opu&#353;teno - kada se radi na pravi na&#269;in. Zato na&#353;i u&#269;enici ne u&#269;e napamet - nego razumiju, koriste i vole jezik.</p>
+      <p>U&#269;enje mo&#382;e biti jasno, prirodno i opu&#353;teno - kada se radi na pravi na&#269;in. <span class="mobile-break-line">Zato na&#353;i u&#269;enici ne u&#269;e napamet - nego razumiju, koriste i vole jezik.</span></p>
     </div>
   </section>
 
@@ -2111,7 +2209,7 @@
     </svg>
     <div class="cta-section-inner">
       <h2>&#381;elite vidjeti kako Va&#353;e dijete reaguje na &#269;as?</h2>
-      <p class="cta-sub">Probni &#269;as je besplatan i bez obaveza. Nastavnica procijeni nivo i preporu&#269;i pravi program.</p>
+      <p class="cta-sub">Probni &#269;as je besplatan i bez obaveza. <span class="mobile-break-line">Nastavnica procijeni nivo i preporu&#269;i pravi program.</span></p>
       <div class="cta-buttons">
         <a href="testni-cas.html" class="btn btn-white">Zaka&#382;ite besplatan testni &#269;as &rarr;</a>
         <a href="testni-cas.html" class="btn btn-outline-white">Kako izgleda probni &#269;as?</a>
