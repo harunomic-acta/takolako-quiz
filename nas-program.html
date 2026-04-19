@@ -446,6 +446,24 @@
     .nivoi-group { margin-top: 52px; }
     .nivoi-group-header { margin-bottom: 24px; }
 
+    .nivo-tabs { display:flex; justify-content:center; gap:12px; margin:32px 0 40px; flex-wrap:wrap; }
+    .nivo-tab {
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid rgba(26,39,68,0.20);
+      background: white;
+      color: var(--navy);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .nivo-tab:hover { border-color: var(--coral); color: var(--coral); }
+    .nivo-tab.active { background: var(--coral); color: white; border-color: var(--coral); }
+    .nivo-panel { display: none; }
+    .nivo-panel.active { display: block; }
+
     .nivo-cards-a {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1957,11 +1975,14 @@
         <p class="section-sub muted" style="max-width:560px;margin:0 auto;">Program je podijeljen u vi&#353;e faza, kako bi napredak bio jasan i postepen. Svaki u&#269;enik po&#269;inje tamo gdje zaista jeste.</p>
       </div>
 
-      <!-- GROUP A: Pocetni nivo -->
-      <div class="nivoi-group">
-        <div class="nivoi-group-header">
-          <span style="font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--coral);background:rgba(232,114,90,0.10);padding:5px 14px;border-radius:100px;border:1px solid rgba(232,114,90,0.20);">Po&#269;etni nivo</span>
-        </div>
+      <!-- Tab switcher -->
+      <div class="nivo-tabs" role="tablist">
+        <button class="nivo-tab active" data-tab="pocetni" type="button" role="tab" aria-selected="true" aria-controls="nivo-panel-pocetni">Po&#269;etni nivo</button>
+        <button class="nivo-tab" data-tab="dalji" type="button" role="tab" aria-selected="false" aria-controls="nivo-panel-dalji">Dalji razvoj</button>
+      </div>
+
+      <!-- PANEL A: Pocetni nivo -->
+      <div id="nivo-panel-pocetni" class="nivo-panel active" role="tabpanel">
         <div class="nivo-cards-a">
 
           <div class="nivo-card">
@@ -2048,13 +2069,10 @@
           </div>
 
         </div>
-      </div>
+      </div><!-- /nivo-panel-pocetni -->
 
-      <!-- GROUP B: Dalji razvoj -->
-      <div class="nivoi-group">
-        <div class="nivoi-group-header">
-          <span style="font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--periwinkle);background:rgba(91,99,197,0.10);padding:5px 14px;border-radius:100px;border:1px solid rgba(91,99,197,0.18);">Dalji razvoj</span>
-        </div>
+      <!-- PANEL B: Dalji razvoj -->
+      <div id="nivo-panel-dalji" class="nivo-panel" role="tabpanel">
         <div class="nivo-cards-b">
 
           <div class="nivo-card-b">
@@ -2098,7 +2116,7 @@
           </div>
 
         </div>
-      </div>
+      </div><!-- /nivo-panel-dalji -->
 
       <div class="nivo-note">
         <strong>Nivo djeteta procjenjujemo prije prvog &#269;asa</strong> - kroz kratak razgovor s nastavnicom. Dijete se ne raspore&#273;uje prema godinama nego prema stvarnom znanju.
@@ -2285,6 +2303,21 @@
     </div>
   </section>
 
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.nivo-tab');
+      var panels = document.querySelectorAll('.nivo-panel');
+      tabs.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          tabs.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          document.getElementById('nivo-panel-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
