@@ -690,6 +690,232 @@
     }
     @media (max-width: 640px) {
       .section { padding: 64px 20px; }
+      .chat-vocab-row { flex-direction: column; }
+      .chat-results { flex-direction: column; gap: 10px; }
+    }
+
+    /* ========================================
+       PRIMJER IZ PRAKSE - CHAT SIMULATION
+    ======================================== */
+    .section-lavender { background: #eef0fc; }
+    .chat-widget {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(91,99,197,0.13), 0 1px 4px rgba(0,0,0,0.06);
+      overflow: hidden;
+      margin-top: 44px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .chat-header {
+      background: #3d448f;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .chat-header-info {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .chat-header-info span {
+      color: rgba(255,255,255,0.55);
+      font-weight: 400;
+    }
+    .chat-live-pill {
+      background: var(--coral);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 13px;
+      border-radius: 100px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chat-live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #fff;
+      animation: blink 1.4s infinite;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
+    .chat-body {
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .chat-row { display: flex; gap: 10px; align-items: flex-start; }
+    .chat-row.right { flex-direction: row-reverse; }
+    .chat-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chat-avatar.teacher { background: #3d448f; }
+    .chat-avatar.child { background: rgba(245,200,66,0.30); border: 2px solid rgba(245,200,66,0.50); }
+    .chat-avatar-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-top: 4px;
+      color: var(--muted);
+    }
+    .chat-col { display: flex; flex-direction: column; align-items: flex-start; }
+    .chat-row.right .chat-col { align-items: flex-end; }
+    .chat-bubble {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.60;
+      padding: 11px 16px;
+      border-radius: 16px;
+      max-width: 420px;
+    }
+    .bubble-teacher {
+      background: #f2f2f5;
+      color: var(--navy);
+      border-bottom-left-radius: 4px;
+    }
+    .bubble-child-de {
+      background: #fde8e4;
+      color: #7a2a1a;
+      border-bottom-right-radius: 4px;
+    }
+    .bubble-child-bs {
+      background: #e4f4ee;
+      color: #1a4a34;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-style: italic;
+      margin-top: 5px;
+    }
+    .chat-note.coral { color: var(--coral); }
+    .chat-note.teal { color: var(--teal); }
+    .chat-note.teal-bold { color: var(--teal); font-weight: 700; font-style: normal; }
+    .chat-vocab-row {
+      display: flex;
+      gap: 10px;
+      padding: 4px 0;
+    }
+    .vocab-card {
+      background: #f5f5f8;
+      border-radius: 10px;
+      padding: 10px 16px;
+      flex: 1;
+      text-align: center;
+    }
+    .vocab-card .vocab-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--periwinkle);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .vocab-card .vocab-de {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .vocab-card .vocab-bs {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      color: var(--navy);
+    }
+    .chat-results {
+      display: flex;
+      gap: 20px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    .chat-result-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .chat-result-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(58,158,143,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .chat-caption {
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 22px;
+    }
+
+    /* ========================================
+       PARENT NOTE BOX (Edit 2)
+    ======================================== */
+    .parent-note-box {
+      border-left: 3px solid var(--teal);
+      background: #edf7f5;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin-top: 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      color: #1a4a34;
+      line-height: 1.65;
+    }
+
+    /* ========================================
+       CLOSING STATEMENT (Edit 3)
+    ======================================== */
+    .closing-statement {
+      text-align: center;
+      padding: 88px 24px;
+      background: var(--coral);
+      position: relative;
+      overflow: hidden;
+    }
+    .closing-statement h2 {
+      font-size: clamp(30px, 4vw, 50px);
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+    }
+    .closing-statement p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(16px, 1.9vw, 19px);
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      max-width: 580px;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -1038,6 +1264,189 @@
   </section>
 
   <!-- ================================================
+       SECTION 4b - PRIMJER IZ PRAKSE
+  ================================================= -->
+  <section class="section section-lavender">
+    <div class="inner" style="text-align:center;">
+      <span class="pill-label pill-periwinkle">Primjer iz prakse</span>
+      <h2 class="section-title navy">Pogledajte kako izgleda pravi &#269;as</h2>
+      <p class="section-sub muted" style="max-width:580px;margin:0 auto;">Tema: Divlje &#382;ivotinje. Dijete: Ena, 8 godina, &#382;ivi u Njema&#269;koj. Razumije bosanski, ali odgovara na njema&#269;kom.</p>
+
+      <div class="chat-widget">
+        <!-- header bar -->
+        <div class="chat-header">
+          <div class="chat-header-info">
+            &#268;as u toku - Nivo 2
+            <span>/</span>
+            Tema: Divlje &#382;ivotinje
+            <span>-</span>
+            45 min
+            <span>-</span>
+            Nastavnica Ivona
+          </div>
+          <div class="chat-live-pill">
+            <span class="chat-live-dot"></span>
+            U&#382;ivo
+          </div>
+        </div>
+
+        <!-- messages -->
+        <div class="chat-body">
+
+          <!-- msg 1 - teacher -->
+          <div class="chat-row">
+            <div>
+              <div class="chat-avatar teacher">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 3 C8 2.5,3 3,2 4.5 L2 15 C3 14,8 13.5,10 14Z" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linejoin="round"/>
+                  <path d="M10 3 C12 2.5,17 3,18 4.5 L18 15 C17 14,12 13.5,10 14Z" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.40)" stroke-width="1.2" stroke-linejoin="round"/>
+                  <line x1="10" y1="3" x2="10" y2="14" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="chat-avatar-label">IVONA</div>
+            </div>
+            <div class="chat-col">
+              <div class="chat-bubble bubble-teacher">Ena, da te ne&#353;to pitam. Koje &#382;ivotinje &#382;ive u d&#382;ungli? Mo&#382;e&#353; li mi nabrojati neke?</div>
+            </div>
+          </div>
+
+          <!-- msg 2 - child (German) -->
+          <div class="chat-row right">
+            <div>
+              <div class="chat-avatar child">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M9 2 L10.2 5.8 L14.2 5.8 L11 8.1 L12.2 11.9 L9 9.5 L5.8 11.9 L7 8.1 L3.8 5.8 L7.8 5.8Z" fill="rgba(26,39,68,0.55)"/>
+                </svg>
+              </div>
+              <div class="chat-avatar-label">ENA</div>
+            </div>
+            <div class="chat-col">
+              <div class="chat-bubble bubble-child-de">L&#246;we... und Elefant... und Affe?</div>
+              <div class="chat-note coral">Odgovara na njema&#269;kom - sasvim normalno</div>
+            </div>
+          </div>
+
+          <!-- vocab cards -->
+          <div class="chat-vocab-row">
+            <div class="vocab-card">
+              <div class="vocab-label">Leksika</div>
+              <div class="vocab-de">L&#246;we</div>
+              <div class="vocab-bs">lav</div>
+            </div>
+            <div class="vocab-card">
+              <div class="vocab-label">Leksika</div>
+              <div class="vocab-de">Elefant</div>
+              <div class="vocab-bs">slon</div>
+            </div>
+            <div class="vocab-card">
+              <div class="vocab-label">Leksika</div>
+              <div class="vocab-de">Affe</div>
+              <div class="vocab-bs">majmun</div>
+            </div>
+          </div>
+
+          <!-- msg 3 - teacher -->
+          <div class="chat-row">
+            <div>
+              <div class="chat-avatar teacher">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 3 C8 2.5,3 3,2 4.5 L2 15 C3 14,8 13.5,10 14Z" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linejoin="round"/>
+                  <path d="M10 3 C12 2.5,17 3,18 4.5 L18 15 C17 14,12 13.5,10 14Z" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.40)" stroke-width="1.2" stroke-linejoin="round"/>
+                  <line x1="10" y1="3" x2="10" y2="14" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="chat-avatar-label">IVONA</div>
+            </div>
+            <div class="chat-col">
+              <div class="chat-bubble bubble-teacher">Ta&#269;no! Na bosanskom ka&#382;emo: lav, slon i majmun. Mo&#382;e&#353; li ponoviti? Lav...</div>
+            </div>
+          </div>
+
+          <!-- msg 4 - child (Bosnian) -->
+          <div class="chat-row right">
+            <div>
+              <div class="chat-avatar child">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M9 2 L10.2 5.8 L14.2 5.8 L11 8.1 L12.2 11.9 L9 9.5 L5.8 11.9 L7 8.1 L3.8 5.8 L7.8 5.8Z" fill="rgba(26,39,68,0.55)"/>
+                </svg>
+              </div>
+              <div class="chat-avatar-label">ENA</div>
+            </div>
+            <div class="chat-col">
+              <div class="chat-bubble bubble-child-bs">Lav... slon... majmun!</div>
+              <div class="chat-note teal">Odgovara na bosanskom!</div>
+            </div>
+          </div>
+
+          <!-- msg 5 - teacher -->
+          <div class="chat-row">
+            <div>
+              <div class="chat-avatar teacher">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 3 C8 2.5,3 3,2 4.5 L2 15 C3 14,8 13.5,10 14Z" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linejoin="round"/>
+                  <path d="M10 3 C12 2.5,17 3,18 4.5 L18 15 C17 14,12 13.5,10 14Z" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.40)" stroke-width="1.2" stroke-linejoin="round"/>
+                  <line x1="10" y1="3" x2="10" y2="14" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="chat-avatar-label">IVONA</div>
+            </div>
+            <div class="chat-col">
+              <div class="chat-bubble bubble-teacher">Odli&#269;no, Ena! Reci mi - koji je tvoj omiljeni? I za&#353;to ba&#353; taj?</div>
+            </div>
+          </div>
+
+          <!-- msg 6 - child (full sentence) -->
+          <div class="chat-row right">
+            <div>
+              <div class="chat-avatar child">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M9 2 L10.2 5.8 L14.2 5.8 L11 8.1 L12.2 11.9 L9 9.5 L5.8 11.9 L7 8.1 L3.8 5.8 L7.8 5.8Z" fill="rgba(26,39,68,0.55)"/>
+                </svg>
+              </div>
+              <div class="chat-avatar-label">ENA</div>
+            </div>
+            <div class="chat-col">
+              <div class="chat-bubble bubble-child-bs">Moj omiljeni je... majmun. Jer... on se penje na drvo!</div>
+              <div class="chat-note teal-bold">Prva potpuna re&#269;enica na bosanskom u ovom &#269;asu</div>
+            </div>
+          </div>
+
+          <!-- results row -->
+          <div class="chat-results">
+            <div class="chat-result-item">
+              <div class="chat-result-check">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6 L5 9 L10 3" stroke="#3a9e8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              3 nove rije&#269;i nau&#269;ene
+            </div>
+            <div class="chat-result-item">
+              <div class="chat-result-check">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6 L5 9 L10 3" stroke="#3a9e8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Prva re&#269;enica na bosanskom
+            </div>
+            <div class="chat-result-item">
+              <div class="chat-result-check">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6 L5 9 L10 3" stroke="#3a9e8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Bez ispravljanja - samo razgovor
+            </div>
+          </div>
+
+        </div><!-- /chat-body -->
+      </div><!-- /chat-widget -->
+
+      <p class="chat-caption">Ovo je isje&#269;ak od 4 minute. Pravi &#269;as traje 45 minuta - i svaki je ovakav.</p>
+    </div>
+  </section>
+
+  <!-- ================================================
        SECTION 5 - METODOLOGIJA
   ================================================= -->
   <section class="section section-bg">
@@ -1207,6 +1616,7 @@
           </div>
           <h3>Nakon &#269;asa</h3>
           <p>U&#269;iteljica na Padlet postavlja doma&#263;i zadatak (u formi kviza - nije obavezno, ali postoji za one koji &#382;ele vi&#353;e), dodatne materijale i na&#353;u posebnu Vje&#382;banku.</p>
+          <div class="parent-note-box">Najve&#263;i napredak ostvaruju u&#269;enici koji i pored samog &#269;asa rade, u&#269;e i vje&#382;baju i koriste bosanski u svakodnevnoj komunikaciji.</div>
         </div>
 
       </div>
@@ -1460,7 +1870,24 @@
   </section>
 
   <!-- ================================================
-       SECTION 9 - FAQ BRIDGE
+       SECTION 9 - CLOSING STATEMENT
+  ================================================= -->
+  <section class="closing-statement">
+    <!-- subtle wavy deco -->
+    <svg style="position:absolute;top:0;left:0;width:100%;opacity:0.10;" height="40" viewBox="0 0 1200 40" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <path d="M0 20 C150 5,250 35,400 20 C550 5,650 35,800 20 C950 5,1050 32,1200 20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <svg style="position:absolute;bottom:0;left:0;width:100%;opacity:0.10;" height="40" viewBox="0 0 1200 40" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <path d="M0 20 C150 5,250 35,400 20 C550 5,650 35,800 20 C950 5,1050 32,1200 20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div class="inner-sm" style="position:relative;z-index:2;">
+      <h2>Tako Lako - ali s razlogom</h2>
+      <p>U&#269;enje mo&#382;e biti jasno, prirodno i opu&#353;teno - kada se radi na pravi na&#269;in. Zato na&#353;i u&#269;enici ne u&#269;e napamet - nego razumiju, koriste i vole jezik.</p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SECTION 10 - FAQ BRIDGE
   ================================================= -->
   <section class="section section-bg" style="text-align:center;position:relative;">
     <svg style="position:absolute;top:48px;right:8%;opacity:0.50;" width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
