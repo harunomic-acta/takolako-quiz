@@ -2314,12 +2314,13 @@
         svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;';
         var rc = rough.svg(svg);
         var node = rc.path(rrPath(pad, pad, w - pad * 2, h - pad * 2, 18), {
-          roughness: 1.8,
+          roughness: 0.6,
           strokeWidth: 1.5,
-          bowing: 1,
+          bowing: 0.5,
+          disableMultiStroke: true,
           fill: 'none',
           stroke: stroke,
-          seed: 12
+          seed: 42
         });
         svg.appendChild(node);
         el.insertBefore(svg, el.firstChild);
