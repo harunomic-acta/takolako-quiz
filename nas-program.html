@@ -484,6 +484,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
     .nivo-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
     .nivo-card-header {
@@ -1063,9 +1064,8 @@
       }
       .nivo-cards-a::-webkit-scrollbar { display: none; }
       .nivo-card {
-        flex: 0 0 auto;
-        width: fit-content;
-        max-width: 88vw;
+        flex: 0 0 82vw;
+        max-width: 340px;
         scroll-snap-align: start;
       }
       .nivo-cards-b {
