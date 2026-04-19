@@ -693,8 +693,26 @@
       .tok-grid { grid-template-columns: 1fr; }
       .nivo-cards-a { grid-template-columns: 1fr; }
       .nivo-cards-b { grid-template-columns: 1fr; }
-      .nas-grid { grid-template-columns: 1fr; }
-      .faze-grid { grid-template-columns: 1fr; }
+      .nas-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nas-grid::-webkit-scrollbar { display: none; }
+      .nas-grid .nas-card {
+        flex: 0 0 80vw;
+        scroll-snap-align: start;
+      }
+      .faze-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .faze-grid .faza-card { padding: 16px 14px; }
       .vjezb-box { flex-direction: column; gap: 16px; padding: 26px 22px; }
       .cta-buttons { flex-direction: column; align-items: center; }
     }
@@ -943,6 +961,10 @@
         grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
+      .hero-chip {
+        justify-content: center;
+      }
+      .mobile-break::before { content: '\A'; white-space: pre; }
 
       /* CHANGE 2 — "Učenje koje ima smisla" cards: center text and icon */
       .filo-card {
@@ -1270,9 +1292,9 @@
 
       <div class="kurikulum-layout">
         <div class="kurikulum-text">
-          <p>Iza svakog &#269;asa stoji razra&#273;en kurikulum - od prvih rije&#269;i i pozdrava, do sigurne i samostalne konverzacije.</p>
-          <p>Razvijen u saradnji sa dizajnericom u&#269;enja, posebno prilago&#273;en djeci u dijaspori kojoj je bosanski drugi jezik.</p>
-          <p>Svaki korak se oslanja na prethodni - napredak je postepen, mjerljiv i trajan.</p>
+          <p>Iza svakog &#269;asa stoji razra&#273;en kurikulum -<span class="mobile-break"> od prvih rije&#269;i i pozdrava, do sigurne i samostalne konverzacije.</span></p>
+          <p>Razvijen u saradnji sa dizajnericom u&#269;enja, posebno<span class="mobile-break"> prilago&#273;en djeci u dijaspori kojoj je bosanski drugi jezik.</span></p>
+          <p>Svaki korak se oslanja na prethodni -<span class="mobile-break"> napredak je postepen, mjerljiv i trajan.</span></p>
         </div>
         <div class="kurikulum-illus" aria-hidden="true">
           <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
