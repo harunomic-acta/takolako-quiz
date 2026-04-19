@@ -776,11 +776,16 @@
       }
       .faze-grid {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: unset;
       }
-      .faze-grid .faza-card { width: 90%; padding: 20px 18px; }
+      .faze-grid::-webkit-scrollbar { display: none; }
+      .faze-grid .faza-card { flex: 0 0 82vw; max-width: 340px; scroll-snap-align: start; padding: 20px 18px; }
       .vjezb-box { padding: 28px 24px; }
       .cta-buttons { flex-direction: column; align-items: center; }
     }
