@@ -317,8 +317,8 @@
       border-radius: var(--radius-lg);
       padding: 26px 24px;
       display: flex;
-      gap: 16px;
-      align-items: flex-start;
+      flex-direction: column;
+      gap: 0;
       transition: background 0.2s;
     }
     .faza-card:hover { background: rgba(255,255,255,0.10); }
@@ -336,14 +336,15 @@
       flex-shrink: 0;
       transform: rotate(-5deg);
       box-shadow: 0 3px 0 rgba(160,50,30,0.30);
+      margin-bottom: 14px;
     }
     .faza-body { flex: 1; }
     .faza-header {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
       margin-bottom: 8px;
-      flex-wrap: wrap;
     }
     .faza-title { font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
     .faza-dur {
@@ -774,11 +775,12 @@
         scroll-snap-align: start;
       }
       .faze-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 12px;
       }
-      .faze-grid .faza-card { padding: 16px 14px; }
+      .faze-grid .faza-card { width: 90%; padding: 20px 18px; }
       .vjezb-box { padding: 28px 24px; }
       .cta-buttons { flex-direction: column; align-items: center; }
     }
