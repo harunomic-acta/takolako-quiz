@@ -451,9 +451,22 @@
     .nivoi-group { margin-top: 52px; }
     .nivoi-group-header { margin-bottom: 24px; }
 
-    .nivo-tabs { display:flex; justify-content:center; gap:12px; margin:32px 0 40px; flex-wrap:wrap; }
+    .nivo-tabs-wrapper { text-align: center; margin: 32px 0 40px; }
+    .nivo-tabs-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(26,39,68,0.45);
+      margin-bottom: 16px;
+    }
+    .nivo-tabs { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
     .nivo-tab {
-      padding: 12px 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
       border-radius: 100px;
       font-family: inherit;
       font-size: 15px;
@@ -462,12 +475,28 @@
       border: 1.5px solid rgba(26,39,68,0.20);
       background: white;
       color: var(--navy);
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
     }
-    .nivo-tab:hover { border-color: var(--coral); color: var(--coral); }
+    .nivo-tab:hover:not(.active) {
+      border-color: var(--coral);
+      color: var(--coral);
+      background: rgba(232,114,90,0.08);
+      transform: scale(1.02);
+    }
     .nivo-tab.active { background: var(--coral); color: white; border-color: var(--coral); }
+    .nivo-tab svg { flex-shrink: 0; }
     .nivo-panel { display: none; }
     .nivo-panel.active { display: block; }
+
+    @keyframes nivo-tab-pulse {
+      0%   { transform: scale(1); }
+      40%  { transform: scale(1.04); }
+      70%  { transform: scale(0.98); }
+      100% { transform: scale(1); }
+    }
+    @media (hover: none) {
+      .nivo-tab:not(.active) { animation: nivo-tab-pulse 0.7s ease 0.8s 2 both; }
+    }
 
     .nivo-cards-a {
       display: grid;
@@ -1982,9 +2011,18 @@
       </div>
 
       <!-- Tab switcher -->
-      <div class="nivo-tabs" role="tablist">
-        <button class="nivo-tab active" data-tab="pocetni" type="button" role="tab" aria-selected="true" aria-controls="nivo-panel-pocetni">Po&#269;etni nivo</button>
-        <button class="nivo-tab" data-tab="dalji" type="button" role="tab" aria-selected="false" aria-controls="nivo-panel-dalji">Dalji razvoj</button>
+      <div class="nivo-tabs-wrapper">
+        <span class="nivo-tabs-label">Odaberite kategoriju</span>
+        <div class="nivo-tabs" role="tablist">
+          <button class="nivo-tab active" data-tab="pocetni" type="button" role="tab" aria-selected="true" aria-controls="nivo-panel-pocetni">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 5 L5 1 L9 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 9 L9 13 L5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="5" y1="1" x2="5" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Po&#269;etni nivo
+          </button>
+          <button class="nivo-tab" data-tab="dalji" type="button" role="tab" aria-selected="false" aria-controls="nivo-panel-dalji">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 5 L5 1 L9 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 9 L9 13 L5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="5" y1="1" x2="5" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Dalji razvoj
+          </button>
+        </div>
       </div>
 
       <!-- PANEL A: Pocetni nivo -->
