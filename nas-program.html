@@ -6,7 +6,7 @@
   <title>Nas program - Tako Lako</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1116,6 +1116,61 @@
       /* Mobile line-break-line */
       .mobile-break-line { display: block; margin-top: 4px; }
     }
+
+    /* ── TESTIMONIAL BLOCKS ── */
+    .testimonial-section {
+      background: #faf8f5;
+      padding: 40px 80px;
+    }
+    .testimonial-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #5a6478;
+      text-align: center;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(26,39,68,0.08);
+      padding: 28px 32px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .testimonial-quote-mark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 56px;
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 8px;
+      color: #e8725a;
+    }
+    .testimonial-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: #1a2744;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .testimonial-author {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #1a2744;
+    }
+    .testimonial-country {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: #5a6478;
+    }
+    @media (max-width: 768px) {
+      .testimonial-section { padding: 40px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -1199,7 +1254,8 @@
       <h1>Svako dijete napreduje<br class="mobile-hero-br"> druga&#269;ije. A na&#353; kurikulum<br class="mobile-hero-br"> je osmi&#353;ljen upravo za to.</h1>
       <p class="hero-sub" style="max-width:600px;margin-left:auto;margin-right:auto;">Na&#353;a nastava nije improvizacija<br class="mobile-hero-br"> niti aplikacija sa zadacima.<br class="mobile-hero-br"> To je sistem koji gradi znanje,<br class="mobile-hero-br"> sigurnost i ljubav prema jeziku.</p>
 
-      <div class="hero-chips">
+      <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:#5a6478;text-align:center;margin-bottom:16px;margin-top:36px;">Preko 120 roditelja &#353;irom svijeta nam je ve&#263; povjerilo svoje dijete.</p>
+      <div class="hero-chips" style="margin-top:0;">
         <div class="hero-chip hero-chip-coral" style="transform:rotate(-1.5deg);">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,0.95)" stroke-width="2" fill="rgba(255,255,255,0.18)"/>
@@ -1715,6 +1771,19 @@
     </div>
   </section>
 
+  <!-- TESTIMONIAL 1 -->
+  <section class="testimonial-section">
+    <span class="testimonial-label">&#352;ta ka&#382;u roditelji</span>
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark">&#8220;</span>
+      <p class="testimonial-text">&#268;asovi bosanskog jezika su do&#353;li u pravo vrijeme. Iako u svakodnevnom &#382;ivotu imaju malo kontakta s jezikom, sada su jako motivisana da aktivno pri&#269;aju bosanski - zahvaljuju&#263;i Tako Lako!</p>
+      <div>
+        <span class="testimonial-author">Lejla B.</span><br>
+        <span class="testimonial-country">&#127465;&#127466; Njema&#269;ka</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ================================================
        SECTION 5 - METODOLOGIJA
   ================================================= -->
@@ -2167,6 +2236,19 @@
     </div>
   </section>
 
+  <!-- TESTIMONIAL 3 -->
+  <section class="testimonial-section">
+    <span class="testimonial-label">&#352;ta ka&#382;u roditelji</span>
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark">&#8220;</span>
+      <p class="testimonial-text">Kod ku&#263;e govorimo tri jezika, &#353;to bosanski &#269;ini dodatnim izazovom. Uz Tako Lako uspjeli smo stvoriti posebno vrijeme samo za bosanski jezik. Djeca su brzo prihvatila online nastavu i stekla nove prijatelje iz cijelog svijeta.</p>
+      <div>
+        <span class="testimonial-author">Nid&#382;ara F.</span><br>
+        <span class="testimonial-country">&#127465;&#127472; Danska</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ================================================
        SECTION 8 - NASTAVNICE
   ================================================= -->
@@ -2242,6 +2324,19 @@
           <a href="testni-cas.html" class="btn btn-coral">Zaka&#382;ite besplatan probni &#269;as &rarr;</a>
           <svg width="240" height="20" viewBox="0 0 240 20" fill="none" aria-hidden="true" style="display:block;margin:28px auto 0;"><path d="M0 10 C15 4,45 4,60 10 C75 16,105 16,120 10 C135 4,165 4,180 10 C195 16,225 16,240 10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL 2 -->
+  <section class="testimonial-section">
+    <span class="testimonial-label">&#352;ta ka&#382;u roditelji</span>
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark">&#8220;</span>
+      <p class="testimonial-text">Na&#353;a k&#263;erka Luana sve vi&#353;e govori bosanski zahvaljuju&#263;i Tako Lako. Kreativan pristup tima motivi&#353;e ne samo Luanu, nego i nas kao roditelje, da &#269;e&#353;&#263;e govorimo bosanski kod ku&#263;e.</p>
+      <div>
+        <span class="testimonial-author">Amel D&#382;.</span><br>
+        <span class="testimonial-country">&#127465;&#127472; Danska</span>
       </div>
     </div>
   </section>
