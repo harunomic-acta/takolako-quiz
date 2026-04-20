@@ -1038,6 +1038,8 @@
       .nas-dots { display: none; }
 
       /* ── CAROUSEL CONTAINERS (all use same pattern) ── */
+      /* Break out of .inner (420px) to fill full section width,
+         so flex: 0 0 100% on cards = exactly one viewport width */
       .nas-grid,
       .faze-grid,
       .meto-grid,
@@ -1052,6 +1054,8 @@
         gap: 0;
         grid-template-columns: unset;
         padding: 0;
+        margin-left: -20px;
+        margin-right: -20px;
       }
       .nas-grid::-webkit-scrollbar,
       .faze-grid::-webkit-scrollbar,
