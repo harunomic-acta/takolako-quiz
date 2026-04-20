@@ -1051,7 +1051,7 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
-        gap: 0;
+        gap: 16px;
         grid-template-columns: unset;
         padding: 0;
         margin-left: -20px;
@@ -1063,6 +1063,13 @@
       .tok-grid::-webkit-scrollbar,
       .nivo-cards-a::-webkit-scrollbar,
       .nivo-cards-b::-webkit-scrollbar { display: none; }
+
+      /* Match each carousel's background to its section so the gap shows section color, not grey */
+      .faze-grid { background: var(--navy); }
+      .nas-grid { background: var(--navy); }
+      .meto-grid { background: var(--white); }
+      .tok-grid { background: var(--bg); }
+      .nivo-cards-a, .nivo-cards-b { background: #fff1ef; }
 
       /* ── CAROUSEL CARDS (all full-width, no shrink/grow) ── */
       .nas-grid .nas-card,
