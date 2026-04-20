@@ -1025,15 +1025,11 @@
       /* Carousels */
       .nas-grid {
         display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding: 0 24px 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 32px;
       }
-      .nas-grid::-webkit-scrollbar { display: none; }
-      .nas-grid .nas-card { flex: 0 0 calc(100vw - 48px); scroll-snap-align: start; overflow: hidden; }
+      .nas-grid .nas-card { width: 100%; }
       .faze-grid {
         display: flex;
         overflow-x: auto;
