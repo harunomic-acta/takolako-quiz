@@ -1028,24 +1028,24 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 16px;
-        padding-bottom: 12px;
+        padding: 0 24px 12px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
       }
       .nas-grid::-webkit-scrollbar { display: none; }
-      .nas-grid .nas-card { flex: 0 0 80vw; scroll-snap-align: start; }
+      .nas-grid .nas-card { flex: 0 0 calc(100vw - 48px); scroll-snap-align: start; overflow: hidden; }
       .faze-grid {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 16px;
-        padding-bottom: 12px;
+        padding: 0 24px 12px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         grid-template-columns: unset;
       }
       .faze-grid::-webkit-scrollbar { display: none; }
-      .faze-grid .faza-card { flex: 0 0 82vw; max-width: 340px; scroll-snap-align: start; padding: 20px 18px; }
+      .faze-grid .faza-card { flex: 0 0 calc(100vw - 48px); scroll-snap-align: start; padding: 20px 18px; overflow: hidden; }
 
       /* Chat section */
       .chat-results { flex-direction: column; gap: 10px; }
@@ -1090,13 +1090,13 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 16px;
-        padding-bottom: 12px;
+        padding: 0 24px 12px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         grid-template-columns: unset;
       }
       .tok-grid::-webkit-scrollbar { display: none; }
-      .tok-card { flex: 0 0 80vw; scroll-snap-align: start; text-align: center; }
+      .tok-card { flex: 0 0 calc(100vw - 48px); scroll-snap-align: start; text-align: center; overflow: hidden; }
       .tok-card .tok-icon { margin-left: auto; margin-right: auto; }
 
       /* Level cards: carousels */
