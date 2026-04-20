@@ -1004,6 +1004,7 @@
     .mobile-hero-br { display: none; }
     .desktop-br { display: inline; }
     .nas-dots { display: none; }
+    .carousel-dots { display: none; }
 
     @media (max-width: 768px) {
       /* Section padding */
@@ -1023,33 +1024,67 @@
       .vjezb-box { padding: 28px 24px; }
       .cta-buttons { flex-direction: column; align-items: center; }
 
-      /* Carousels */
-      .nas-grid {
-        display: flex;
+      /* ── SHARED CAROUSEL PATTERN ── */
+      .carousel-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 18px; }
+      .carousel-dot {
+        width: 8px; height: 8px; border-radius: 100px;
+        background: rgba(26,39,68,0.25);
+        transition: background 0.2s ease, width 0.2s ease;
+        cursor: pointer; flex-shrink: 0;
+      }
+      .carousel-dot.active { background: #e8725a; width: 20px; }
+      .carousel-dots-light .carousel-dot { background: rgba(255,255,255,0.4); }
+      .carousel-dots-light .carousel-dot.active { background: #e8725a; }
+      .nas-dots { display: none; }
+
+      /* ── CAROUSEL CONTAINERS (all use same pattern) ── */
+      .nas-grid,
+      .faze-grid,
+      .meto-grid,
+      .tok-grid,
+      .nivo-cards-a,
+      .nivo-cards-b {
+        display: flex !important;
         flex-direction: row;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
         gap: 0;
-        margin-top: 32px;
-      }
-      .nas-grid::-webkit-scrollbar { display: none; }
-      .nas-grid .nas-card { flex: 0 0 100%; scroll-snap-align: start; }
-      .nas-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
-      .nas-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(26,39,68,0.25); transition: background 0.2s; }
-      .nas-dot.active { background: #e8725a; }
-      .faze-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding: 0 24px 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
         grid-template-columns: unset;
+        padding: 0;
       }
-      .faze-grid::-webkit-scrollbar { display: none; }
-      .faze-grid .faza-card { flex: 0 0 calc(100vw - 48px); scroll-snap-align: start; padding: 20px 18px; overflow: hidden; }
+      .nas-grid::-webkit-scrollbar,
+      .faze-grid::-webkit-scrollbar,
+      .meto-grid::-webkit-scrollbar,
+      .tok-grid::-webkit-scrollbar,
+      .nivo-cards-a::-webkit-scrollbar,
+      .nivo-cards-b::-webkit-scrollbar { display: none; }
+
+      /* ── CAROUSEL CARDS (all full-width, no shrink/grow) ── */
+      .nas-grid .nas-card,
+      .faze-grid .faza-card,
+      .meto-grid .meto-card,
+      .tok-grid .tok-card,
+      .nivo-cards-a .nivo-card,
+      .nivo-cards-b .nivo-card-b {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+      }
+
+      /* ── FIX: flex text children need min-width:0 to prevent overflow ── */
+      .meto-card > div:not(.icon-sq) { min-width: 0; overflow-wrap: break-word; word-break: break-word; }
+
+      /* Per-grid overrides */
+      .nas-grid { margin-top: 32px; }
+      .faze-grid .faza-card { padding: 20px 18px; }
+      .tok-card { text-align: center; }
+      .tok-card .tok-icon { margin-left: auto; margin-right: auto; }
+      .nivo-card { max-width: 100%; }
+      .nivo-card-b { max-width: 100%; width: 100%; }
 
       /* Chat section */
       .chat-results { flex-direction: column; gap: 10px; }
@@ -1073,61 +1108,6 @@
 
       /* "Jasna struktura učenja" paragraphs: center */
       .kurikulum-text p { text-align: center; }
-
-      /* "Mali koraci. Veliki napredak." carousel */
-      .meto-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        grid-template-columns: unset;
-      }
-      .meto-grid::-webkit-scrollbar { display: none; }
-      .meto-card { flex: 0 0 80vw; scroll-snap-align: start; }
-
-      /* "Tok učenja" carousel */
-      .tok-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding: 0 24px 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        grid-template-columns: unset;
-      }
-      .tok-grid::-webkit-scrollbar { display: none; }
-      .tok-card { flex: 0 0 calc(100vw - 48px); scroll-snap-align: start; text-align: center; overflow: hidden; }
-      .tok-card .tok-icon { margin-left: auto; margin-right: auto; }
-
-      /* Level cards: carousels */
-      .nivo-cards-a {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        grid-template-columns: unset;
-      }
-      .nivo-cards-a::-webkit-scrollbar { display: none; }
-      .nivo-card { flex: 0 0 82vw; max-width: 340px; scroll-snap-align: start; }
-      .nivo-cards-b {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        grid-template-columns: unset;
-      }
-      .nivo-cards-b::-webkit-scrollbar { display: none; }
-      .nivo-card-b { flex: 0 0 auto; width: fit-content; max-width: 88vw; scroll-snap-align: start; }
 
       /* Fix A: Vocab cards horizontal (3-up) */
       .chat-vocab-row { gap: 6px; }
@@ -1575,6 +1555,14 @@
         </div>
 
       </div>
+      <div class="carousel-dots carousel-dots-light" data-carousel="faze-grid" aria-hidden="true">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
     </div>
   </section>
 
@@ -1719,6 +1707,12 @@
         </div>
 
       </div>
+      <div class="carousel-dots" data-carousel="meto-grid" aria-hidden="true">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
     </div>
   </section>
 
@@ -1812,6 +1806,11 @@
           <p>Doma&#263;i zadatak o supermarket temi, dodatni materijali, i na&#353;a posebna Vje&#382;banka sa svim novim rije&#269;ima i re&#269;enicama.</p>
         </div>
 
+      </div>
+      <div class="carousel-dots" data-carousel="tok-grid" aria-hidden="true">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
       </div>
 
       <div class="parent-note-box" style="margin-top:24px;justify-content:center;text-align:center;">
@@ -2192,6 +2191,11 @@
           </div>
 
         </div>
+        <div class="carousel-dots" data-carousel="nivo-cards-a" aria-hidden="true">
+          <div class="carousel-dot active"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
+        </div>
       </div><!-- /nivo-panel-pocetni -->
 
       <!-- PANEL B: Napredni nivoi -->
@@ -2238,6 +2242,12 @@
             </ul>
           </div>
 
+        </div>
+        <div class="carousel-dots" data-carousel="nivo-cards-b" aria-hidden="true">
+          <div class="carousel-dot active"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
         </div>
       </div><!-- /nivo-panel-dalji -->
 
@@ -2335,10 +2345,10 @@
         </div>
 
       </div>
-      <div class="nas-dots" aria-hidden="true">
-        <div class="nas-dot active"></div>
-        <div class="nas-dot"></div>
-        <div class="nas-dot"></div>
+      <div class="carousel-dots carousel-dots-light" data-carousel="nas-grid" aria-hidden="true">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
       </div>
 
       <div style="text-align:center;padding-top:64px;padding-bottom:24px;">
@@ -2470,15 +2480,34 @@
       });
     })();
 
-    // Nastavnice carousel pagination dots
+    // Generic carousel + pagination dots
     (function() {
-      var grid = document.querySelector('.nas-grid');
-      var dots = document.querySelectorAll('.nas-dot');
-      if (!grid || !dots.length) return;
-      grid.addEventListener('scroll', function() {
-        var idx = Math.round(grid.scrollLeft / grid.offsetWidth);
-        dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-      }, { passive: true });
+      function initCarousel(dotsEl) {
+        var gridClass = dotsEl.dataset.carousel;
+        if (!gridClass) return;
+        var grid = dotsEl.closest('.inner, .nivo-panel, [class*="section"]')
+                     ? dotsEl.parentElement.querySelector('.' + gridClass)
+                     : document.querySelector('.' + gridClass);
+        if (!grid) grid = document.querySelector('.' + gridClass);
+        if (!grid) return;
+        var dots = dotsEl.querySelectorAll('.carousel-dot');
+        if (!dots.length) return;
+
+        function updateDots() {
+          var idx = Math.round(grid.scrollLeft / Math.max(grid.offsetWidth, 1));
+          dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+        }
+
+        grid.addEventListener('scroll', updateDots, { passive: true });
+
+        dots.forEach(function(dot, i) {
+          dot.addEventListener('click', function() {
+            grid.scrollTo({ left: grid.offsetWidth * i, behavior: 'smooth' });
+          });
+        });
+      }
+
+      document.querySelectorAll('.carousel-dots[data-carousel]').forEach(initCarousel);
     })();
   </script>
 
