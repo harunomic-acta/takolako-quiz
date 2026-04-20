@@ -1003,6 +1003,7 @@
     .mobile-break-line { display: inline; }
     .mobile-hero-br { display: none; }
     .desktop-br { display: inline; }
+    .nas-dots { display: none; }
 
     @media (max-width: 768px) {
       /* Section padding */
@@ -1025,11 +1026,18 @@
       /* Carousels */
       .nas-grid {
         display: flex;
-        flex-direction: column;
-        gap: 24px;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        gap: 0;
         margin-top: 32px;
       }
-      .nas-grid .nas-card { width: 100%; }
+      .nas-grid::-webkit-scrollbar { display: none; }
+      .nas-grid .nas-card { flex: 0 0 100%; scroll-snap-align: start; }
+      .nas-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+      .nas-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(26,39,68,0.25); transition: background 0.2s; }
+      .nas-dot.active { background: #e8725a; }
       .faze-grid {
         display: flex;
         overflow-x: auto;
@@ -2327,6 +2335,11 @@
         </div>
 
       </div>
+      <div class="nas-dots" aria-hidden="true">
+        <div class="nas-dot active"></div>
+        <div class="nas-dot"></div>
+        <div class="nas-dot"></div>
+      </div>
 
       <div style="text-align:center;padding-top:64px;padding-bottom:24px;">
         <div class="inner-cta-box" style="max-width:680px;margin:0 auto;padding:0 48px;text-align:center;">
@@ -2455,6 +2468,17 @@
           document.getElementById('nivo-panel-' + btn.dataset.tab).classList.add('active');
         });
       });
+    })();
+
+    // Nastavnice carousel pagination dots
+    (function() {
+      var grid = document.querySelector('.nas-grid');
+      var dots = document.querySelectorAll('.nas-dot');
+      if (!grid || !dots.length) return;
+      grid.addEventListener('scroll', function() {
+        var idx = Math.round(grid.scrollLeft / grid.offsetWidth);
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+      }, { passive: true });
     })();
   </script>
 
